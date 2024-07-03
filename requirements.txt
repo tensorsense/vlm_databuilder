@@ -1,0 +1,13 @@
+pydantic
+yt-dlp
+# openai
+langchain
+langchain-openai
+pandas
+opencv-python
+scenedetect
+pyyaml
+numpy
+ffmpeg-python
+tqdm
+moviepy
