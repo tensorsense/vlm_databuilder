@@ -31,6 +31,7 @@ def download_videos(ids, config: DatagenConfig, yt_dlp_opts={}):
         # refer to yt_dlp.YoutubeDL class
         YDL_OPTIONS = {**YDL_OPTIONS, **yt_dlp_opts}
     with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
+        # TODO: download each video separately in tqdm loop with quiet yt-dlp?
         ydl.download([f'https://www.youtube.com/watch?v={i}' for i in ids])
 
     for sub_path in config.get_subs():
