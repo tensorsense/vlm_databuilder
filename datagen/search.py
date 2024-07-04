@@ -1,4 +1,4 @@
-from typing import Generator, Literal
+from typing import Generator, Literal, Optional
 from langchain_core.pydantic_v1 import BaseModel, Field
 from tqdm import tqdm
 # import yt_dlp
@@ -29,17 +29,22 @@ def get_queries(config: DatagenConfig, prompt=default_prompt, num_queries=10):
 
 def get_video_ids(
     query: str|list[str],
-    limit: int = None,
-    sleep: int = 1,
+    config: DatagenConfig,
+    out_path = 'video_ids.json',
+    videos_per_query: Optional[int] = None,
+    sleep: float = 0,
     sort_by: Literal["relevance", "upload_date", "view_count", "rating"] = "relevance",
     results_type: Literal["video", "channel", "playlist", "movie"] = "video",
+    
 ) -> Generator[dict, None, None]:
     if type(query) is str:
         query = [query]
     ids = set()
-    for query in query:
-        for video in scrapetube.get_search(query, limit, sleep, sort_by, results_type):
+    for q in tqdm(query):
+        for video in scrapetube.get_search(query=q, limit=videos_per_query, sleep=sleep, sort_by=sort_by, results_type=results_type):
             ids.add(video['videoId'])
+    ids = list(ids)
+    config.dump(ids, config.data_dir / out_path)
     return ids
 
 # def get_video_info(query_list, videos_per_query=100):

@@ -1,3 +1,4 @@
+from typing import Optional
 import json
 
 from langchain.pydantic_v1 import BaseModel
@@ -14,23 +15,33 @@ The only segments that you can output are those that the user has provided the t
 Do not output a segment if the information requested by the user is not present in the transcript or segment descriptions.
 '''
 
-def generate_annotations(segments: list[Segment], annotation_schema: type[BaseModel], config: DatagenConfig, system_prompt: str = system_prompt_default):
-    # assert llm_input.output_schema, "output schema must be present"
+def generate_annotations(
+        annotation_schema: type[BaseModel],
+        config: DatagenConfig,
+        video_ids: Optional[list[str]] = None,
+        filter_by: Optional[str] = None,
+        system_prompt: str = system_prompt_default):
+    
+    if video_ids is None:
+        video_ids = config.get_video_ids()
 
-    video_ids = set([s.video_id for s in segments])
+    segments = config.get_segments(video_ids=video_ids)
+
     outputs = {}
     for video_id in video_ids:
+        print(video_id, '- started')
         if config.get_anno_path(video_id).exists():
             print(f'Annotation {video_id} exists, skipping.')
             continue
         video_segments = [s for s in segments if s.video_id==video_id]
+        if filter_by:
+            video_segments = [s for s in video_segments if s.segment_info[filter_by]]
         
         prompt = []
-        prompt.append('Segment information:\n' + '\n'.join([s.str_format for s in video_segments]))
-        transcript = config.get_transcript(video_id)
+        prompt.append('Segment information:\n' + '\n'.join([s.to_str(skip=[filter_by] if filter_by else []) for s in video_segments]))
+        transcript: str = config.get_transcript(video_id)
         if transcript:
             prompt.append('Transcript:\n' + transcript)
-        # print(VideoAnnotation[annotation_schema], type(VideoAnnotation[annotation_schema]))
         llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
         output = ask(llm_input, config)
         if output is None:
@@ -39,9 +50,10 @@ def generate_annotations(segments: list[Segment], annotation_schema: type[BaseMo
         outputs[video_id] = output.segments
         with open(config.get_anno_path(video_id), 'w') as f:
             json.dump(output.dict()['segments'], f)
+        print(video_id, '- done')
     return outputs
 
-def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True):
+def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, annotation_file='annotations.json'):
     annotations = config.get_annotations()
     segments = config.get_segments()
     segments = {video_id: [s for s in segments if s.video_id==video_id] for video_id in set([s.video_id for s in segments])}
@@ -61,6 +73,7 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True):
             ann['video_path'] = f'{video_id}_{i}.mp4'
             annotations_agg.append(ann)
             i+=1
+    config.dump(annotations_agg, config.data_dir / annotation_file)
     return annotations_agg
     
 

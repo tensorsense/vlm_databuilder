@@ -28,6 +28,6 @@ In the end you'll have a directory with useful video clips and an annotation fil
 
 ## 🐙 Usage
 
-Please refer to [example.ipynb](./example.ipynb)
+Please refer to [getting_started.ipynb](./getting_started.ipynb)
 
 If you have your own videos with descriptions, you can skip the download/filtering steps and move straight to generating annotaions!
