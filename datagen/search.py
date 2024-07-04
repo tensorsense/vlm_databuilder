@@ -28,13 +28,19 @@ def get_queries(config: DatagenConfig, prompt=default_prompt, num_queries=10):
     return res and res.queries
 
 def get_video_ids(
-    query: str,
+    query: str|list[str],
     limit: int = None,
     sleep: int = 1,
     sort_by: Literal["relevance", "upload_date", "view_count", "rating"] = "relevance",
     results_type: Literal["video", "channel", "playlist", "movie"] = "video",
 ) -> Generator[dict, None, None]:
-    return scrapetube.get_search(query, limit, sleep, sort_by, results_type)
+    if type(query) is str:
+        query = [query]
+    ids = set()
+    for query in query:
+        for video in scrapetube.get_search(query, limit, sleep, sort_by, results_type):
+            ids.add(video['videoId'])
+    return ids
 
 # def get_video_info(query_list, videos_per_query=100):
 #     queries = {}
