@@ -11,3 +11,5 @@ numpy
 ffmpeg-python
 tqdm
 moviepy
+python-dotenv
+scrapetube

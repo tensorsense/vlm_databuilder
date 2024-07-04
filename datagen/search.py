@@ -1,8 +1,9 @@
-from typing import List
+from typing import Generator, Literal
 from langchain_core.pydantic_v1 import BaseModel, Field
 from tqdm import tqdm
-import yt_dlp
+# import yt_dlp
 import pandas as pd
+import scrapetube
 
 from .core.chat import ask
 from .core.config import DatagenConfig
@@ -17,7 +18,7 @@ default_prompt = 'I want to find 10000 videos of people doing squats. The videos
 
 class QueryList(BaseModel):
     """A list of queries to find videos on a video hosting service"""
-    queries: List[str] = Field(default=None, description="a list of queries")
+    queries: list[str] = Field(default=None, description="a list of queries")
 
 
 def get_queries(config: DatagenConfig, prompt=default_prompt, num_queries=10):
@@ -26,41 +27,49 @@ def get_queries(config: DatagenConfig, prompt=default_prompt, num_queries=10):
     res = ask(llm_input=LLMInput(human_prompt=[prompt,num_queries_prompt], system_prompt=system_prompt, output_schema=QueryList), config=config)
     return res and res.queries
 
+def get_video_ids(
+    query: str,
+    limit: int = None,
+    sleep: int = 1,
+    sort_by: Literal["relevance", "upload_date", "view_count", "rating"] = "relevance",
+    results_type: Literal["video", "channel", "playlist", "movie"] = "video",
+) -> Generator[dict, None, None]:
+    return scrapetube.get_search(query, limit, sleep, sort_by, results_type)
 
-def get_video_info(query_list, videos_per_query=100):
-    queries = {}
-    # 'format': 'bestaudio', 'noplaylist':'True', 
-    YDL_OPTIONS = {
-    # "quiet":    True,
-    "simulate": True,
-    "forceurl": True,
-    }
+# def get_video_info(query_list, videos_per_query=100):
+#     queries = {}
+#     # 'format': 'bestaudio', 'noplaylist':'True', 
+#     YDL_OPTIONS = {
+#     # "quiet":    True,
+#     "simulate": True,
+#     "forceurl": True,
+#     }
 
-    for query in tqdm(query_list):
-        if query not in queries:
-            with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
-                videos = ydl.extract_info(f"ytsearch{videos_per_query}:{query}", download=False)['entries']
-            queries[query] = videos
+#     for query in tqdm(query_list):
+#         if query not in queries:
+#             with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
+#                 videos = ydl.extract_info(f"ytsearch{videos_per_query}:{query}", download=False)['entries']
+#             queries[query] = videos
 
-    q = []
-    for k,v in queries.items():
-        for vv in v:
-            vv['query'] = k
-            q.append(vv)
-    df = pd.DataFrame(q)
-    df = agg_df(df)
-    return df
+#     q = []
+#     for k,v in queries.items():
+#         for vv in v:
+#             vv['query'] = k
+#             q.append(vv)
+#     df = pd.DataFrame(q)
+#     df = agg_df(df)
+#     return df
 
-def agg_video(dfv: pd.DataFrame):
-    item = dfv.iloc[0]
-    queries = []
-    for q in dfv['query']:
-        if type(q)==str:
-            q = [q]
-        queries.append(q)
-    item['queries'] = queries
-    return item
+# def agg_video(dfv: pd.DataFrame):
+#     item = dfv.iloc[0]
+#     queries = []
+#     for q in dfv['query']:
+#         if type(q)==str:
+#             q = [q]
+#         queries.append(q)
+#     item['queries'] = queries
+#     return item
 
-def agg_df(df: pd.DataFrame):
-    df_unique = df.groupby('id').apply(agg_video)
-    return df_unique
+# def agg_df(df: pd.DataFrame):
+#     df_unique = df.groupby('id').apply(agg_video)
+#     return df_unique
