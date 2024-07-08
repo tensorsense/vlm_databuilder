@@ -1,4 +1,5 @@
 from typing import Optional, Callable
+from tqdm import tqdm
 # from pathlib import Path
 from scenedetect import detect, ContentDetector, AdaptiveDetector # , HashDetector, ThresholdDetector, split_video_ffmpeg
 from langchain_core.pydantic_v1 import BaseModel, Field
@@ -41,10 +42,9 @@ def detect_segments(
     if video_ids is None:
         video_ids = [video_path.stem for video_path in config.get_videos()]
     
-    for video_id in video_ids:
-        if config.get_segment_path(video_id).exists():
-            print(f'{video_id} - exists, skipping')
-            continue
+    video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
+
+    for video_id in tqdm(set(video_ids) - set(video_ids_parsed)):
         print(f'{video_id} - starting')
         video_path = config.get_video_path(video_id)
         detection_algorithm_factory = detection_algorithm_factory or AdaptiveDetector

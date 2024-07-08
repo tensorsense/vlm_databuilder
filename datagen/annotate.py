@@ -1,6 +1,7 @@
 from typing import Optional
 import json
 
+from tqdm import tqdm
 from langchain.pydantic_v1 import BaseModel
 
 from .core.types import Segment, LLMInput
@@ -25,14 +26,16 @@ def generate_annotations(
     if video_ids is None:
         video_ids = config.get_video_ids()
 
+    processed_video_ids = [x.stem for x in config.anno_dir.iterdir()]
+
     segments = config.get_segments(video_ids=video_ids)
 
     outputs = {}
-    for video_id in video_ids:
+    for video_id in tqdm(set(video_ids) - set(processed_video_ids)):
         print(video_id, '- started')
-        if config.get_anno_path(video_id).exists():
-            print(f'Annotation {video_id} exists, skipping.')
-            continue
+        # if config.get_anno_path(video_id).exists():
+        #     print(f'Annotation {video_id} exists, skipping.')
+        #     continue
         video_segments = [s for s in segments if s.video_id==video_id]
         if filter_by:
             video_segments = [s for s in video_segments if s.segment_info[filter_by]]
@@ -76,4 +79,3 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
     config.dump(annotations_agg, config.data_dir / annotation_file)
     return annotations_agg
     
-
