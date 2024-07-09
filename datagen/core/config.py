@@ -113,6 +113,8 @@ class DatagenConfig(BaseModel):
         return [v for v in self.sub_dir.iterdir() if v.suffix=='.vtt']
 
     def get_transcript(self, video_id: str) -> str:
+        if not self.get_transcript_path(video_id).exists():
+            return
         with open(self.get_transcript_path(video_id)) as f:
             return f.read()
  
