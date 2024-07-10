@@ -38,7 +38,7 @@ def generate_annotations(
         #     continue
         video_segments = [s for s in segments if s.video_id==video_id]
         if filter_by:
-            video_segments = [s for s in video_segments if s.segment_info[filter_by]]
+            video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]
         
         prompt = []
         prompt.append('Segment information:\n' + '\n'.join([s.to_str(skip=[filter_by] if filter_by else []) for s in video_segments]))
