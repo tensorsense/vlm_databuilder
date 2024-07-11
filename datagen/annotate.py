@@ -62,7 +62,7 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
     segments = {video_id: [s for s in segments if s.video_id==video_id] for video_id in set([s.video_id for s in segments])}
 
     annotations_agg = []
-    for video_id, video_annotations in annotations.items():
+    for video_id, video_annotations in tqdm(annotations.items()):
         i = 0
         for ann in sorted(video_annotations, key=lambda x: x['start_timestamp']):
             if not [s for s in segments[video_id] if s.start_timestamp==ann['start_timestamp'] and s.end_timestamp==ann['end_timestamp']]:

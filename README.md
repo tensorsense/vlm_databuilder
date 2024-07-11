@@ -15,7 +15,7 @@ This SDK generates datasets for training Video LLMs from youtube videos. More so
 In the end you'll have a directory with useful video clips and an annotation file, which you can then train a model on.
 
 ## 🐬 Installation
-- `pip install -r requirements.txt`
+- `pip install -r requirements.txt`. If it doesn't work, try updating `pip install -U -r requirements.txt`.
 - make `.env` file with:
     - `OPENAI_API_KEY` for openai
     - `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for azure

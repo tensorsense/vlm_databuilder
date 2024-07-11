@@ -57,7 +57,11 @@ def detect_segments(
             duration = (end.frame_num - start.frame_num) / start.framerate
             if (min_duration and (min_duration > duration)) or (max_duration and (max_duration < duration)):
                 continue
-            frames_arr = get_frames(video_path.as_posix(), start.frame_num, end.frame_num, frames_per_segment)
+            try:
+                frames_arr = get_frames(video_path.as_posix(), start.frame_num, end.frame_num, frames_per_segment)
+            except:
+                print(f'Video {video_id} {seconds_to_ts(start.frame_num/start.framerate)}-{seconds_to_ts(end.frame_num/end.framerate)} video file error, skipping.')
+                continue
             llm_input = LLMInput(system_prompt='You are given frames from a video and infromation on what to extract from them.', human_prompt=None, _imgs=frames_arr, ntiles=ntiles, output_schema=segment_info_schema)
             segment_info: Optional[BaseModel] = ask(llm_input=llm_input, config=config)
             if segment_info is None:
