@@ -65,7 +65,7 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
     for video_id, video_annotations in tqdm(annotations.items()):
         i = 0
         for ann in sorted(video_annotations, key=lambda x: x['start_timestamp']):
-            if not [s for s in segments[video_id] if s.start_timestamp==ann['start_timestamp'] and s.end_timestamp==ann['end_timestamp']]:
+            if (video_id not in segments) or not [s for s in segments[video_id] if s.start_timestamp==ann['start_timestamp'] and s.end_timestamp==ann['end_timestamp']]:
                 # segment timestamps do not correspond to a segment and were hallucinated
                 print('skipping', video_id)
                 continue
