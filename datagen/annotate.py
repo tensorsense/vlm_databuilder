@@ -31,7 +31,7 @@ def generate_annotations(
     segments = config.get_segments(video_ids=video_ids)
 
     outputs = {}
-    for video_id in tqdm(set(video_ids) - set(processed_video_ids)):
+    for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([s.video_id for s in segments])):
         print(video_id, '- started')
         # if config.get_anno_path(video_id).exists():
         #     print(f'Annotation {video_id} exists, skipping.')
