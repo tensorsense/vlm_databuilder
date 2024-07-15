@@ -1,7 +1,7 @@
 from typing import Generator, Literal, Optional
 from langchain_core.pydantic_v1 import BaseModel, Field
 from tqdm import tqdm
-# import yt_dlp
+import yt_dlp
 import pandas as pd
 import scrapetube
 
@@ -35,7 +35,7 @@ def get_video_ids(
     sleep: float = 0,
     sort_by: Literal["relevance", "upload_date", "view_count", "rating"] = "relevance",
     results_type: Literal["video", "channel", "playlist", "movie"] = "video",
-    
+    only_creative_commons=True,
 ) -> Generator[dict, None, None]:
     if type(query) is str:
         query = [query]
@@ -44,6 +44,22 @@ def get_video_ids(
         for video in scrapetube.get_search(query=q, limit=videos_per_query, sleep=sleep, sort_by=sort_by, results_type=results_type):
             ids.add(video['videoId'])
     ids = list(ids)
+
+    if only_creative_commons:
+        print('Filtering ids that for creative commons license')
+        ids_cc = []
+        for i in tqdm(ids):
+            YDL_OPTIONS = {
+                "quiet":    True,
+                "simulate": True,
+                "forceurl": True,
+            }
+            with yt_dlp.YoutubeDL(YDL_OPTIONS) as ydl:
+                info = ydl.extract_info(f"youtube.com/watch?v={i}", download=False)
+            if 'creative commons' in info.get('license', '').lower():
+                ids_cc.append(id)
+        ids = ids_cc
+
     config.dump(ids, config.data_dir / out_path)
     return ids
 
