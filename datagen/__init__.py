@@ -4,5 +4,5 @@ from .core.types import LLMInput
 from .search import get_queries, get_video_ids
 from .detect_segments import detect_segments
 from .download_videos import download_videos
-from .annotate import generate_annotations, aggregate_annotations
+from .annotate import generate_annotations, aggregate_annotations, generate_clues
 from .cut_videos import cut_videos

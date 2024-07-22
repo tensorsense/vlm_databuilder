@@ -8,6 +8,7 @@ import numpy as np
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
+from pprint import pprint
 # from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 

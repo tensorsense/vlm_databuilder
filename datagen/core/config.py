@@ -40,6 +40,7 @@ class DatagenConfig(BaseModel):
         self.segment_dir.mkdir(parents=True, exist_ok=True)
         self.clip_dir.mkdir(parents=True, exist_ok=True)
         self.anno_dir.mkdir(parents=True, exist_ok=True)
+        self.clues_dir.mkdir(parents=True, exist_ok=True)
         
 
     @property
@@ -85,6 +86,10 @@ class DatagenConfig(BaseModel):
     def anno_dir(self):
         return self.data_dir / 'annotations'
     
+    @property
+    def clues_dir(self):
+        return self.data_dir / 'clues'
+
     def dump(self, obj, path: str|Path, overwrite=True):
         if type(path) is str:
             path = Path(path)
@@ -141,6 +146,9 @@ class DatagenConfig(BaseModel):
     
     def get_anno_path(self, video_id: str):
         return self.anno_dir / f'{video_id}.json'
+    
+    def get_clues_path(self, video_id: str):
+        return self.clues_dir / f'{video_id}.json'
     
     def get_annotations(self) -> dict[list, object]:
         annotations = {}
