@@ -32,6 +32,10 @@ class Segment(BaseModel, Generic[OutputSchema]):
     def from_frames(cls, start_frame, end_frame, fps, **kwargs):
         return cls(start_timestamp=seconds_to_ts(start_frame/fps), end_timestamp=seconds_to_ts(end_frame/fps), fps=fps, **kwargs)
 
+    @classmethod
+    def from_seconds(cls, start_seconds, end_seconds, **kwargs):
+        return cls(start_timestamp=seconds_to_ts(start_seconds), end_timestamp=seconds_to_ts(end_seconds), **kwargs)
+
     def to_str(self, skip: list[str] = []):
         # skip -> fields from segment_info
         # dict() works both with pydantic model and with with unparsed dict
@@ -44,6 +48,7 @@ def get_video_annotation_class(segment_annotation_schema: type[BaseModel]):
     class SegmentInfo(BaseModel):
         '''
         Annotation for a video segment.
+        If there is not enough information to generate the segment_annotation, do not say that in the annotation, instead skip the segment altogether.
         '''
         start_timestamp: str = Field(description='start timestamp of the segment in format HH:MM:SS.MS')
         end_timestamp: str = Field(description='start timestamp of the segment in format HH:MM:SS.MS')
@@ -52,6 +57,7 @@ def get_video_annotation_class(segment_annotation_schema: type[BaseModel]):
     class VideoAnnotation(BaseModel):
         '''
         Segments of a video.
+        If there is not enough information to generate the segment_annotation, do not say that in the annotation, instead skip the segment altogether.
         '''
         segments: list[SegmentInfo] = Field(description='information about each segment')
 

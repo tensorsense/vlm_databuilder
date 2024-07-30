@@ -3,6 +3,14 @@ from tqdm import tqdm
 # from pathlib import Path
 from scenedetect import detect, ContentDetector, AdaptiveDetector # , HashDetector, ThresholdDetector, split_video_ffmpeg
 from langchain_core.pydantic_v1 import BaseModel, Field
+from moviepy.editor import VideoFileClip
+import numpy as np
+from transformers import AutoProcessor, AutoModel
+import torch
+from tsmoothie.utils_func import sim_randomwalk
+from tsmoothie.smoother import LowessSmoother
+
+
 
 from .core.config import DatagenConfig
 from .core.chat import ask
@@ -15,7 +23,7 @@ class SegmentInfo(BaseModel):
     filtering: bool = Field(description='Whether the person is doing any kind of squat exercise. The whole body of the person doing the squats must be shown in the image, not just some part like legs.')
     on_screen_text: Optional[str] = Field(description='Any kind of overlay text present in the images.', default=None)
 
-def detect_segments(
+def detect_segments_gpt(
         segment_info_schema: type[BaseModel],
         config: DatagenConfig,
         video_ids: Optional[list[str]] = None,
@@ -75,3 +83,75 @@ def detect_segments(
         print(f'{video_id} - done')
     
     # return segments, frames
+
+
+def detect_segments_clip(
+        config: DatagenConfig,
+        model: AutoModel,
+        processor: AutoProcessor,
+        device: str = 'cuda',
+        video_ids: Optional[list[str]] = None,
+        fps_sampling: int = 1,
+        text_prompts: str|list[str] = [],
+        # return_frames = False,
+        min_duration: Optional[float] = 1,
+        max_duration: Optional[float] = 30,
+):
+    if type(text_prompts) is str:
+        text_prompts = [text_prompts]    
+
+    if video_ids is None:
+        video_ids = [video_path.stem for video_path in config.get_videos()]
+
+    video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
+    
+    for video_id in tqdm(set(video_ids) - set(video_ids_parsed)):
+        print(f'{video_id} - starting')
+        video_path = config.get_video_path(video_id)
+
+        video = VideoFileClip(video_path.as_posix())
+        frames = []
+        ticks = np.arange(fps_sampling/2, video.duration, 1/fps_sampling)
+        for s in ticks:
+            frames.append(video.get_frame(s))
+
+        inputs = processor(text=text_prompts, images=frames, padding="max_length", return_tensors="pt").to(device)
+
+        with torch.no_grad():
+            outputs = model(**inputs)
+
+        logits_per_image = outputs.logits_per_image
+        probs = torch.sigmoid(logits_per_image).cpu().numpy()
+        probs = probs.mean(axis=1)
+
+        smoother = LowessSmoother(smooth_fraction=0.02, iterations=1)
+        data = smoother.smooth(probs)
+        segments_start_end = get_segments(data.smooth_data[0], max_gap=3, min_prob=0.1, min_segment=5)
+        
+        segments = []
+        for start, end in segments_start_end:
+            segments.append(Segment.from_seconds(ticks[start], ticks[end], fps=video.fps, video_id=video_id))
+        config.save_segments(video_id, segments)
+
+
+def get_segments(data, max_gap=3, min_prob=0.1, min_segment=5):
+    segments = []
+    cur_segment_start = None
+    not_doing = 0
+    for i, p in enumerate(data):
+        if p >= min_prob and cur_segment_start is None:
+            cur_segment_start = i
+        elif cur_segment_start is not None and p < min_prob:
+            if not_doing >= max_gap:
+                if i-not_doing - cur_segment_start >= min_segment:
+                    segments.append((cur_segment_start, i-not_doing))
+                not_doing = 0
+                cur_segment_start = None
+            else:
+                not_doing += 1
+        elif p >= min_prob:
+            not_doing = 0
+    if cur_segment_start is not None:
+        segments.append((cur_segment_start, i-not_doing))
+
+    return segments
