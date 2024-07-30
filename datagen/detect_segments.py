@@ -111,7 +111,8 @@ def detect_segments_clip(
 
         video = VideoFileClip(video_path.as_posix())
         frames = []
-        ticks = np.arange(fps_sampling/2, video.duration, 1/fps_sampling)
+        ticks = np.arange(1/fps_sampling/2, video.duration, 1/fps_sampling)
+        
         for s in ticks:
             frames.append(video.get_frame(s))
 

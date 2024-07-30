@@ -39,10 +39,14 @@ class Segment(BaseModel, Generic[OutputSchema]):
     def to_str(self, skip: list[str] = []):
         # skip -> fields from segment_info
         # dict() works both with pydantic model and with with unparsed dict
-        d = dict(self.segment_info)
-        for s in skip:
-            del d[s]
-        return f'{self.start_timestamp}-{self.end_timestamp}: {d}'
+        if self.segment_info:
+            d = dict(self.segment_info)
+            for s in skip:
+                del d[s]
+            d += ': '
+        else:
+            d = ''
+        return f'{self.start_timestamp}-{self.end_timestamp}{d}'
 
 def get_video_annotation_class(segment_annotation_schema: type[BaseModel]):
     class SegmentInfo(BaseModel):

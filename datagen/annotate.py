@@ -22,12 +22,13 @@ system_prompt_anno = '''You are a helpful assistant that performs high quality d
 '''
 
 def generate_annotations(
-        human_prompt: str,
         annotation_schema: type[BaseModel],
         config: DatagenConfig,
+        human_prompt: Optional[str] = None,
         video_ids: Optional[list[str]] = None,
         # filter_by: Optional[str] = None,
-        system_prompt: str = system_prompt_anno
+        system_prompt: str = system_prompt_anno,
+        raise_on_error: bool = False,
         ):
 
     if video_ids is None:
@@ -47,7 +48,9 @@ def generate_annotations(
         # if filter_by:
         #     video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]
 
-        prompt = [human_prompt]
+        prompt = []
+        if human_prompt:
+            prompt.append(human_prompt)
 
         if clues[video_id]:
             for clue in clues[video_id]:
@@ -56,6 +59,8 @@ def generate_annotations(
         output = ask(llm_input, config)
         if output is None:
             print(f'Error while generating annotations for {video_id}, skipping')
+            if raise_on_error:
+                raise Exception('exception in gpt call, exiting.')
             continue
         outputs[video_id] = output.segments
         with open(config.get_anno_path(video_id), 'w') as f:
@@ -84,7 +89,6 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
             i+=1
     config.dump(annotations_agg, config.data_dir / annotation_file)
     return annotations_agg
-    
 
 
 
@@ -120,7 +124,8 @@ def generate_clues(
         video_ids: Optional[list[str]] = None,
         filter_by: Optional[str] = None,
         system_prompt: str = system_prompt_clues_default,
-        human_prompt: Optional[str] = None    
+        human_prompt: Optional[str] = None,
+        raise_on_error: bool = False,
     ):
 
     if video_ids is None:
@@ -158,6 +163,8 @@ def generate_clues(
             output = ask(llm_input, config)
             if output is None:
                 print(f'Error while generating annotations for {video_id}, skipping')
+                if raise_on_error:
+                    raise Exception('exception in gpt call, exiting.')
                 continue
             outputs[video_id].extend(output.segments)
         with open(config.get_clues_path(video_id), 'w') as f:
