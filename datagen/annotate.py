@@ -29,7 +29,8 @@ def generate_annotations(
         # filter_by: Optional[str] = None,
         system_prompt: str = system_prompt_anno,
         raise_on_error: bool = False,
-        ):
+        segments_per_call: Optional[int] = 10,
+    ):
 
     if video_ids is None:
         video_ids = config.get_video_ids()
@@ -47,22 +48,27 @@ def generate_annotations(
         # video_segments = [s for s in segments if s.video_id==video_id]
         # if filter_by:
         #     video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]
+        if not clues[video_id]:
+            clues_array = []
+        elif segments_per_call:
+            clues_array = [clues[video_id][i:i+segments_per_call] for i in range(0, len(clues[video_id]), segments_per_call)]
+        else:
+            clues_array = clues[video_id]
 
-        prompt = []
-        if human_prompt:
-            prompt.append(human_prompt)
-
-        if clues[video_id]:
-            for clue in clues[video_id]:
+        for i, clues_part in enumerate(clues_array):
+            prompt = []
+            if human_prompt:
+                prompt.append(human_prompt)
+            for clue in clues_part:
                 prompt.append('Segment:\n' + json.dumps(clue))
-        llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
-        output = ask(llm_input, config)
-        if output is None:
-            print(f'Error while generating annotations for {video_id}, skipping')
-            if raise_on_error:
-                raise Exception('exception in gpt call, exiting.')
-            continue
-        outputs[video_id] = output.segments
+            llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
+            output = ask(llm_input, config)
+            if output is None:
+                print(f'Error while generating annotations for {video_id} part {i}, skipping')
+                if raise_on_error:
+                    raise Exception('exception in gpt call, exiting.')
+                continue
+            outputs[video_id] = output.segments
         with open(config.get_anno_path(video_id), 'w') as f:
             json.dump(output.dict()['segments'], f)
         print(video_id, '- done')
@@ -89,85 +95,3 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
             i+=1
     config.dump(annotations_agg, config.data_dir / annotation_file)
     return annotations_agg
-
-
-
-system_prompt_clues_default = '''You are a highly intelligent data investigator. 
-You take unstructured messy data and look for clues that could help interpet this
-data in the right way.
-You are the best one for this job in the world because you are a former detective. 
-You care about even the smallest details. 
-You use deductive and inductive reasoning at the highest possible quality.
-#YOUR TODAY'S JOB
-The user needs to guess about what happens on a specific *part* of a video file. Your job is to help the user by
-providing clues that would help the user make the right assumption. The user will provide you: 
-1. A list of time codes of the *parts* in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>". The timecode is your starting point. Your logic will be mostly driven by timecodes. 
-2. Data about what supposedly happens in each *part* and what kind of information the user is trying to obtain.
-3. A transcript of the *full video* in format of "<HH.MM.SS>\\n<text>"
- 
-Your task:
-1. Read the transcript.
-2. Provide the clues in a given schema.
-#RULES
-!!! VERY IMPORTANT !!!
-1. Rely only on the data provided in the transcript. Do not improvise.
-2. Your job is to find the data already provided in the transcript.
-3. Follow the schema output.
-4. Be very careful with details. Don't generalize. Keep all the terms.
-You always double check your results.
-'''
-
-def generate_clues(
-        annotation_schema: type[BaseModel],
-        config: DatagenConfig,
-        segments_per_call: Optional[int] = 5,
-        video_ids: Optional[list[str]] = None,
-        filter_by: Optional[str] = None,
-        system_prompt: str = system_prompt_clues_default,
-        human_prompt: Optional[str] = None,
-        raise_on_error: bool = False,
-    ):
-
-    if video_ids is None:
-        video_ids = config.get_video_ids()
-
-    processed_video_ids = [x.stem for x in config.clues_dir.iterdir()]
-
-    segments = config.get_segments(video_ids=video_ids)
-
-    outputs = {}
-    for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([s.video_id for s in segments])):
-        print(video_id, '- started')
-        # if config.get_anno_path(video_id).exists():
-        #     print(f'Annotation {video_id} exists, skipping.')
-        #     continue
-        video_segments = [s for s in segments if s.video_id==video_id]
-        if filter_by:
-            video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]
-        outputs[video_id] = []
-        
-        if segments_per_call:
-            segments_array = [video_segments[i:i+segments_per_call] for i in range(0, len(video_segments), segments_per_call)]
-        else:
-            segments_array = video_segments
-        for i, video_segments_part in enumerate(segments_array):
-            print(f'{video_id} part {i} - started')
-            prompt = []
-            if human_prompt:
-                prompt.append(human_prompt)
-            prompt.append('Segment information:\n' + '\n'.join([s.to_str(skip=[filter_by] if filter_by else []) for s in video_segments_part]))
-            transcript: str = config.get_transcript(video_id)
-            if transcript:
-                prompt.append('Transcript:\n' + transcript)
-            llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
-            output = ask(llm_input, config)
-            if output is None:
-                print(f'Error while generating annotations for {video_id}, skipping')
-                if raise_on_error:
-                    raise Exception('exception in gpt call, exiting.')
-                continue
-            outputs[video_id].extend(output.segments)
-        with open(config.get_clues_path(video_id), 'w') as f:
-            json.dump([x.dict() for x in outputs[video_id]], f)
-        print(video_id, '- done')
-    return outputs
