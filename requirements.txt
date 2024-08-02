@@ -13,3 +13,4 @@ tqdm
 moviepy
 python-dotenv
 scrapetube
+tsmoothie
