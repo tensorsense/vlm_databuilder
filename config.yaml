@@ -1,6 +1,6 @@
 openai:
   type: azure # openai/azure
-  temperature: 0
+  temperature: 1
   deployment: gpt4o # model for openai / deployment for azure
   
 
