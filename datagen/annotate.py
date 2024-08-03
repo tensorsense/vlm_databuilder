@@ -24,9 +24,9 @@ system_prompt_anno = '''You are a helpful assistant that performs high quality d
 def generate_annotations(
         annotation_schema: type[BaseModel],
         config: DatagenConfig,
+        segments_per_call: Optional[int] = None,
         human_prompt: Optional[str] = None,
         video_ids: Optional[list[str]] = None,
-        # filter_by: Optional[str] = None,
         system_prompt: str = system_prompt_anno,
         raise_on_error: bool = False,
         ):
@@ -41,31 +41,42 @@ def generate_annotations(
     outputs = {}
     for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([k for k,v in clues.items() if v is not None])):
         print(video_id, '- started')
-        # if config.get_anno_path(video_id).exists():
-        #     print(f'Annotation {video_id} exists, skipping.')
-        #     continue
-        # video_segments = [s for s in segments if s.video_id==video_id]
-        # if filter_by:
-        #     video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]
-
-        prompt = []
-        if human_prompt:
-            prompt.append(human_prompt)
 
         if clues[video_id]:
-            for clue in clues[video_id]:
-                prompt.append('Segment:\n' + json.dumps(clue))
-        llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
-        output = ask(llm_input, config)
-        if output is None:
-            print(f'Error while generating annotations for {video_id}, skipping')
-            if raise_on_error:
-                raise Exception('exception in gpt call, exiting.')
-            continue
-        outputs[video_id] = output.segments
-        with open(config.get_anno_path(video_id), 'w') as f:
-            json.dump(output.dict()['segments'], f)
-        print(video_id, '- done')
+            if segments_per_call:
+                clue_segments = [clues[video_id][i:i+segments_per_call] for i in range(0, len(clues[video_id]), segments_per_call)]
+            else:
+                clue_segments = [clues[video_id]]
+
+            video_outputs = []
+            for i, clue_segment in enumerate(clue_segments):
+                print(f'{video_id} part {i+1}/{len(clue_segments)} - started')
+
+                prompt = []
+                if human_prompt:
+                    prompt.append(human_prompt)
+
+                for clue in clue_segment:
+                    prompt.append('Segment:\n' + str(clue))
+
+                llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
+                output = ask(llm_input, config)
+                if output is None:
+                    print(f'Error while generating annotations for {video_id}, part {i+1}, skipping')
+                    if raise_on_error:
+                        raise Exception('exception in gpt call, exiting.')
+                    continue
+                video_outputs.extend(output.segments)
+                print(f'{video_id} part {i+1}/{len(clue_segments)} - done')
+
+            outputs[video_id] = video_outputs
+            with open(config.get_anno_path(video_id), 'w') as f:
+                json.dump([segment.dict() for segment in video_outputs], f)
+            print(video_id, '- all parts done')
+        else:
+            print(f'No clues for {video_id}, skipping')
+
+    return outputs
 
 def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, annotation_file='annotations.json'):
     annotations = config.get_annotations()
@@ -93,28 +104,31 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
 
 
 system_prompt_clues_default = '''You are a highly intelligent data investigator. 
-You take unstructured messy data and look for clues that could help interpet this
-data in the right way.
+You take unstructured damaged data and look for clues that could help restore the initial information
+and extract important insights from it.
 You are the best one for this job in the world because you are a former detective. 
-You care about even the smallest details. 
+You care about even the smallest details, and your guesses about what happened in the initial file
+even at very limited inputs are usually absolutely right.  
 You use deductive and inductive reasoning at the highest possible quality.
+
 #YOUR TODAY'S JOB
 The user needs to guess about what happens on a specific *part* of a video file. Your job is to help the user by
 providing clues that would help the user make the right assumption. The user will provide you: 
 1. A list of time codes of the *parts* in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>". The timecode is your starting point. Your logic will be mostly driven by timecodes. 
-2. Data about what supposedly happens in each *part* and what kind of information the user is trying to obtain.
+2. Instructions about what kind of information the user is trying to obtain.
 3. A transcript of the *full video* in format of "<HH.MM.SS>\\n<text>"
  
 Your task:
 1. Read the transcript.
-2. Provide the clues in a given schema.
+2. Provide the clues in a given format.
+3. Provied any other info requested by the user.
+
 #RULES
 !!! VERY IMPORTANT !!!
 1. Rely only on the data provided in the transcript. Do not improvise.
 2. Your job is to find the data already provided in the transcript.
-3. Follow the schema output.
-4. Be very careful with details. Don't generalize. Keep all the terms.
-You always double check your results.
+3. Follow the format output.
+4. Be very careful with details. Don't generalize. Always double check your results.
 '''
 
 def generate_clues(
