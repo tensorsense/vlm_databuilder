@@ -1,0 +1,613 @@
+[
+    {
+        "start_timestamp": "00:00:00.250",
+        "end_timestamp": "00:00:32.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:00:03",
+                    "quote": "exercises do them wrong and instead of growing nice quads and glutes you'll feel aches and pains in your knees your",
+                    "clue": "The narrator mentions common issues with improper form, suggesting an emphasis on error correction in this segment."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:00:11",
+                    "quote": "but follow these four easy steps and I guarantee your squats will feel better and grow your muscles far better than they ever have before",
+                    "clue": "Indicates that the viewer will be guided on how to improve their squat form."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:00:24",
+                    "quote": "setup your Anatomy will determine what your perfect squat looks like so it's important to find the right setup for you and your body",
+                    "clue": "The segment likely covers the initial setup for squats."
+                },
+                {
+                    "id": "LC4",
+                    "timestamp": "00:00:29",
+                    "quote": "set your feet hip width apart and squat down see how that feels and make note of how low you should get then",
+                    "clue": "Instruction on determining the proper stance, suggesting practical setup guidance."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:30",
+                    "quote": "Today we'll cover squat variations for beginner to advanced lifters",
+                    "clue": "Outlines the scope of the entire video, implying that this segment is part of a comprehensive guide.",
+                    "relevance_to_segment": "This suggests that while this segment focuses on setup, the entire video will encompass a full range of squat techniques."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:01:08",
+                    "quote": "set your feet under the bar bend your knees to get under it and then place the bar on your upper back but avoid placing it too high",
+                    "clue": "Instructions on bar placement and body positioning.",
+                    "relevance_to_segment": "Even though this comes in slightly after the segment, it connects to the setup theme and proper technique."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Foundation of Proper Squat",
+                    "details": "The segment primarily focuses on the foundational setup for performing a squat correctly, including foot placement and stance adjustments."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Error Prevention",
+                    "details": "The emphasis on setup implies that proper initial positioning prevents common mistakes like knee and hip pain."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:00:41.750",
+        "end_timestamp": "00:00:52.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:00:46",
+                    "quote": "your feet under the bar bend your knees to get under it and then place the bar on your upper back but avoid placing it too high",
+                    "clue": "This segment instructs on bar positioning and body mechanics while setting up for a squat."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:00:52",
+                    "quote": "it should be placed right onto the meat of your traps",
+                    "clue": "Specific instruction on where the bar should rest, emphasizing correct placement for safety and effectiveness."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:00",
+                    "quote": "squats are the king of poorly performed exercises",
+                    "clue": "The introduction suggests that common errors are addressed throughout the video.",
+                    "relevance_to_segment": "This segment's focus on bar placement and body mechanics directly ties into correcting these common errors."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:00:11",
+                    "quote": "but follow these four easy steps and I guarantee your squats will feel better and grow your muscles far better",
+                    "clue": "Promises comprehensive tips for improving squat form.",
+                    "relevance_to_segment": "This reinforces that each step, including bar placement, is crucial for better performance and muscle growth."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Important of Bar Positioning",
+                    "details": "This segment highlights the critical role of proper bar placement and how it contributes to the overall effectiveness of a squat."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Correct Body Mechanics",
+                    "details": "The detailed instructions on getting under the bar and positioning it suggest a high emphasis on maintaining good body mechanics to avoid injury."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:01:08.250",
+        "end_timestamp": "00:01:11.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:01:08",
+                    "quote": "set your feet under the bar bend your knees to get under it and then place the bar on your upper back but avoid placing it too high",
+                    "clue": "Continues the detailed setup instructions focusing on correct bar positioning."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:00",
+                    "quote": "squats are the king of poorly performed exercises",
+                    "clue": "Contextual introduction suggesting common errors will be corrected.",
+                    "relevance_to_segment": "This matches the segment's emphasis on precise setup to prevent errors."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:00:30",
+                    "quote": "Today we'll cover squat variations for beginner to advanced lifters",
+                    "clue": "Scope of video covers a range of techniques, implying this segment's foundational instructions are essential for all levels.",
+                    "relevance_to_segment": "Highlights the importance of mastering setup before progressing to advanced variations."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Precision in Setup",
+                    "details": "This very short segment reinforces the need for exact bar placement and body positioning as foundational to a successful squat."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:01:42.250",
+        "end_timestamp": "00:01:49.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:01:42",
+                    "quote": "then taking three careful steps take a little step back with one foot a little step back with your second foot and then use the third step to widen or adjust your feet",
+                    "clue": "Detailed instruction on safely and properly stepping back to get into position."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:01:45",
+                    "quote": "careful steps take a little step back with one foot a little step back with your second foot and then use the third step to widen or adjust your feet",
+                    "clue": "Emphasis on careful movement to ensure stable setup."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:30",
+                    "quote": "Today we'll cover squat variations for beginner to advanced lifters",
+                    "clue": "Scope of the video includes various levels of squat techniques.",
+                    "relevance_to_segment": "The careful setup here sets the foundation for all skill levels, from beginners to advanced lifters."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:00:03",
+                    "quote": "exercises do them wrong and instead of growing nice quads and glutes you'll feel aches and pains in your knees your",
+                    "clue": "Contextual caution about improper form leading to pain.",
+                    "relevance_to_segment": "Emphasizes why this meticulous setup is essential – to avoid pain and injuries."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Stability and Safety",
+                    "details": "This segment aims to ensure stability and safety during the setup by taking cautious and precise steps."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Foundation for All Levels",
+                    "details": "The careful step-by-step instructions are foundational techniques that benefit lifters of all levels, ensuring proper form and minimizing injury risk."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:01:55.750",
+        "end_timestamp": "00:02:03.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:01:58",
+                    "quote": "spread your weight evenly over your foot by making sure each foot has three solid points of contact with the ground your big toe your pinky toe and your heel",
+                    "clue": "Guidance on foot positioning to maintain balance during the squat."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:02:02",
+                    "quote": "you're now ready for step two creating whole body tension",
+                    "clue": "Indicates the transition between focusing on foot positioning and moving on to creating body tension for the squat."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:00",
+                    "quote": "squats are the king of poorly performed exercises",
+                    "clue": "Introduction sets the stage for correcting common squat errors.",
+                    "relevance_to_segment": "This segment's foot positioning might be a common error highlighted earlier in the video."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:00:11",
+                    "quote": "but follow these four easy steps and I guarantee your squats will feel better and grow your muscles far better",
+                    "clue": "Promises improvements in squat quality through proper steps.",
+                    "relevance_to_segment": "This aligns with the segment's focus on foot positioning as part of the initial steps."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Balance and Stability",
+                    "details": "This segment highlights the importance of distributing weight evenly across the foot, essential for balance and stability during the squat."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Transition to Body Tension",
+                    "details": "The segment marks the transition from foot setup to creating whole-body tension, indicating a connection between proper foot positioning and overall squat mechanics."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:02:26.250",
+        "end_timestamp": "00:02:38.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:02:32.500",
+                    "quote": "level your pelvis with the floor by tilting it back as if it was a bowl of water and you were trying to prevent it from spilling",
+                    "clue": "The person demonstrates how to level the pelvis to avoid incorrect posture."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:02:28.750",
+                    "quote": "screw your feet into the ground as if you were trying to touch your heels together",
+                    "clue": "The person is likely demonstrating proper foot engagement during this squat segment."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:02:35.500",
+                    "quote": "lock this in by squeezing your inner thighs glutes and quads",
+                    "clue": "The person shows how to activate key muscles to maintain stability during the squat."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:01:08",
+                    "quote": "set your feet under the bar bend your knees to get under it and then place the bar on your upper back but avoid placing it too high on the little bony bump at the base of your neck it should be placed right onto the meat of your traps",
+                    "clue": "Instructions about bar placement on the upper back.",
+                    "relevance_to_segment": "The global clue provides context on how to hold the bar correctly, relevant to the person's technique shown in the segment."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:03:01",
+                    "quote": "pull your elbows forward under the bar and pull the bar down into your media upper traps as if you're trying to bend the bar in half",
+                    "clue": "Guidance on how to stabilize the upper body during the squat.",
+                    "relevance_to_segment": "Stability of the upper body is essential, and this clue underscores the importance of upper body tension, which pairs with the lower body techniques shown in the segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Emphasis on Lower Body Engagement",
+                    "details": "Given that the segment focuses on stabilizing the pelvis and engaging the feet and thighs, it can be inferred that the person demonstrates an emphasis on lower body engagement to maintain balance and prevent injury."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Preparation for a Deeper Squat",
+                    "details": "The instructions about pelvis leveling and muscle activation suggest that this segment is preparing the person to achieve a deeper squat by ensuring proper body alignment and muscle engagement."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:02:40.750",
+        "end_timestamp": "00:02:47.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:02:42.750",
+                    "quote": "squeezing your inner thighs glutes and quads",
+                    "clue": "Shows specific muscle activation that person demonstrates."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:02:44.750",
+                    "quote": "avoid pointing your elbows back and losing tightness",
+                    "clue": "The person is advised to maintain upper back tightness during the squat."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:01:08",
+                    "quote": "set your feet under the bar bend your knees to get under it and then place the bar on your upper back but avoid placing it too high on the little bony bump at the base of your neck it should be placed right onto the meat of your traps",
+                    "clue": "Instructions about bar placement on the upper back.",
+                    "relevance_to_segment": "Proper bar placement is crucial for maintaining upper body stability, relevant to this segment's focus on upper back tightness."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:03:01",
+                    "quote": "pull your elbows forward under the bar and pull the bar down into your media upper traps as if you're trying to bend the bar in half",
+                    "clue": "Guidance on how to stabilize the upper body during the squat.",
+                    "relevance_to_segment": "This clue emphasizes the technique required to maintain upper body stability, significant for avoiding common mistakes in this segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Focus on Both Upper and Lower Body Engagement",
+                    "details": "The segment highlights the importance of both lower body muscle activation and upper body stability, suggesting that the person should be demonstrating a well-rounded technique."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Correction of Common Upper Body Mistakes",
+                    "details": "The mention of avoiding pushing elbows back indicates the person might have been making this mistake, and now they demonstrate the corrected form, maintaining proper upper body alignment."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:03:09.750",
+        "end_timestamp": "00:03:14.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:03:11.000",
+                    "quote": "take a deep 360 breath into your waist as if you're trying to expand all sides of a weight belt",
+                    "clue": "The person is demonstrating proper breathing technique to maintain core stability."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:57",
+                    "quote": "as for your foot angle most people's joints will feel better with their toes pointed out slightly so don't force yourself to keep them straight and The Wider The Stance you use the more your toes will have to turn out",
+                    "clue": "Guidance on optimal foot positioning during the squat.",
+                    "relevance_to_segment": "This foot positioning is important for maintaining balance, relevant to the breathing technique shown which requires overall body stability."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:01:52",
+                    "quote": "take a little step back with one foot a little step back with your second foot and then use the third step to widen or adjust your feet to your ideal squat stance",
+                    "clue": "Instructions about finding the right squat stance.",
+                    "relevance_to_segment": "Proper stance complements effective breathing techniques to maintain balance and stability, as demonstrated in this segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Emphasis on Core Stability",
+                    "details": "The demonstration of breathing technique suggests a focus on maintaining strong core stability, which is crucial for a safe and effective squat."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Integration of Breathing with Foot Positioning",
+                    "details": "The focus on breathing paired with previous instructions about foot positioning suggests that the person is integrating core stability techniques with optimal foot stance to ensure a balanced squat."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:03:22.250",
+        "end_timestamp": "00:03:26.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:03:24.750",
+                    "quote": "The Descent pull yourself down into the squat using your hamstrings",
+                    "clue": "The person demonstrates the initial phase of squat descent using their hamstrings."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:21",
+                    "quote": "growing nice quads and glutes you'll feel aches and pains in your knees your hips and even your shoulders but follow these four easy steps and I guarantee your squats will feel better and grow your muscles far better than they ever have before",
+                    "clue": "Outlines the benefits of properly performed squats for overall muscle growth and injury prevention.",
+                    "relevance_to_segment": "Proper execution of the descent phase impacts overall squat effectiveness and minimizes the risk of injury, aligning with this clue's emphasis on benefits."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:05:01",
+                    "quote": "one study tested this by using a wooden barrier to prevent the knees from going over the toes while there was a bit less pressure on the knees when compared to letting them travel over the toes the stress on the hips and lower back significantly increased",
+                    "clue": "Study findings on knee positioning during squats.",
+                    "relevance_to_segment": "Proper descent technique involves appropriate positioning of the knees, relevant to avoiding stress on the hips and lower back as highlighted by this clue."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Application of Descent Technique",
+                    "details": "The segment likely emphasizes the proper use of hamstrings in the descent phase, crucial for effective and safe squatting technique."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Correct Positioning during Descent",
+                    "details": "Proper descent involves correct knee and hip positioning, suggesting that the person likely demonstrates an appropriate form to maximize effectiveness and reduce injury risk."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:03:32.250",
+        "end_timestamp": "00:03:54.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:03:34.250",
+                    "quote": "let your butt drop down between your heels and push your knees out in the same direction as your toes",
+                    "clue": "The person demonstrates proper depth and knee positioning during the squat."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:03:44.250",
+                    "quote": "continue lowering as deep as you comfortably can",
+                    "clue": "Emphasis on reaching a comfortable depth, indicating the person might be showing variations in squat depth based on individual comfort."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:03:48.250",
+                    "quote": "your upper body falls forward or your heels come off the ground or your lower back rounds excessively into Butt Wink these are all signs that you're not yet ready to go that deep",
+                    "clue": "Indicates potential signs of incorrect form that the person needs to avoid."
+                },
+                {
+                    "id": "LC4",
+                    "timestamp": "00:03:40.250",
+                    "quote": "keep your upper back tight by pulling the bar down",
+                    "clue": "Instructions on maintaining upper back tightness during the squat."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:04:02",
+                    "quote": "the glutes and abductors grew significantly more in the Deep squat group so your goal should be to squat down to at least somewhere close to parallel if you use a narrower stance you should be able to get a little bit deeper if you use a wider stance it'll be closer to parallel",
+                    "clue": "Findings that inform the target depth for optimal muscle growth during squats.",
+                    "relevance_to_segment": "This clue offers insight into the benefits of deeper squats, relevant to the segment's focus on achieving correct depth."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:03:57",
+                    "quote": "butt Wink these are all signs that you're not yet ready to go that deep and there's two main reasons for this the most common reason is the limited ankle mobility",
+                    "clue": "Common limitations to achieving deep squats, such as ankle mobility.",
+                    "relevance_to_segment": "Relevant to recognizing and correcting improper depth techniques, as mentioned in the segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Balancing Depth and Form",
+                    "details": "The segment likely illustrates the importance of balancing squat depth with proper form to avoid common mistakes such as Butt Wink, falling forward, or heel lift."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Awareness of Individual Variability",
+                    "details": "The focus on reaching a comfortable depth suggests an awareness of individual variability in what constitutes a proper squat, likely demonstrating adjustments based on individual capabilities."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:04:04.250",
+        "end_timestamp": "00:05:45.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:04:09",
+                    "quote": "your glutes and abductors grew significantly more in the Deep squat group so your goal should be to squat down to at least somewhere close to parallel",
+                    "clue": "Encourages squatting to at least parallel, suggesting an emphasis on depth."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:04:20",
+                    "quote": "if towards the bottom of your squat your upper body falls forward or your heels come off the ground or your lower back rounds excessively into Butt Wink",
+                    "clue": "Specifies common mistakes like falling forward, heels lifting, and excessive rounding that are likely demonstrated."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:04:35",
+                    "quote": "limited ankle mobility in this case try elevating your heels onto weight plates",
+                    "clue": "Recommends heel elevation for ankle mobility issues, likely being demonstrated."
+                },
+                {
+                    "id": "LC4",
+                    "timestamp": "00:05:13",
+                    "quote": "letting your knees go over your toes is perfectly fine now once you reach that bottom position do not just let gravity drop you into that last",
+                    "clue": "Mentions it's okay for knees to go over toes and highlights importance of controlling descent."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:11",
+                    "quote": "but follow these four easy steps and I guarantee your squats will feel better and grow your muscles far better than they ever have before",
+                    "clue": "The video aims to teach improved squat performance in four steps.",
+                    "relevance_to_segment": "Provides context for the entire video. The segment is likely part of these steps."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:03:31",
+                    "quote": "pull yourself down into the squat using your hamstrings let your butt drop down between your heels and push your knees out in the same direction as your toes keep your upper back tight by pulling the bar down and continue lowering as deep as you comfortably can",
+                    "clue": "Describes the importance of a controlled descent and maintaining tightness.",
+                    "relevance_to_segment": "This forms the foundation of the descent described in the segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Focus on Squat Depth",
+                    "details": "Multiple local clues emphasize the importance of deep squatting, indicating that this segment focuses on achieving proper squat depth."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Common Mistakes Demonstration",
+                    "details": "The segment seems to highlight common mistakes like heels lifting and upper body falling forward, providing solutions such as heel elevation."
+                },
+                {
+                    "id": "LI3",
+                    "description": "Controlled Descent Emphasis",
+                    "details": "Both local and global clues emphasize the need for a controlled descent using hamstrings and maintaining tightness throughout."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:06:08.250",
+        "end_timestamp": "00:07:07.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:06:13",
+                    "quote": "The most common mistake people make here is shooting their hips back and letting their upper body fall forward this puts a lot of pressure on the lower back",
+                    "clue": "Mentions common mistakes related to the ascent phase, such as hips shooting back and upper body falling forward."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:06:25",
+                    "quote": "we want the chest and hips to rise at the same rate to do this drive up out of the Bottom by pushing the floor away",
+                    "clue": "Encourages chest and hips rising at the same rate, suggesting a key cue for proper ascent."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:06:39",
+                    "quote": "keep your glutes engaged by keeping your knees in line with your toes rather than keeping them in",
+                    "clue": "Emphasizes glute engagement and knee alignment for proper ascent."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:02:13",
+                    "quote": "your Anatomy will determine what your perfect squat looks like so it's important to find the right setup for you and your body",
+                    "clue": "Mentions the importance of individualized squat form based on one's anatomy.",
+                    "relevance_to_segment": "Emphasizes the necessity of individualized techniques, relevant to correcting mistakes mentioned in the segment."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:03:01",
+                    "quote": "to keep you balanced as you squat spread your weight evenly over your foot by making sure each foot has three solid points of contact with the ground your big toe your pinky toe and your heel",
+                    "clue": "Describes how to maintain balance during the squat.",
+                    "relevance_to_segment": "The concept of balance and foot contact is important for proper ascent technique."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Correction of Ascent Mistakes",
+                    "details": "The segment likely focuses on illustrating and correcting common ascent mistakes such as hips shooting back and falling forward."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Importance of Glute Engagement",
+                    "details": "Emphasizes the need for glute engagement and knee alignment to ensure proper ascent mechanics."
+                },
+                {
+                    "id": "LI3",
+                    "description": "Role of Balance in Ascent",
+                    "details": "Maintaining balance with three points of foot contact is crucial for the proper execution of the ascent phase."
+                }
+            ]
+        }
+    }
+]

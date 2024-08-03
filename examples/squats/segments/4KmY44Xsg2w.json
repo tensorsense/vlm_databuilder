@@ -1,0 +1,30 @@
+[
+    {
+        "end_timestamp": "00:00:03.750",
+        "fps": 24.0,
+        "segment_info": null,
+        "start_timestamp": "00:00:00.250",
+        "video_id": "4KmY44Xsg2w"
+    },
+    {
+        "end_timestamp": "00:01:15.750",
+        "fps": 24.0,
+        "segment_info": null,
+        "start_timestamp": "00:01:10.750",
+        "video_id": "4KmY44Xsg2w"
+    },
+    {
+        "end_timestamp": "00:02:15.750",
+        "fps": 24.0,
+        "segment_info": null,
+        "start_timestamp": "00:01:41.750",
+        "video_id": "4KmY44Xsg2w"
+    },
+    {
+        "end_timestamp": "00:02:45.750",
+        "fps": 24.0,
+        "segment_info": null,
+        "start_timestamp": "00:02:25.750",
+        "video_id": "4KmY44Xsg2w"
+    }
+]

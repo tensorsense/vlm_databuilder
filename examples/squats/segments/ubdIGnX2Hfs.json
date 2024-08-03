@@ -1,0 +1,37 @@
+[
+    {
+        "end_timestamp": "00:00:09.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:00:03.250",
+        "video_id": "ubdIGnX2Hfs"
+    },
+    {
+        "end_timestamp": "00:03:20.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:02:56.250",
+        "video_id": "ubdIGnX2Hfs"
+    },
+    {
+        "end_timestamp": "00:04:43.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:04:31.750",
+        "video_id": "ubdIGnX2Hfs"
+    },
+    {
+        "end_timestamp": "00:05:02.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:04:49.750",
+        "video_id": "ubdIGnX2Hfs"
+    },
+    {
+        "end_timestamp": "00:06:23.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:06:16.250",
+        "video_id": "ubdIGnX2Hfs"
+    }
+]

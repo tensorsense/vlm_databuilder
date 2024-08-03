@@ -275,7 +275,7 @@ Your task:
 
 #RULES
 !!! VERY IMPORTANT !!!
-1. Rely only on the data provided in the transcript. Do not improvise.
+1. Rely only on the data provided in the transcript. Do not improvise. All the quotes and corresponding timestamps must be taken from the transcript.
 2. Your job is to find the data already provided in the transcript.
 3. Analyze every segment. Only skip a segment if there is no information about it in the trascript.
 4. For local clues, make sure that the quotes are inside the segment. To do this, double check the timestamps from the transcript and the segment. It is unacceptable for you to provide a local clue quote that is outside of the segment that you're working with, but provide the timestamp for it inside the segment - if you do this, all your work is useless.

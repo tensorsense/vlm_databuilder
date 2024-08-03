@@ -1,0 +1,186 @@
+[
+    {
+        "start_timestamp": "00:01:20.250",
+        "end_timestamp": "00:01:25.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:01:21",
+                    "quote": "that little angle there",
+                    "clue": "Refers to the appropriate way of keeping a slight arch in the lower back during a squat."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:01:23",
+                    "quote": "put a line straight up from the toes",
+                    "clue": "Indicates the alignment of the knees, suggesting they should not go past the toes to avoid pressure on the knees."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:01:24",
+                    "quote": "going to go past that line",
+                    "clue": "Reinforces that knee alignment is crucial to prevent knee damage during squats."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:19",
+                    "quote": "to doing a safe squat right",
+                    "clue": "Emphasizes the importance of safety when performing squats.",
+                    "relevance_to_segment": "This introduces the overall theme of safe squatting, which is critical to understanding the specific technical instructions in this segment."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:00:36",
+                    "quote": "let's get the weight over",
+                    "clue": "Indicates the setup phase of preparing to squat.",
+                    "relevance_to_segment": "This provides context that the segment is still discussing preparatory aspects of the squat, particularly focusing on alignment and body positioning."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Maintaining Proper Knee Alignment",
+                    "details": "The repeated emphasis on knee alignment (LC2, LC3) suggests that ensuring the knees do not pass the toes is a key point of this segment. This aligns with the overarching goal of safe squatting (GC1)."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:01:30.250",
+        "end_timestamp": "00:01:32.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:01:30",
+                    "quote": "practice to do this right",
+                    "clue": "Implies that correct form requires practice, especially when ensuring proper knee alignment."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:01:31",
+                    "quote": "use a dummy barbell",
+                    "clue": "Suggests starting with lighter or simulated weights to practice form before progressing to heavier weights."
+                },
+                {
+                    "id": "LC3",
+                    "timestamp": "00:01:32",
+                    "quote": "empty barbell",
+                    "clue": "A specific example of beginner practice techniques to focus on form before adding weight."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:01",
+                    "quote": "we are the most famous physical therapist on the internet",
+                    "clue": "Establishes authority and credibility of the instructors.",
+                    "relevance_to_segment": "Reinforces the importance of adhering to the advice given, including starting with lighter weights to master the form."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:00:54",
+                    "quote": "maintain that posture throughout the whole lift",
+                    "clue": "Stresses the importance of consistent form during squats.",
+                    "relevance_to_segment": "Links the need for practice (LC1) and using lighter weights (LC2, LC3) to maintain proper posture as a foundational element of safe squatting."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Importance of Practice with Light Weights",
+                    "details": "The segment underlines the necessity of starting with lighter or dummy weights to perfect squat form (LC2, LC3), which correlates with the overall advice of maintaining posture throughout the lift (GC2)."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:02:10.250",
+        "end_timestamp": "00:02:13.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:02:10",
+                    "quote": "not go past this plumb line",
+                    "clue": "Reaffirms the importance of keeping the knees aligned and not extending past the toes."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:02:12",
+                    "quote": "a lot in the weight room",
+                    "clue": "Observes common mistakes seen among lifters, implying the frequency of form issues in practical settings."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:15",
+                    "quote": "these are the weights on the end of it so",
+                    "clue": "Highlights the use of weights during the demonstration.",
+                    "relevance_to_segment": "Relates to the importance of alignment and form when weights are introduced, reinforcing the advice given in this segment."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:03:01",
+                    "quote": "if you want to be strong like bull",
+                    "clue": "Motivational phrase promoting correct technique for effective results.",
+                    "relevance_to_segment": "Encourages adherence to proper techniques, such as those discussed regarding knee alignment, to see benefits from squats."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Common Errors with Knee Alignment",
+                    "details": "Mentions of frequent form issues (LC2) and the consistent advice to keep the knees from going past the toes (LC1) suggest that improper knee alignment is a common and critical error addressed in this segment."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:02:15.750",
+        "end_timestamp": "00:02:19.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "timestamp": "00:02:16",
+                    "quote": "seen it in competition as well",
+                    "clue": "Indicates that even experienced lifters can make form errors."
+                },
+                {
+                    "id": "LC2",
+                    "timestamp": "00:02:18",
+                    "quote": "have to go down so far, but you don't want to go",
+                    "clue": "Discusses the optimal squat depth, suggesting that going too deep is unnecessary and potentially harmful."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "timestamp": "00:00:40",
+                    "quote": "right at the shoulder",
+                    "clue": "Mentions proper placement of the barbell on the shoulders.",
+                    "relevance_to_segment": "Helps understand the context of barbell positioning in relation to form discussions, which include depth control."
+                },
+                {
+                    "id": "GC2",
+                    "timestamp": "00:02:00",
+                    "quote": "you have to go down so far",
+                    "clue": "Preludes the discussion, repeating the advice on optimal squat depth.",
+                    "relevance_to_segment": "Directly leads into the specific depth advice given in the segment, reinforcing the point that excessive depth is counterproductive."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Optimal Squat Depth for Safety",
+                    "details": "The emphasis on not squatting too deep (LC2) and reference to even experienced lifters making errors (LC1) suggest that this segment is focused on teaching the optimal depth for safe and effective squatting."
+                }
+            ]
+        }
+    }
+]

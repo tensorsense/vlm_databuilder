@@ -4,4 +4,4 @@ openai:
   deployment: gpt4o # model for openai / deployment for azure
   
 
-data_dir: ./tmp/squats/
+data_dir: ./examples/squats/
