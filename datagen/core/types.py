@@ -1,3 +1,4 @@
+import json
 from typing import Optional,  TypeVar, Generic
 
 import numpy as np
@@ -43,7 +44,7 @@ class Segment(BaseModel, Generic[OutputSchema]):
             d = dict(self.segment_info)
             for s in skip:
                 del d[s]
-            d += ': '
+            d = ': ' + json.dumps(d)
         else:
             d = ''
         return f'{self.start_timestamp}-{self.end_timestamp}{d}'

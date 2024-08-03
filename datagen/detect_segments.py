@@ -96,7 +96,7 @@ def detect_segments_clip(
         # return_frames = False,
         frames_per_batch: Optional[int] = None,
         min_duration: Optional[float] = 1,
-        max_duration: Optional[float] = 30,
+        max_duration: Optional[float] = 30, # TODO: split or discard longer clips
         min_prob=0.1, # minimum clip probability to consider the match
         max_gap_seconds=1, # gaps of prob<min_prob that could be inside segment
         min_segment_seconds=3, # discard very short segments
