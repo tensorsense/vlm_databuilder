@@ -52,7 +52,6 @@ def get_video_annotation_class(segment_annotation_schema: type[BaseModel]):
     class SegmentInfo(BaseModel):
         '''
         Annotation for a video segment.
-        If there is not enough information to generate the segment_annotation, do not say that in the annotation, instead skip the segment altogether.
         '''
         start_timestamp: str = Field(description='start timestamp of the segment in format HH:MM:SS.MS')
         end_timestamp: str = Field(description='start timestamp of the segment in format HH:MM:SS.MS')
@@ -61,7 +60,6 @@ def get_video_annotation_class(segment_annotation_schema: type[BaseModel]):
     class VideoAnnotation(BaseModel):
         '''
         Segments of a video.
-        If there is not enough information to generate the segment_annotation, do not say that in the annotation, instead skip the segment altogether.
         '''
         segments: list[SegmentInfo] = Field(description='information about each segment')
 

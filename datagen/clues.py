@@ -20,7 +20,7 @@ from .core.types import get_video_annotation_class
 # """
 
 from datagen import ask, LLMInput
-clues_default_examples =    '''
+local_clues_default_examples =    '''
         Good local clues examples: [
       {
         "id": "LC1",
@@ -53,7 +53,8 @@ clues_default_examples =    '''
         "analysis": "This phrase suggests a transition is about to occur. The incorrect form has been shown, and correct form will follow."
       }
     ]
-    
+'''
+global_clues_default_examples = '''
     Good global clues examples: [
       {
         "id": "GC1",
@@ -149,44 +150,64 @@ logic_default_examples = '''
     '''
 
 def generate_clues_dataclass(config: DatagenConfig, prompt: Optional[str]=None):
-    if prompt is None:
-        clues_examples = clues_default_examples
-    else:
-        system_prompt_clues_dataclass = f'''
-You are given examples of json info objects that are extracted from video transcripts.
-The videos that these examples are used for are instructional videos for improving squat technique.
-Your task is to generate the same kinds of examples, but for videos of the kind: "{prompt}".
-Your output should be in exactly the same form at the user input, do not add any additional information.
+    # if prompt is None:
+    local_clues_examples = local_clues_default_examples
+#     else:
+#         system_prompt_local_clues_dataclass = f'''
+# You are given examples of json info objects that are extracted from video transcripts.
+# The videos that these examples are used for are instructional videos for improving squat technique.
+# Your task is to generate the same kinds of examples, but for videos of the kind: "{prompt}".
+# Your output should be in exactly the same form at the user input, do not add any additional information.
 
-Local clues description:
-"Explain your logic in “If A then B” style. E.g., "Dan says Tony was doing squats right while Mary did it wrong, and according to the conversation the person in this segment is Tony".
-A clue is considered local if its located inside the segment or is overlapping with it. Be excessive, provide all the information you have found."
+# Local clues description:
+# "Explain your logic in “If A then B” style. E.g., "Dan says Tony was doing squats right while Mary did it wrong, and according to the conversation the person in this segment is Tony".
+# A clue is considered local if its located inside the segment or is overlapping with it. Be excessive, provide all the information you have found."
+# '''
+#         local_clues_examples = ask(llm_input=LLMInput(system_prompt=system_prompt_local_clues_dataclass, human_prompt=[local_clues_default_examples]), config=config)
 
-Global clues description:
-"Global" means these clues were found across the entire video. E.g., the segment happens at 00:00:15 and the clue was found at 01:19:11. Explain your logic, especially why these clues are relevant to this particular segment. Be excessive, provide all the information you have found. Provide specific instructions from the transcript with timecodes."'''
-        clues_examples = ask(llm_input=LLMInput(system_prompt=system_prompt_clues_dataclass, human_prompt=[clues_default_examples]), config=config)
-
-    Clue = create_model(
-        'Clue',
-        id = (str, Field(description='LC1,LC2... for local clues, GC1,GC2... for global clues')),
-        timestamp = (str, Field(description='mandatory for local and global clues, optional for logical inference or additional observations')),
-        text = (str, Field(description='the text taken from the transcript')),
+    LocalClue = create_model(
+        'LocalClue',
+        id = (str, Field(description='LC1,LC2...')),
+        quote = (str, Field(description='a direct quote taken from the transcript. The quote must be directly inside the segment, based on the timestamps in the transcript and the segment.')),
+        quote_timestamp = (str, Field(description='The timestamp of the quote. Must be taken directly from the transcript. It is very important the quote is inside the segment, for example if the segment is 00:10:25-00:11:05, then the quotes could have timestamps of 00:10:40 or 00:11:00, but not 00:09:30 or 00:11:07.')),
         analysis = (str, Field(description='interpretation of the text for improving squat techique')),
     )
-    Clue.__doc__ = clues_examples
+    LocalClue.__doc__ = local_clues_examples
 
-    if prompt is None:
-        logic_examples = logic_default_examples
-    else:
-        system_prompt_logic_dataclass = f'''
-You are given examples of json info objects that are extracted from video transcripts.
-The videos that these examples are used for are instructional videos for improving squat technique.
-Your task is to generate the same kinds of examples, but for videos of the kind: "{prompt}".
-Your output should be in exactly the same form at the user input, do not add any additional information.
+    # if prompt is None:
+    global_clues_examples = global_clues_default_examples
+#     else:
+#         system_prompt_global_clues_dataclass = f'''
+# You are given examples of json info objects that are extracted from video transcripts.
+# The videos that these examples are used for are instructional videos for improving squat technique.
+# Your task is to generate the same kinds of examples, but for videos of the kind: "{prompt}".
+# Your output should be in exactly the same form at the user input, do not add any additional information.
 
-Logical inferences description: Build logical inferences for clues you found before. Use technical language. Be clear and consistent.
-Additional Observations description: Any other observations that could help interpret the part of the video.'''
-        logic_examples = ask(llm_input=LLMInput(system_prompt=system_prompt_logic_dataclass, human_prompt=[logic_default_examples]), config=config)
+# Global clues description:
+# "Global" means these clues were found across the entire video. E.g., the segment happens at 00:00:15 and the clue was found at 01:19:11. Explain your logic, especially why these clues are relevant to this particular segment. Be excessive, provide all the information you have found. Provide specific instructions from the transcript with timecodes."'''
+#         global_clues_examples = ask(llm_input=LLMInput(system_prompt=system_prompt_global_clues_dataclass, human_prompt=[global_clues_default_examples]), config=config)
+
+    GlobalClue = create_model(
+        'GlobalClue',
+        id = (str, Field(description='GC1,GC2...')),
+        quote = (str, Field(description='a direct quote taken from the transcript that is referncing this specific segment of the video. The quote could be taken from anywhere in the transcript.')),
+        quote_timestamp = (str, Field(description='The timestamp of the quote. Must be taken directly from the transcript. Could be taken from anywhere in the video, not necessarily inside the segment, for example the segment happens at 00:00:15-00:02:23 and the clue was found at 01:19:11')),
+        analysis = (str, Field(description='interpretation of the text for improving squat techique')),
+    )
+    GlobalClue.__doc__ = global_clues_examples
+
+    # if prompt is None:
+    logic_examples = logic_default_examples
+#     else:
+#         system_prompt_logic_dataclass = f'''
+# You are given examples of json info objects that are extracted from video transcripts.
+# The videos that these examples are used for are instructional videos for improving squat technique.
+# Your task is to generate the same kinds of examples, but for videos of the kind: "{prompt}".
+# Your output should be in exactly the same form at the user input, do not add any additional information.
+
+# Logical inferences description: Build logical inferences for clues you found before. Use technical language. Be clear and consistent.
+# Additional Observations description: Any other observations that could help interpret the part of the video.'''
+#         logic_examples = ask(llm_input=LLMInput(system_prompt=system_prompt_logic_dataclass, human_prompt=[logic_default_examples]), config=config)
 
     AdditionalInformation = create_model(
         'AdditionalInformation',
@@ -198,8 +219,8 @@ Additional Observations description: Any other observations that could help inte
 
     SegmentAnnotation = create_model(
         'SegmentAnnotation',
-        local_clues = (Optional[list[Clue]], Field(description='Provide here all the clues about this time segment. Explain your logic in “If A then B” style. E.g., "Dan says Tony was doing squats right while Mary did it wrong, and according to the conversation the person in this segment is Tony". The clue is considered local if its located inside the segment or is overlapping with it. Be excessive, provide all the information you have found. Provide specific instructions from the transcript with timecodes.')),
-        global_clues = (Optional[list[Clue]], Field(description='Relevant clues are also scattered across the entire video. Provide here all the global clues about this time segment. "Global" means these clues were found across the entire video. E.g., the segment happens at 00:00:15 and the clue was found at 01:19:11. Explain your logic, especially why these clues are relevant to this particular segment. Be excessive, provide all the information you have found. Provide specific instructions from the transcript with timecodes.')),
+        local_clues = (Optional[list[LocalClue]], Field(description=f'Provide here all the clues about this time segment{None if prompt is None else '. The clues must be relevant for ' + prompt}. Explain your logic in “If A then B” style. E.g., "Dan says Tony was doing squats right while Mary did it wrong, and according to the conversation the person in this segment is Tony". Local clues must located inside the segment, for example if the segment is 00:10:25-00:11:05, then a local clues could be found at 00:10:40 or 00:11:00. Be excessive, provide all the information you have found. Provide specific instructions from the transcript with timecodes.')),
+        global_clues = (Optional[list[GlobalClue]], Field(description=f'Relevant clues are also scattered across the entire video{None if prompt is None else '. The clues must be relevant for ' + prompt}. Provide here all the global clues about this time segment. Global clues can be found across the entire video. E.g., the segment happens at 00:00:15 and the clue was found at 01:19:11. Explain your logic, especially why these clues are relevant to this particular segment. Be excessive, provide all the information you have found. Provide specific instructions from the transcript with timecodes.')),
         logical_inferences = (Optional[list[AdditionalInformation]], Field(description='Build logical inferences for clues you found before. Use technical language. Be clear and consistent.')),
         additional_observations = (Optional[list[AdditionalInformation]], Field(description='Any other observations that could help interpret the part of the video.'))
     )
@@ -207,30 +228,62 @@ Additional Observations description: Any other observations that could help inte
     return SegmentAnnotation
 
 
-system_prompt_clues_default = '''You are a highly intelligent data investigator. 
-You take unstructured messy data and look for clues that could help interpet this
-data in the right way.
+# system_prompt_clues_default = '''You are a highly intelligent data investigator. 
+# You take unstructured messy data and look for clues that could help interpet this
+# data in the right way.
+# You are the best one for this job in the world because you are a former detective. 
+# You care about even the smallest details. 
+# You use deductive and inductive reasoning at the highest possible quality.
+# #YOUR TODAY'S JOB
+# The user needs to guess about what happens on a specific *part* of a video file. Your job is to help the user by
+# providing clues that would help the user make the right assumption. The user will provide you: 
+# 1. A list of time codes of the *parts* in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>". The timecode is your starting point. Your logic will be mostly driven by timecodes. 
+# 2. Data about what supposedly happens in each *part* and what kind of information the user is trying to obtain.
+# 3. A transcript of the *full video* in format of "<HH.MM.SS>\\n<text>"
+ 
+# Your task:
+# 1. Read the transcript.
+# 2. Provide the clues in a given schema.
+# #RULES
+# !!! VERY IMPORTANT !!!
+# 1. Rely only on the data provided in the transcript. Do not improvise.
+# 2. Your job is to find the data already provided in the transcript.
+# 3. For the local clues, make sure that the quotes are inside the segment or mostly overlap with the segment. To do this, double check the timestamps from the transcript and the segment.
+# 4. Follow the schema output.
+# 5. Be very careful with details. Don't generalize. Keep all the terms.
+# You always double check your results.
+# '''
+system_prompt_clues_default = '''You are a highly intelligent data investigator.  
+You take unstructured damaged data and look for clues that could help restore the initial information
+and extract important insights from it.
 You are the best one for this job in the world because you are a former detective. 
-You care about even the smallest details. 
+You care about even the smallest details, and your guesses about what happened in the initial file
+even at very limited inputs are usually absolutely right.  
 You use deductive and inductive reasoning at the highest possible quality.
+
 #YOUR TODAY'S JOB
 The user needs to guess about what happens on a specific *part* of a video file. Your job is to help the user by
 providing clues that would help the user make the right assumption. The user will provide you: 
 1. A list of time codes of the *parts* in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>". The timecode is your starting point. Your logic will be mostly driven by timecodes. 
-2. Data about what supposedly happens in each *part* and what kind of information the user is trying to obtain.
+2. Instructions about what kind of information the user is trying to obtain.
 3. A transcript of the *full video* in format of "<HH.MM.SS>\\n<text>"
  
 Your task:
 1. Read the transcript.
-2. Provide the clues in a given schema.
+2. Provide the clues in a given format.
+3. Provied any other info requested by the user.
+
 #RULES
 !!! VERY IMPORTANT !!!
 1. Rely only on the data provided in the transcript. Do not improvise.
 2. Your job is to find the data already provided in the transcript.
-3. Follow the schema output.
-4. Be very careful with details. Don't generalize. Keep all the terms.
-You always double check your results.
+3. Analyze every segment. Only skip a segment if there is no information about it in the trascript.
+4. For local clues, make sure that the quotes are inside the segment or mostly overlap with the segment. To do this, double check the timestamps from the transcript and the segment.
+5. Follow the format output.
+6. Be very careful with details. Don't generalize. Always double check your results.
 '''
+
+
 
 def generate_clues(
         annotation_schema: type[BaseModel],

@@ -94,8 +94,13 @@ def detect_segments_clip(
         fps_sampling: int = 1,
         text_prompts: str|list[str] = [],
         # return_frames = False,
+        frames_per_batch: Optional[int] = None,
         min_duration: Optional[float] = 1,
         max_duration: Optional[float] = 30,
+        min_prob=0.1, # minimum clip probability to consider the match
+        max_gap_seconds=1, # gaps of prob<min_prob that could be inside segment
+        min_segment_seconds=3, # discard very short segments
+        smooth_fraction=0.02, # smoothing strength
 ):
     if type(text_prompts) is str:
         text_prompts = [text_prompts]    
@@ -106,28 +111,36 @@ def detect_segments_clip(
     video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
     
     for video_id in tqdm(set(video_ids) - set(video_ids_parsed)):
-        print(f'{video_id} - starting')
         video_path = config.get_video_path(video_id)
 
         video = VideoFileClip(video_path.as_posix())
-        frames = []
         ticks = np.arange(1/fps_sampling/2, video.duration, 1/fps_sampling)
-        
-        for s in ticks:
-            frames.append(video.get_frame(s))
+        print(f'{video_id} - starting - {len(ticks)} frames')
 
-        inputs = processor(text=text_prompts, images=frames, padding="max_length", return_tensors="pt").to(device)
+        frames = [video.get_frame(s) for s in ticks]
 
-        with torch.no_grad():
-            outputs = model(**inputs)
+        if frames_per_batch is None:
+            frames_batched = [frames]
+        else:
+            frames_batched = [frames[i: i+frames_per_batch] for i in range(0, len(frames), frames_per_batch)]
 
-        logits_per_image = outputs.logits_per_image
-        probs = torch.sigmoid(logits_per_image).cpu().numpy()
-        probs = probs.mean(axis=1)
+        probs = []
+        for i, frames_batch in enumerate(frames_batched):
+            # TODO don't need to calculate text embedding for each batch, but it's a very minor optimization.
+            inputs = processor(text=text_prompts, images=frames_batch, padding="max_length", return_tensors="pt").to(device)
 
-        smoother = LowessSmoother(smooth_fraction=0.02, iterations=1)
+            with torch.no_grad():
+                outputs = model(**inputs)
+
+            logits_per_image = outputs.logits_per_image
+            probs_batch = torch.sigmoid(logits_per_image).cpu().numpy()
+            probs_batch = probs_batch.mean(axis=1)
+            probs.append(probs_batch)
+        probs = np.concatenate(probs)
+
+        smoother = LowessSmoother(smooth_fraction=smooth_fraction, iterations=1)
         data = smoother.smooth(probs)
-        segments_start_end = get_segments(data.smooth_data[0], max_gap=3, min_prob=0.1, min_segment=5)
+        segments_start_end = get_segments(data.smooth_data[0], max_gap=round(max_gap_seconds*fps_sampling), min_prob=min_prob, min_segment=round(min_segment_seconds*fps_sampling))
         
         segments = []
         for start, end in segments_start_end:
