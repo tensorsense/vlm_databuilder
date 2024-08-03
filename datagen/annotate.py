@@ -103,7 +103,7 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
 
 
 
-system_prompt_clues_default = '''You are a highly intelligent data investigator. 
+system_prompt_clues_default = '''You are a highly intelligent data investigator.  
 You take unstructured damaged data and look for clues that could help restore the initial information
 and extract important insights from it.
 You are the best one for this job in the world because you are a former detective. 
