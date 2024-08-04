@@ -1,7 +1,0 @@
-openai:
-  type: azure # openai/azure
-  temperature: 1
-  deployment: gpt4o # model for openai / deployment for azure
-  
-
-data_dir: ./examples/squats/
