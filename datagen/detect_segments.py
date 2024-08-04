@@ -126,6 +126,7 @@ def detect_segments_clip(
 
         probs = []
         for i, frames_batch in enumerate(frames_batched):
+            print(f'{video_id} - batch {i} - starting')
             # TODO don't need to calculate text embedding for each batch, but it's a very minor optimization.
             inputs = processor(text=text_prompts, images=frames_batch, padding="max_length", return_tensors="pt").to(device)
 
