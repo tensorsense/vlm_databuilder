@@ -1,1 +1,336 @@
-[{"start_timestamp": "00:23:52.750", "end_timestamp": "00:24:44.750", "segment_annotation": {"local_clues": [{"id": "LC1", "timestamp": "00:24:00.750", "quote": "should you vary the position of your feet toes out toes and feet out", "clue": "Discussing the variation in foot positioning during squats, which suggests the segment may cover the impact of different foot positions on squat form."}], "global_clues": [{"id": "GC1", "timestamp": "00:05:57", "quote": "have your hips back you can do it's much much easier to keep your weight in your heels", "clue": "Emphasizes the importance of hip positioning and keeping weight in the heels during squats.", "relevance_to_segment": "This global clue indicates proper hip positioning and maintaining weight in the heels might be addressed in the segment, relevant to any foot positioning changes mentioned."}, {"id": "GC2", "timestamp": "00:06:07", "quote": "it's much less likely that you're gonna come up on your toes", "clue": "Highlights the significance of not coming up on the toes during squats.", "relevance_to_segment": "This clue complements the discussion about foot positioning, underscoring the importance of maintaining proper heel contact with the ground."}], "logical_inferences": [{"id": "LI1", "description": "Foot Positioning Assessment", "details": "The segment likely includes an assessment or discussion of different foot positions during squats and their impact on squat form. Proper hip positioning and avoiding coming up on the toes are emphasized."}]}}, {"start_timestamp": "00:25:05.750", "end_timestamp": "00:26:07.750", "segment_annotation": {"local_clues": [{"id": "LC1", "timestamp": "00:25:45.750", "quote": "he's gonna so it's going to be different about this as his hips are going to come back more toward me", "clue": "Indicates a focus on hip positioning during the squat, suggesting the segment might highlight adjustments in hip positioning and their effects."}], "global_clues": [{"id": "GC1", "timestamp": "00:05:03", "quote": "look at that does that look familiar", "clue": "Pointing out a common squat form mistake which can be connected to visual demonstration of correct vs. incorrect hip positioning.", "relevance_to_segment": "This complements the local clue about hip positioning adjustments by highlighting the importance of visual learning in correcting mistakes."}, {"id": "GC2", "timestamp": "00:05:09", "quote": "what happens when you try to squat with your knees forward that puts a lot of tension here", "clue": "Discusses the negative impact of improper knee positioning during squats.", "relevance_to_segment": "The clue is relevant as it underscores the importance of correct knee and hip positioning, likely demonstrated in this segment."}], "logical_inferences": [{"id": "LI1", "description": "Hip Positioning Emphasis", "details": "The segment appears to focus on demonstrating proper hip positioning during squats, highlighting corrections from common mistakes. The interconnectedness of knee and hip positioning is also likely addressed."}]}}, {"start_timestamp": "00:33:57.750", "end_timestamp": "00:34:39.750", "segment_annotation": {"local_clues": [{"id": "LC1", "timestamp": "00:34:00.750", "quote": "the amount of like muscle fibers", "clue": "Mentions muscle fiber activation, indicating a possible focus on muscle engagement during squats."}], "global_clues": [{"id": "GC1", "timestamp": "00:16:11", "quote": "learn how to put your feet learn how to use your butt and your hands chance to do this why you're gonna have much better", "clue": "Emphasizes the importance of proper foot and butt positioning to enhance squat effectiveness.", "relevance_to_segment": "This clue relates to the focus on muscle engagement, providing a context for optimizing muscle activation through proper form."}, {"id": "GC2", "timestamp": "00:02:30", "quote": "Squatting is a fundamental movement pattern in everyday life.", "clue": "Emphasizes the broader importance of squats beyond just exercise.", "relevance_to_segment": "Highlights the significance of proper muscle engagement and form in both exercise and daily activities."}], "logical_inferences": [{"id": "LI1", "description": "Muscle Engagement Focus", "details": "The segment likely emphasizes the importance of muscle fiber activation and engagement during squats, demonstrating how proper form can optimize this."}]}}, {"start_timestamp": "00:44:28.750", "end_timestamp": "00:45:14.750", "segment_annotation": {"local_clues": [{"id": "LC1", "timestamp": "00:44:38.750", "quote": "depends on the movement biceps curls like do everyone but like to me doing a movement", "clue": "Discusses the importance of doing a movement correctly, suggesting a focus on proper squat form."}], "global_clues": [{"id": "GC1", "timestamp": "00:01:15", "quote": "Before we dive into specific techniques, let's talk about safety.", "clue": "Introduces the theme of safety in squatting.", "relevance_to_segment": "Connects to the emphasis on right movement execution, highlighting that proper squat form is crucial for safety."}, {"id": "GC2", "timestamp": "00:22:23", "quote": "working on getting to a safe spot until you can check", "clue": "Focuses on gradually working towards improving form and safety.", "relevance_to_segment": "Reinforces the idea of step-by-step improvement in squat form for safety and effectiveness."}], "logical_inferences": [{"id": "LI1", "description": "Proper Form and Safety", "details": "This segment likely covers the correct execution of squats, emphasizing the importance of proper form for safety and effectiveness. Gradual improvement in form is also highlighted."}]}}, {"start_timestamp": "00:48:01.750", "end_timestamp": "00:48:26.750", "segment_annotation": {"local_clues": [{"id": "LC1", "timestamp": "00:48:10.750", "quote": "ask any questions on Instagram came to because a certified coach knows what he's talking about", "clue": "Mentions taking questions and knowledge of a certified coach, suggesting that expert guidance on squat technique might be discussed."}], "global_clues": [{"id": "GC1", "timestamp": "00:03:24", "quote": "talk about squats and while we're here talking to you about squats if any of you have any ideas", "clue": "Indicates an open discussion and focus on squats, inviting questions and engagement.", "relevance_to_segment": "Connects to the local context of seeking expert advice, reinforcing the importance of guided learning in proper squat form."}, {"id": "GC2", "timestamp": "00:10:16", "quote": "if your spots are hurt in your back you're doing they've been properly", "clue": "Directly addresses incorrect form causing pain, emphasizing the need for correct technique.", "relevance_to_segment": "This clue underlines the importance of expert advice to correct form and prevent pain or injury."}], "logical_inferences": [{"id": "LI1", "description": "Expert Guidance on Technique", "details": "This segment likely involves advice from a certified coach, emphasizing the importance of expert guidance in achieving correct squat form and avoiding pain or injury."}]}}, {"start_timestamp": "00:54:47.250", "end_timestamp": "00:56:44.250", "segment_annotation": {"local_clues": [{"id": "LC1", "timestamp": "00:55:26", "quote": "bad knees, and it really I would talk to a doctor", "clue": "Mentions that squat techniques should be modified or advised by professionals especially for those with bad knees."}, {"id": "LC2", "timestamp": "00:55:53", "quote": "but it's there just source or if you have some tendinitis", "clue": "Identifies tendinitis as a potential problem area that could be exacerbated with improper squatting techniques."}, {"id": "LC3", "timestamp": "00:56:04", "quote": "backache back you doing squats improperly", "clue": "Highlights that backaches can result from improper form during squats."}, {"id": "LC4", "timestamp": "00:56:17", "quote": "quads and hams how do I tack the Blues better", "clue": "Discusses focus on targeting specific muscle groups, suggesting various squat forms and adjustments."}, {"id": "LC5", "timestamp": "00:56:26", "quote": "change the position on your back of the bar on the back put a little lower", "clue": "Mentions an adjustment in bar position for those experiencing excessive strain in certain muscle groups."}], "global_clues": [{"id": "GC1", "timestamp": "00:09:15", "quote": "squatting your hips are tucking under", "clue": "Common issue 'butt wink' mentioned earlier related to lower back pain during squats.", "relevance_to_segment": "The segment's advice may include ways to mitigate or correct 'butt wink' during squats."}, {"id": "GC2", "timestamp": "00:10:00", "quote": "proper depth ensures full engagement of your quadriceps and glutes", "clue": "Emphasizes the importance of achieving proper squat depth.", "relevance_to_segment": "This advice underscores the relevance of focusing on depth and muscle engagement, which is a recurring theme in the segment."}, {"id": "GC3", "timestamp": "00:13:45", "quote": "keep your knees out because you're keeping tension on the bands", "clue": "Provides technique to ensure proper knee tracking during squats.", "relevance_to_segment": "Highlights importance of knee alignment and continuous tension, which links to avoiding common squat-related injuries discussed in the segment."}], "logical_inferences": [{"id": "LI1", "description": "Adjustments for Knee and Back Problems", "details": "Given the local and global clues, it's likely that this segment focuses on techniques and adjustments to mitigate knee and back issues during squats. Specific recommendations are given for bar position, muscle targeting, and form adjustments."}, {"id": "LI2", "description": "Focus on Muscle Engagement", "details": "The segment also emphasizes achieving proper depth and knee alignment to ensure full muscle engagement and prevent injury. The advice on bar positioning supports this focus."}]}}]
+[
+    {
+        "start_timestamp": "00:23:52.750",
+        "end_timestamp": "00:24:44.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "so he needed to do a high bar spot first so that is the the bar center lane right on the top of his traps",
+                    "quote_timestamp": "00:24:00",
+                    "clue": "The person in this segment is demonstrating a high bar squat, with the bar placed high on the traps."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "he's going to be able to stay in his upper body to be able to stay really upright as he squats down",
+                    "quote_timestamp": "00:24:03",
+                    "clue": "The person maintains an upright posture during the squat, typical of a high bar squat."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "this is squatting like this takes... a lot of mobility here in the ankles, in the hips",
+                    "quote_timestamp": "00:24:11",
+                    "clue": "Emphasizes the need for good ankle and hip mobility to perform this squat correctly."
+                },
+                {
+                    "id": "LC4",
+                    "quote": "his ankle here and here are much more severe... much more difficult... mobility wise",
+                    "quote_timestamp": "00:24:17",
+                    "clue": "Reiterates the necessity for ankle mobility; it's a challenging position, especially for beginners."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "the best way to do to learn how to do the squat movement at all is called a hip hinge and this means you push your hips and butt backwards",
+                    "quote_timestamp": "00:05:40",
+                    "clue": "Provides fundamental advice on squatting to push the hips and butt backwards initially.",
+                    "relevance_to_segment": "This advice supports overall technique; even in a high-bar position, emphasizing the hip hinge helps maintain balance."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "if you have your hips back you can do it's much much easier to keep your weight in your heels",
+                    "quote_timestamp": "00:05:57",
+                    "clue": "Explains the benefit of keeping hips back to maintain weight in the heels.",
+                    "relevance_to_segment": "Though it's a high-bar squat, keeping weight on the heels will prevent falling forward."
+                },
+                {
+                    "id": "GC3",
+                    "quote": "tips for keeping weight loss weight up heels",
+                    "quote_timestamp": "00:04:24",
+                    "clue": "Mentions the importance of keeping weight on the heels while squatting.",
+                    "relevance_to_segment": "Connects to maintaining weight on the heels for a better balance and performance."
+                },
+                {
+                    "id": "GC4",
+                    "quote": "your posterior chain is going to do the work",
+                    "quote_timestamp": "00:09:29",
+                    "clue": "Emphasizes that the posterior chain muscles should be doing the work during squats.",
+                    "relevance_to_segment": "Ensures that the quadriceps and posterior chain are engaged properly during the squat."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Demonstration of High Bar Squat",
+                    "details": "Based on the local clues, the segment shows a high bar squat with focus on maintaining an upright upper body. This requires significant ankle and hip mobility."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Importance of Mobility",
+                    "details": "The repeated mention of ankle and hip mobility both locally and globally underscores its importance in maintaining proper high bar squat form."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:25:05.750",
+        "end_timestamp": "00:26:07.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "so then in between a show a love our spot these traps here he's gonna so it's going to be different about this as his hips are going to come back more toward me the heads gonna be a little more neutral it's gonna feel brave",
+                    "quote_timestamp": "00:25:23",
+                    "clue": "The segment demonstrates a low bar squat where the bar is placed lower on the back, creating a forward lean and hip movement backward."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "a little more neutral it's gonna feel brave because you're gonna bend forward a little bit more so these angles here it must be cute and here it goes like you are safe right here is different",
+                    "quote_timestamp": "00:25:30",
+                    "clue": "Highlights the different body angles in a low bar squat, including a forward lean and less acute angles at the hips and knees."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "this is a much better choice for your squat because it's just just easier... again it turns your glutes and hamstrings on arguably a little bit better",
+                    "quote_timestamp": "00:25:50",
+                    "clue": "Suggests the low bar squat is a good option, especially for beginners because it better activates the glutes and hamstrings."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "but you can't use your...not using your huge boobs your butt at all really you can sit back up it's all quads",
+                    "quote_timestamp": "00:05:17",
+                    "clue": "Mentions issues with improper squat form, especially not engaging the posterior chain.",
+                    "relevance_to_segment": "Highlights the importance of engaging posterior chain elements, which is more achievable in a low-bar squat."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "a lot of people really like these weightlifting shoes now because they have a lot of heel",
+                    "quote_timestamp": "00:22:31",
+                    "clue": "Promotes weightlifting shoes for better squat form due to added heel support.",
+                    "relevance_to_segment": "Emphasizes the benefits of proper footwear, which can help maintain the correct posture in a low-bar squat."
+                },
+                {
+                    "id": "GC3",
+                    "quote": "use a slingshot hip circle hashtag mark bell rules put this on this can go right above your knees it's a trick to using a hip circle is to keep tension on the bands",
+                    "quote_timestamp": "00:14:04",
+                    "clue": "Advises using a hip circle to maintain tension and correct knee alignment during squats.",
+                    "relevance_to_segment": "Supports knee positioning and tension maintenance, which might be critical in achieving proper low-bar squat form."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Demonstration of Low Bar Squat",
+                    "details": "Based on local clues, this segment shows a low bar squat with emphasis on a forward lean, hip movement backwards, and engaging the glutes and hamstrings more effectively."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Footwear and Equipment",
+                    "details": "The mention of weightlifting shoes and hip circles in global clues suggests the importance of proper footwear and additional equipment in maintaining form and enhancing effectiveness in a low bar squat."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:33:57.750",
+        "end_timestamp": "00:34:39.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "these are spots",
+                    "quote_timestamp": "00:34:06",
+                    "clue": "The phrase suggests a demonstration of how to space out squat repetitions with proper technique."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "there's truly in my mind like no reason to do that this is how it should load your sets perfect they should look like that set",
+                    "quote_timestamp": "00:34:10",
+                    "clue": "Emphasizes correct loading and pacing of sets; suggests there might be a demonstration of an ideal squat set."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "if your if your lower back hurts when you're spotting that's generally because as you're squatting your hips are tucking under",
+                    "quote_timestamp": "00:55:39",
+                    "clue": "Warns about hip-tucking and its effect on lower back pain.",
+                    "relevance_to_segment": "May provide insight on avoiding common mistakes like tucking hips during the squats demonstrated in this segment."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "this is the difference of opinion in terms of why you exercise if you're working out for bodybuilding only",
+                    "quote_timestamp": "01:00:43",
+                    "clue": "Mentions the importance of aligning exercise technique with personal fitness goals.",
+                    "relevance_to_segment": "Informs that the demonstrated squat technique should align with specific fitness goals, such as bodybuilding."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Proper Technique in Loading Sets",
+                    "details": "The local clues indicate this segment focuses on demonstrating proper loading and pacing for squat sets, possibly showing an ideal way to spread out the repetitions."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Awareness of Hip Position",
+                    "details": "Considering global insight on hip-tucking, this segment likely demonstrates the importance of maintaining proper hip position to avoid common mistakes and potential back pain."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:44:28.750",
+        "end_timestamp": "00:45:14.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "how to increase ankle dorsiflexion okay so ankle mobility is a really big deal for squatting friend squatting if you would be an Olympic weightlifter you're gonna need good so he's gonna do here is gonna lean forward",
+                    "quote_timestamp": "00:44:34",
+                    "clue": "This segment shows techniques for enhancing ankle dorsiflexion, crucial for deep squats, especially in Olympic lifting."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "he's basically gonna try to crush his me down so she's stretching out his ankles effort as I feel",
+                    "quote_timestamp": "00:44:45",
+                    "clue": "Explains the specific stretch being demonstrated to improve ankle mobility."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "so if the lower you go really in the squat the less attention there is underneath because you're your posterior chain is going to do the work",
+                    "quote_timestamp": "00:09:29",
+                    "clue": "Mentions the benefit of going lower in a squat to engage the posterior chain muscles effectively.",
+                    "relevance_to_segment": "Provides context on why improving ankle mobility for deeper squats is beneficial, as it shifts the work to the posterior chain."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "and yes that would make squatting more difficult cuz that would make it more likely that your knees would come into",
+                    "quote_timestamp": "00:26:09",
+                    "clue": "Discusses the difficulty of maintaining knee position without proper ankle flexibility.",
+                    "relevance_to_segment": "This emphasis on knee positioning highlights the importance of improving ankle dorsiflexion demonstrated in the segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Focus on Ankle Dorsiflexion",
+                    "details": "The local evidence clearly indicates this segment is centered on demonstrating techniques to enhance ankle dorsiflexion, a key component for achieving proper squat depth."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Benefits for Deep Squats",
+                    "details": "Global clues highlight the significance of ankle mobility in performing deeper squats and properly engaging the posterior chain, which aligns with the focus of this segment on ankle dorsiflexion."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:48:01.750",
+        "end_timestamp": "00:48:26.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "so if you are our breathing the whole time like if you're like it's much more likely that you're going to have some issues coming forward or like rumbling forward if your core isn't contracted",
+                    "quote_timestamp": "00:48:07",
+                    "clue": "Explains the importance of proper breathing techniques during squats to prevent forward collapse."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "my general rule is over 80% anything less than that you can handle it without good question though okay",
+                    "quote_timestamp": "00:39:46",
+                    "clue": "Provides general rule on using a belt for support during heavy squats.",
+                    "relevance_to_segment": "Highlights the significance of supporting techniques, like breathing and belt usage, in enhancing squat performance."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "the thicker they are the more you're gonna be down at the bottom these might help you",
+                    "quote_timestamp": "00:09:47",
+                    "clue": "Mentions knee sleeves for additional support during squats, could be relevant to respiratory techniques.",
+                    "relevance_to_segment": "Draws attention to auxiliary aids that improve squat stability, indirectly relating to proper breathing techniques."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Proper Breathing Techniques",
+                    "details": "Local clues identify the emphasis on correct breathing techniques during squats to prevent instability and maintain core contraction."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Significance of Support",
+                    "details": "Global insights suggest that in addition to proper breathing, the use of auxiliary aids like belts and knee sleeves can further stabilize and enhance squatting performance."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:54:47.250",
+        "end_timestamp": "00:56:44.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "okay so he needed to do a high bar spot first so that is the the bar center lane right on the top of his tracks and that's going to mean that he's going to be able to stay in his upper body to be able to stay really upright as he squats down and I'll sweep in the also means I'm just identifying for elimination that also means that his ankle here and here are much more severe in here than it would be in above our spot so this is squatting like this takes in time to figure out how to do that's why I don't suggest it for just a more difficult to that stay down here it's just a more difficult position as you get into mobility lice but if you're working on more athletic movements like the snatch or clean and jerk I totally suggest using the high bar squat if you are a mobile person and it's grinding is sort of pain free for you then why not use that it's going to be a little bit more clot dominant than a low bar spot but I mean you're so definitely gonna turn on your hamstrings and your in your glutes it's not gonna not use them",
+                    "quote_timestamp": "00:55:00",
+                    "clue": "Explanation of high bar squat positioning and its benefits for engaging quadriceps and hip mobility."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "then a low bar spot the bars actually going to land a little shelf right here under so you have like your traps you mean your tractor a lot of muscle there's a little area right here underneath and that you can shove that bar underneath your head is going to be more neutral and a low bar spot and then like an organ always with the earlier are going to really far back in a little bar slot nice Dean that's perfect and if you'll notice he doesn't have to go as deep in this one and these angles are much less acute his shins are a little bit they're much more vertical as we say and then his upper body if the little more leaves forward to me although you can go ahead the balance portion is a little bit more different you're not used to pushing your hips back the balance is a little bit more difficult but in terms of how your body the amount of the amount of like muscle fibers whatever your body uses increases in the squat and it's general knowledge that in a low bar back so I can probably squeak out an extra 5% as opposed to I had my best foot that's why but I think that entirely depends on who's doing the squatting and how good they are at sweating so as a beginner play with that low bar back squat yes you're going to be a little bit more forward and you're gonna have to be really good or you're just is to move from squat say shut up I'm doing a low bar my hips are back I'm doing what I know I should be doing",
+                    "quote_timestamp": "00:55:50",
+                    "clue": "Explanation of low bar squat benefits including ease of execution for beginners and increased muscle engagement."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "yes you're going to be a little bit more forward and you're gonna have to be really good or you're just is to move from squat say shut up I'm doing a low bar my hips are back I'm doing what I know I should be doing",
+                    "quote_timestamp": "00:56:10",
+                    "clue": "Emphasis on proper hip positioning in a low bar squat for effective execution."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "first things first when it comes to squat for most beginners and I particularly see this issue in women is when people squat the first word which she squats the first thing she does is she brings her knees forward look at that does that look familiar so what happens when you try to squat with your knees forward that puts a lot of tension here but you can't use your not using your huge boobs your butt at all really you can sit back up it's all quads in the bodybuilding world and some of this you can call this a squat aptly named",
+                    "quote_timestamp": "00:05:01",
+                    "clue": "Common beginner mistake of bringing knees forward during squat and its implications.",
+                    "relevance_to_segment": "Relevantly highlights a common beginner mistake, giving context to the importance of proper posture in high bar and low bar squats demonstrated in the segment."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "the best way to do to learn how to do the squat movement at all is called a hip hinge and this means you push your hips and butt backwards like these doing so see how his first movement is back not forward if you have your hips back you can do it's much much easier to keep your weight in your heels it's much much easier to have your weight evenly distributed it's much less likely that you're gonna come up on your toes much better overall",
+                    "quote_timestamp": "00:05:40",
+                    "clue": "Description of hip hinge technique and its benefits for a balanced squat.",
+                    "relevance_to_segment": "Explains the importance of initiating a squat with a hip hinge, which is applicable to both high and low bar squats and emphasized in the segment."
+                },
+                {
+                    "id": "GC3",
+                    "quote": "and then there's a lot of weird stuff about how your knees have to be like way out when you squat that's not necessary it's definitely true and your knees can come in a little bit as long as they're aligned with your toes that's pretty good advice and you'll notice if you have and you can watch even really really good squatters come down all the way come in a little bit but they shove them on the way out so that's going to happen as long as you're aware of what where your feet are or your knees are where your hips are our shoulders are at all times during the squat that's the important part the important part is moving",
+                    "quote_timestamp": "00:28:35",
+                    "clue": "Clarification on knee alignment during squats, countering the myth that knees must be far out.",
+                    "relevance_to_segment": "Provides insight on proper knee alignment which supports the advice given for both high and low bar squats in the segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Importance of Proper Technique for Squat Variations",
+                    "details": "Given the detailed explanation and comparison between high bar and low bar squats, this segment emphasizes the importance of understanding and implementing the correct technique based on the type of squat being performed and individual mobility."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Focus on Quadriceps and Hamstrings Engagement",
+                    "details": "The segment discusses how different squat techniques (high bar vs. low bar) influence muscle engagement, specifically quadriceps and hamstrings. This indicates that the person performing squats demonstrates both forms, showcasing muscle engagement variations."
+                }
+            ]
+        }
+    }
+]

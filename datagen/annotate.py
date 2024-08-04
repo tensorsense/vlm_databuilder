@@ -16,9 +16,10 @@ system_prompt_anno = '''You are a helpful assistant that performs high quality d
                 2. Answer user's questions about this segment
                 3. Provide the answer as a JSON object in a schema provided by the user
                 Important rules:
-                1. You can only rely on data presented in a provided JSON object. Don't improvise
-                2. Follow user's request carefully
+                1. You can only rely on data presented in a provided JSON object. Don't improvise.
+                2. Follow user's request carefully.
                 3. Don't rush to deliver the answer. Take some time to think. Make a deep breath. Then start writing.
+                4. If you want to output field as empty (null), output it as JSON null (without quotes), not as a string "null". 
 '''
 
 def generate_annotations(
@@ -69,8 +70,11 @@ def generate_annotations(
                     raise Exception('exception in gpt call, exiting.')
                 continue
             outputs[video_id] = output.segments
-        with open(config.get_anno_path(video_id), 'w') as f:
-            json.dump(output.dict()['segments'], f)
+        if output is not None:
+            with open(config.get_anno_path(video_id), 'w') as f:
+                json.dump(output.dict()['segments'], f)
+        else:
+            print('output is None, skipping.')
         print(video_id, '- done')
 
 def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, annotation_file='annotations.json'):

@@ -262,12 +262,12 @@ even at very limited inputs are usually absolutely right.
 You use deductive and inductive reasoning at the highest possible quality.
 
 #YOUR TODAY'S JOB
-The user needs to guess about what happens in a specific segment of a video file. Your job is to help the user by
+The user needs to learn about what happens in a specific segment of a video file. Your job is to help the user by
 providing clues that would help the user make the right assumption. The user will provide you: 
-1. A list of time codes of the segments in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>". The timecode is your starting point. Your logic will be mostly driven by timecodes. 
-2. Instructions about what kind of information the user is trying to obtain.
+1. Instructions about what kind of information the user is trying to obtain.
+2. A list of time codes of the segments in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>".
 3. A transcript of the *full video* in format of "<HH.MM.SS>\\n<text>"
- 
+
 Your task:
 1. Read the transcript.
 2. Provide the clues in a given format.
@@ -275,13 +275,38 @@ Your task:
 
 #RULES
 !!! VERY IMPORTANT !!!
-1. Rely only on the data provided in the transcript. Do not improvise. All the quotes and corresponding timestamps must be taken from the transcript.
+1. Rely only on the data provided in the transcript. Do not improvise. All the quotes and corresponding timestamps must be taken from the transcript. Quote timestamps must be taken directly from the transcript.
 2. Your job is to find the data already provided in the transcript.
 3. Analyze every segment. Only skip a segment if there is no information about it in the trascript.
-4. For local clues, make sure that the quotes are inside the segment. To do this, double check the timestamps from the transcript and the segment. It is unacceptable for you to provide a local clue quote that is outside of the segment that you're working with, but provide the timestamp for it inside the segment - if you do this, all your work is useless.
-5. For all clues, make sure that the quotes exactly correspond to the timestamps that you provide. It is unacceptable for you to provide timestamps for a quote that don't match the timestamps for this quote in the transcript - if you do this, all your work is useless.
+4. For local clues, make sure that the quotes that you provide are located inside the segment. To do this, double check the timestamps from the transcript and the segment.
+5. For all clues, make sure that the quotes exactly correspond to the timestamps that you provide.
 6. Follow the format output.
 7. Be very careful with details. Don't generalize. Always double check your results.
+
+WHAT IS A CLUE: A *clue*, in the context of reconstructing narratives from damaged data, 
+is a fragment of information extracted from a corrupted or incomplete source that provides 
+insight into the original content. These fragments serve as starting points for inference 
+and deduction, allowing researchers to hypothesize about the fuller context or meaning of 
+the degraded material. The process of identifying and interpreting clues involves both objective analysis of the 
+available data and subjective extrapolation based on domain knowledge, contextual understanding, 
+and logical reasoning.
+
+- LOCAL CLUES: THEY ARE LOCATED VERY CLOSE TO THE SEGMENT YOU ARE WORKING WITH REGARDING TIMESTAMPS
+- GLOBAL CLUES: THEY ARE SCATTERED ACROSS THE ENTIRE TRANSCRIPT
+
+LOGICAL INFERENCES: *Logical inference*, in the process of reconstructing narratives 
+or information from damaged data, is the act of deriving plausible conclusions 
+or filling in gaps based on available clues and contextual knowledge. This cognitive process 
+involves applying deductive, inductive, or abductive reasoning to extrapolate beyond the explicit 
+information provided by the damaged source. Logical inference relies on a combination of factual 
+understanding, domain expertise, and analytical thinking to form connections between disparate 
+pieces of information and generate coherent hypotheses about the missing or corrupted content. 
+It often necessitates considering multiple possibilities, weighing probabilities, and making 
+educated assumptions while maintaining awareness of potential biases or limitations in the 
+reasoning process. The strength and validity of logical inferences can vary based on the quality  
+and quantity of available clues, the complexity of the subject matter, and the inferrer's expertise,
+making it both a powerful tool for information reconstruction and a process that requires careful 
+scrutiny and validation.
 '''
 class LocalClue(BaseModel):
     '''
@@ -317,6 +342,7 @@ class LocalClue(BaseModel):
         "clue": "This phrase suggests a transition is about to occur. The incorrect form has been shown, and correct form will follow."
       }
     ]
+
     Double check that the timestamp and the quote that you provide exactly correspond to what you found in the transcript.
     For example, if the transcript says:
     "00:05:02
@@ -331,8 +357,9 @@ class LocalClue(BaseModel):
     - quote: "he gave me the glasses"
     '''
     id: str = Field(description='LC1,LC2...')
-    timestamp: str = Field(description='the exact timestamp of the quote. Must be inside the segment. If the timestamp spans multiple phrases in the transcript, the timestamp must be in the middle of the quote.')
-    quote: str = Field(description='the quote from the transcript that was used to create this clue. The quote must be from inside the segment. Its fine if the start or the end of the quote slightly goes out of the segment, but otherwise be very sure that the quote is inside the segment.')
+    quote: str = Field(description='the quote from the transcript that was used to create this clue. The quote must be from inside the segment. Its fine if the start or the end of the quote slightly goes out of the segment, but otherwise be very sure that the quote is inside the segment. VERY IMPORTANT: MAKE SURE THAT THE TIMESTAMP DIRECTLY CORRESPONDS TO QUOTE IN THE TRANSCRIPT.')
+    quote_timestamp_start: str = Field(description='the exact start timestamp of the quote. Must be inside the segment. If the timestamp spans multiple phrases in the transcript, the timestamp must be in the middle of the quote. VERY IMPORTANT: MAKE SURE THAT THE TIMESTAMP DIRECTLY CORRESPONDS TO QUOTE IN THE TRANSCRIPT.')
+    quote_timestamp_end: str = Field(description='the exact end timestamp of the quote. Must be inside the segment. If the timestamp spans multiple phrases in the transcript, the timestamp must be in the middle of the quote. VERY IMPORTANT: MAKE SURE THAT THE TIMESTAMP DIRECTLY CORRESPONDS TO QUOTE IN THE TRANSCRIPT.')
     clue: str = Field(description='the main clue data')
     
 class GlobalClue(BaseModel):
@@ -388,8 +415,9 @@ class GlobalClue(BaseModel):
     - quote: "he gave me the glasses"
     '''
     id: str = Field(description='GC1,GC2...')
-    timestamp: str = Field(description='the exact timestamp of the quote. Can be in any part of the video, but make sure that this timestamp corresponds to the timestamp in the transcript of the quote you provide. If the timestamp spans multiple phrases in the transcript, the timestamp must be in the middle of the quote.')
-    quote: str = Field(description='the quote from the transcript that was used to create this clue. Can be in any part of the video, but make sure that this quote corresponds to the timestamp in the transcript that you provide.')
+    quote: str = Field(description='the quote from the transcript that was used to create this clue. Do not improvise. Can anywhere in the video, but make sure that this quote corresponds to the timestamp in the transcript that you provide. VERY IMPORTANT: MAKE SURE THAT THE TIMESTAMP DIRECTLY CORRESPONDS TO QUOTE IN THE TRANSCRIPT.')
+    quote_timestamp_start: str = Field(description='the exact start timestamp of the quote. Can be anywhere in the video, but make sure that this timestamp corresponds to the timestamp in the transcript of the quote you provide. If the timestamp spans multiple phrases in the transcript, the timestamp must be in the middle of the quote. VERY IMPORTANT: MAKE SURE THAT THE TIMESTAMP DIRECTLY CORRESPONDS TO QUOTE IN THE TRANSCRIPT.')
+    quote_timestamp_end: str = Field(description='the exact end timestamp of the quote. Can be anywhere in the video, but make sure that this timestamp corresponds to the timestamp in the transcript of the quote you provide. If the timestamp spans multiple phrases in the transcript, the timestamp must be in the middle of the quote. VERY IMPORTANT: MAKE SURE THAT THE TIMESTAMP DIRECTLY CORRESPONDS TO QUOTE IN THE TRANSCRIPT.')
     clue: str = Field(description='the main clue data.')
     relevance_to_segment: str = Field(description='why do you think this global clue is relevant to the segment you are working with right now.')
 
@@ -457,6 +485,9 @@ def generate_clues(
         # if config.get_anno_path(video_id).exists():
         #     print(f'Annotation {video_id} exists, skipping.')
         #     continue
+        transcript: str = config.get_transcript(video_id)
+        if not transcript:
+            continue
         video_segments = [s for s in segments if s.video_id==video_id]
         if filter_by:
             video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]
@@ -471,10 +502,8 @@ def generate_clues(
             prompt = []
             if human_prompt:
                 prompt.append(human_prompt)
-            prompt.append('Segment information:\n' + '\n'.join([s.to_str(skip=[filter_by] if filter_by else []) for s in video_segments_part]))
-            transcript: str = config.get_transcript(video_id)
-            if transcript:
-                prompt.append('Transcript:\n' + transcript)
+            prompt.append('Segment timecodes and optional additional information:\n' + '\n'.join([s.to_str(skip=[filter_by] if filter_by else []) for s in video_segments_part]))
+            prompt.append('Transcript:\n' + transcript)
             llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(SegmentAnnotation))
             output = ask(llm_input, config)
             if output is None:

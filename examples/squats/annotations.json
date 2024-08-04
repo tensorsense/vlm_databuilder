@@ -1,0 +1,498 @@
+[
+    {
+        "start_timestamp": "00:01:20.250",
+        "end_timestamp": "00:01:25.250",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Correct knee alignment: Not letting the knees go past a specific line.",
+                "wrong": "Potential common mistakes as seen in weight rooms and competitions.",
+                "correction": "Focus on proper knee alignment to prevent potential damage: Ensure your knees do not pass a plumb line drawn from your toes during the squat."
+            }
+        },
+        "video_id": "byxWus7BwfQ",
+        "id": "byxWus7BwfQ_0",
+        "video_path": "byxWus7BwfQ_0.mp4"
+    },
+    {
+        "start_timestamp": "00:01:30.250",
+        "end_timestamp": "00:01:32.750",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": null,
+                "wrong": "Improper knee alignment potentially leading to knee damage.",
+                "correction": "Practice with lighter weights or a dummy barbell to master form and avoid knee damage. Focus on keeping knees aligned above the toes."
+            }
+        },
+        "video_id": "byxWus7BwfQ",
+        "id": "byxWus7BwfQ_1",
+        "video_path": "byxWus7BwfQ_1.mp4"
+    },
+    {
+        "start_timestamp": "00:02:10.250",
+        "end_timestamp": "00:02:13.250",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Proper depth achieved: Femur parallel to the ground.",
+                "wrong": "Femur should not dip below parallel.",
+                "correction": "Maintain the squat depth where your femur remains parallel to the ground. Avoid going too deep which causes the femur to dip below parallel."
+            }
+        },
+        "video_id": "byxWus7BwfQ",
+        "id": "byxWus7BwfQ_2",
+        "video_path": "byxWus7BwfQ_2.mp4"
+    },
+    {
+        "start_timestamp": "00:02:15.750",
+        "end_timestamp": "00:02:19.250",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": null,
+                "wrong": "Back rounding out during squats: A major issue that can lead to injury.",
+                "correction": "Focus on maintaining a proper arch in the back throughout the squat. Ensure your chest is up and your spine is neutral to prevent rounding."
+            }
+        },
+        "video_id": "byxWus7BwfQ",
+        "id": "byxWus7BwfQ_3",
+        "video_path": "byxWus7BwfQ_3.mp4"
+    },
+    {
+        "start_timestamp": "00:00:00.250",
+        "end_timestamp": "00:00:05.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": null,
+                "wrong": "Knees caving in: This can stress the knees and reduce effectiveness",
+                "correction": "Focus on rotating the hips outwards to keep knees aligned with toes and reduce knee stress."
+            }
+        },
+        "video_id": "KvRK5Owqzgw",
+        "id": "KvRK5Owqzgw_0",
+        "video_path": "KvRK5Owqzgw_0.mp4"
+    },
+    {
+        "start_timestamp": "00:00:21.750",
+        "end_timestamp": "00:00:25.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Rotating hips outward: Helps to keep the knees aligned with toes.",
+                "wrong": "Knees alignment: Slight inward caving can still be observed, increasing knee stress.",
+                "correction": "Focus on maintaining strong outward hip rotation to keep knees perfectly in line with toes."
+            }
+        },
+        "video_id": "KvRK5Owqzgw",
+        "id": "KvRK5Owqzgw_1",
+        "video_path": "KvRK5Owqzgw_1.mp4"
+    },
+    {
+        "start_timestamp": "00:00:32.250",
+        "end_timestamp": "00:00:41.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Knees alignment is mostly correct, preventing inward knee caving.",
+                "wrong": "Slight deviation in load distribution, increasing knee pressure.",
+                "correction": "Ensure even load distribution throughout the squat by continuously monitoring knee and hip positioning."
+            }
+        },
+        "video_id": "KvRK5Owqzgw",
+        "id": "KvRK5Owqzgw_2",
+        "video_path": "KvRK5Owqzgw_2.mp4"
+    },
+    {
+        "start_timestamp": "00:00:35.750",
+        "end_timestamp": "00:00:52.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Arms straight forward, feet shoulder-width apart, pressing off the floor standing up nice and tall.",
+                "wrong": "No detailed feedback on any particular mistakes but implies a need for foundational guidance.",
+                "correction": "For beginners, using a chair as support is recommended to maintain correct form until comfortable."
+            }
+        },
+        "video_id": "EbOPpWi4L8s",
+        "id": "EbOPpWi4L8s_0",
+        "video_path": "EbOPpWi4L8s_0.mp4"
+    },
+    {
+        "start_timestamp": "00:01:01.250",
+        "end_timestamp": "00:01:17.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Feet shoulder-width apart, pushing the butt back, slight arch in the back, aiming for thighs parallel to the floor, knees not going forward of toes.",
+                "wrong": "No specific errors mentioned, but the focus suggests potential common mistakes are being cautioned against.",
+                "correction": "Ensure knees do not move forward past toes, maintain slight arch in the back, and aim for thighs to be parallel to the floor."
+            }
+        },
+        "video_id": "EbOPpWi4L8s",
+        "id": "EbOPpWi4L8s_1",
+        "video_path": "EbOPpWi4L8s_1.mp4"
+    },
+    {
+        "start_timestamp": "00:00:17.250",
+        "end_timestamp": "00:00:42.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "The person is instructed to shift weight to the ball of their feet, bend knees to 90 degrees, look straight ahead, and maintain proper posture throughout the squat motion. The benefits are explained, emphasizing quadriceps, glutes, and overall posture strengthening.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "xqvCmoLULNY",
+        "id": "xqvCmoLULNY_0",
+        "video_path": "xqvCmoLULNY_0.mp4"
+    },
+    {
+        "start_timestamp": "00:00:09.250",
+        "end_timestamp": "00:00:21.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Emphasis on the natural function and design of the squat position, suggesting a holistic approach.",
+                "wrong": "Misconception that squat is just an up-and-down exercise: Limits the understanding of the squat's full range of benefits and proper technique.",
+                "correction": "Focus on the squat as a functional movement that involves more than just moving up and down. Think about engaging multiple muscle groups and maintaining proper form throughout."
+            }
+        },
+        "video_id": "IB_icWRzi4E",
+        "id": "IB_icWRzi4E_0",
+        "video_path": "IB_icWRzi4E_0.mp4"
+    },
+    {
+        "start_timestamp": "00:00:34.250",
+        "end_timestamp": "00:00:41.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": "Understanding that regaining the proper squat position is important.",
+                "wrong": "Sitting up on toes: This indicates a lack of ankle mobility and improper weight distribution.",
+                "correction": "Use aids like yoga blocks or books to help achieve proper form. Gradually work your way down to squatting flat on the floor to improve ankle mobility and balance."
+            }
+        },
+        "video_id": "IB_icWRzi4E",
+        "id": "IB_icWRzi4E_1",
+        "video_path": "IB_icWRzi4E_1.mp4"
+    },
+    {
+        "start_timestamp": "00:02:18.750",
+        "end_timestamp": "00:02:26.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Recommending daily practice to regain squat ability, emphasizing consistency.",
+                "wrong": "Assuming everyone can easily regain natural squat posture without aids.",
+                "correction": "Encourage the use of aids like yoga blocks or books to assist in regaining proper form and gradually transition to squatting without them."
+            }
+        },
+        "video_id": "IB_icWRzi4E",
+        "id": "IB_icWRzi4E_2",
+        "video_path": "IB_icWRzi4E_2.mp4"
+    },
+    {
+        "start_timestamp": "00:00:24.250",
+        "end_timestamp": "00:00:37.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Correct instructions include sitting back, keeping the chest and head up, and ensuring toes can wiggle.",
+                "wrong": "Knees going over toes: This puts a lot of stress on the knee joint.",
+                "correction": "Focus on sitting back, keeping the chest and head up, and ensuring that you can wiggle your toes to maintain proper weight distribution."
+            }
+        },
+        "video_id": "KJ8xAMJdZjQ",
+        "id": "KJ8xAMJdZjQ_0",
+        "video_path": "KJ8xAMJdZjQ_0.mp4"
+    },
+    {
+        "start_timestamp": "00:00:45.250",
+        "end_timestamp": "00:00:48.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": null,
+                "wrong": "Knees going over toes: This puts a lot of stress on the knee joint.",
+                "correction": "Ensure that your knees do not extend past your toes by sitting back more during the squat."
+            }
+        },
+        "video_id": "KJ8xAMJdZjQ",
+        "id": "KJ8xAMJdZjQ_1",
+        "video_path": "KJ8xAMJdZjQ_1.mp4"
+    },
+    {
+        "start_timestamp": "00:00:54.250",
+        "end_timestamp": "00:00:57.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "Proper squat form includes sitting back, keeping the chest and head up, and ensuring toes can wiggle.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "KJ8xAMJdZjQ",
+        "id": "KJ8xAMJdZjQ_2",
+        "video_path": "KJ8xAMJdZjQ_2.mp4"
+    },
+    {
+        "start_timestamp": "00:04:14.750",
+        "end_timestamp": "00:04:22.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "Heels firmly planted on the ground, moderate forward knee travel with weight off the toes, correct weight distribution centered over the middle of the foot, knees pointing in the same direction as the toes.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "dCHLUtf--pg",
+        "id": "dCHLUtf--pg_0",
+        "video_path": "dCHLUtf--pg_0.mp4"
+    },
+    {
+        "start_timestamp": "00:04:04.250",
+        "end_timestamp": "00:05:45.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Depth and stance: The segment emphasizes proper form regarding reaching parallel depth and adjusting stance for comfort and effectiveness.",
+                "wrong": "Upper body falling forward, heels lifting, and lower back rounding.",
+                "correction": "For the upper body falling forward, focus on keeping the chest up and maintaining a neutral spine. For heels lifting, ensure your weight is on your heels and try elevating them onto weight plates if ankle mobility is an issue. For lower back rounding, engage your core and avoid going too deep if mobility is limited."
+            }
+        },
+        "video_id": "gcNh17Ckjgg",
+        "id": "gcNh17Ckjgg_0",
+        "video_path": "gcNh17Ckjgg_0.mp4"
+    },
+    {
+        "start_timestamp": "00:06:08.250",
+        "end_timestamp": "00:07:07.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Proper ascent techniques including rising chest and hips at the same rate, proper knee alignment, glute engagement, and correct breathing technique.",
+                "wrong": "Hips rising faster than the chest, which puts pressure on the lower back.",
+                "correction": "To fix hips rising faster than the chest, focus on driving the chest and hips up at the same rate by pushing the floor away and driving your traps up against the bar. Engage your core throughout the movement to maintain stability."
+            }
+        },
+        "video_id": "gcNh17Ckjgg",
+        "id": "gcNh17Ckjgg_1",
+        "video_path": "gcNh17Ckjgg_1.mp4"
+    },
+    {
+        "start_timestamp": "00:54:47.250",
+        "end_timestamp": "00:56:44.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "For high bar squats: The lifter stays upright, which engages the quadriceps effectively. For low bar squats: The hips are pushed back, and the head is kept neutral, allowing for better balance and increased muscle engagement.",
+                "wrong": "For high bar squats: The ankle angle is too severe, leading to potential instability. For low bar squats: The lifter does not go deep enough, reducing the effectiveness of the squat.",
+                "correction": "For high bar squats: Work on ankle mobility exercises to improve stability. For low bar squats: Focus on maintaining depth to ensure full engagement of muscles."
+            }
+        },
+        "video_id": "3qkgrJNB6kA",
+        "id": "3qkgrJNB6kA_0",
+        "video_path": "3qkgrJNB6kA_0.mp4"
+    },
+    {
+        "start_timestamp": "00:02:23.250",
+        "end_timestamp": "00:02:39.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Counting and maintaining a rhythm: The person is counting in sync with each squat jack, suggesting a good pace and rhythm.",
+                "wrong": "No direct feedback about the squats posture is provided.",
+                "correction": null
+            }
+        },
+        "video_id": "_uZLFUnKSaM",
+        "id": "_uZLFUnKSaM_0",
+        "video_path": "_uZLFUnKSaM_0.mp4"
+    },
+    {
+        "start_timestamp": "00:07:36.250",
+        "end_timestamp": "00:07:52.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "Maintaining a steady pace and rhythm: The person's counting suggests a consistent and proper form during squat jacks.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "_uZLFUnKSaM",
+        "id": "_uZLFUnKSaM_1",
+        "video_path": "_uZLFUnKSaM_1.mp4"
+    },
+    {
+        "start_timestamp": "00:10:03.250",
+        "end_timestamp": "00:10:29.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Maintaining a steady rhythm: The counting pattern indicates that the person is keeping a good pace.",
+                "wrong": "No direct feedback about the squats posture is provided.",
+                "correction": null
+            }
+        },
+        "video_id": "_uZLFUnKSaM",
+        "id": "_uZLFUnKSaM_2",
+        "video_path": "_uZLFUnKSaM_2.mp4"
+    },
+    {
+        "start_timestamp": "00:00:24.750",
+        "end_timestamp": "00:01:04.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Initial movement: Pushing the bottom back and towards the ground is correct. Lowering the body: Bending knees and hips properly. Balance: Using arms for counterbalance.",
+                "wrong": "Knees positioning: Potential risk of knees going past the feet. Ankle support: Might need extra support under heels for those with ankle problems.",
+                "correction": "Knees: Ensure knees do not go past the toes to avoid injury. Ankle support: Place a small object under the heels if there are ankle issues."
+            }
+        },
+        "video_id": "xuf1czJv-XI",
+        "id": "xuf1czJv-XI_0",
+        "video_path": "xuf1czJv-XI_0.mp4"
+    },
+    {
+        "start_timestamp": "00:00:00.250",
+        "end_timestamp": "00:00:03.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Upright body posture: Emphasizing keeping your body upright during the squat.",
+                "wrong": "Foot positioning: Feet should be shoulder-width apart or slightly wider.",
+                "correction": "Focus on positioning your feet correctly to ensure stability and proper form."
+            }
+        },
+        "video_id": "4KmY44Xsg2w",
+        "id": "4KmY44Xsg2w_0",
+        "video_path": "4KmY44Xsg2w_0.mp4"
+    },
+    {
+        "start_timestamp": "00:01:10.750",
+        "end_timestamp": "00:01:15.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Maintaining upright posture: The emphasis on keeping the body upright is correct.",
+                "wrong": "Even pressure during the squat: Ensuring good even pressure throughout the movement.",
+                "correction": "Work on maintaining even pressure from your feet through your core to the upper body during the squat."
+            }
+        },
+        "video_id": "4KmY44Xsg2w",
+        "id": "4KmY44Xsg2w_1",
+        "video_path": "4KmY44Xsg2w_1.mp4"
+    },
+    {
+        "start_timestamp": "00:01:41.750",
+        "end_timestamp": "00:02:15.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Encouragement and mobility: Emphasizing the importance of continuing mobility work and aiming for better technique over time.",
+                "wrong": "Depth and knee positioning: Aiming to drop the pelvis below knee level and getting the knees out.",
+                "correction": "Use aids if necessary, such as holding onto a chair, to help achieve the correct depth and knee positioning."
+            }
+        },
+        "video_id": "4KmY44Xsg2w",
+        "id": "4KmY44Xsg2w_2",
+        "video_path": "4KmY44Xsg2w_2.mp4"
+    },
+    {
+        "start_timestamp": "00:02:25.750",
+        "end_timestamp": "00:02:45.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Progressive overload: Adding weight to increase difficulty and improve strength is highlighted.",
+                "wrong": "Strength and depth progression: Strength and depth should be consistently practiced.",
+                "correction": "Ensure consistent practice and carefully add weight to gradually increase difficulty and enhance squat depth and strength."
+            }
+        },
+        "video_id": "4KmY44Xsg2w",
+        "id": "4KmY44Xsg2w_3",
+        "video_path": "4KmY44Xsg2w_3.mp4"
+    },
+    {
+        "start_timestamp": "00:00:23.250",
+        "end_timestamp": "00:04:18.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "The person demonstrates various squats - full range of motion, double pulse, jump squats, sumo squats, and squat walks, maintaining proper form throughout.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "LSj280OEKUI",
+        "id": "LSj280OEKUI_0",
+        "video_path": "LSj280OEKUI_0.mp4"
+    },
+    {
+        "start_timestamp": "00:04:26.250",
+        "end_timestamp": "00:09:45.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "The person starts with regular squats, sumo squats, twists, and squat jumps, focusing on proper weight distribution and maintaining good form.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "LSj280OEKUI",
+        "id": "LSj280OEKUI_1",
+        "video_path": "LSj280OEKUI_1.mp4"
+    },
+    {
+        "start_timestamp": "00:09:57.750",
+        "end_timestamp": "00:10:59.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "right",
+            "squats_feedback": {
+                "right": "The emphasis on completing the final squat jumps with proper form, showcases endurance and a commitment to finishing strong.",
+                "wrong": null,
+                "correction": null
+            }
+        },
+        "video_id": "LSj280OEKUI",
+        "id": "LSj280OEKUI_2",
+        "video_path": "LSj280OEKUI_2.mp4"
+    }
+]
