@@ -1,4 +1,6 @@
 from typing import Optional, Callable
+from datetime import datetime
+
 from tqdm import tqdm
 # from pathlib import Path
 from scenedetect import detect, ContentDetector, AdaptiveDetector # , HashDetector, ThresholdDetector, split_video_ffmpeg
@@ -9,8 +11,6 @@ from transformers import AutoProcessor, AutoModel
 import torch
 from tsmoothie.utils_func import sim_randomwalk
 from tsmoothie.smoother import LowessSmoother
-
-
 
 from .core.config import DatagenConfig
 from .core.chat import ask
@@ -53,7 +53,7 @@ def detect_segments_gpt(
     video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
 
     for video_id in tqdm(set(video_ids) - set(video_ids_parsed)):
-        print(f'{video_id} - starting')
+        print(datetime.now(), f'{video_id} - starting')
         video_path = config.get_video_path(video_id)
         detection_algorithm_factory = detection_algorithm_factory or AdaptiveDetector
         detection_algorithm = detection_algorithm_factory()
@@ -68,19 +68,19 @@ def detect_segments_gpt(
             try:
                 frames_arr = get_frames(video_path.as_posix(), start.frame_num, end.frame_num, frames_per_segment)
             except:
-                print(f'Video {video_id} {seconds_to_ts(start.frame_num/start.framerate)}-{seconds_to_ts(end.frame_num/end.framerate)} video file error, skipping.')
+                print(datetime.now(), f'Video {video_id} {seconds_to_ts(start.frame_num/start.framerate)}-{seconds_to_ts(end.frame_num/end.framerate)} video file error, skipping.')
                 continue
             llm_input = LLMInput(system_prompt='You are given frames from a video and infromation on what to extract from them.', human_prompt=None, _imgs=frames_arr, ntiles=ntiles, output_schema=segment_info_schema)
             segment_info: Optional[BaseModel] = ask(llm_input=llm_input, config=config)
             if segment_info is None:
-                print(f'Video {video_id} {seconds_to_ts(start.frame_num/start.framerate)}-{seconds_to_ts(end.frame_num/end.framerate)} segment not processed, skipping.')
+                print(datetime.now(), f'Video {video_id} {seconds_to_ts(start.frame_num/start.framerate)}-{seconds_to_ts(end.frame_num/end.framerate)} segment not processed, skipping.')
                 continue
             segment = Segment.from_frames(start_frame=start.frame_num, end_frame=end.frame_num, fps=start.framerate, segment_info=segment_info, video_id=video_id, _frames=frames_arr)
             
             # frames.append(frames_arr)
             segments.append(segment) # should frames be optional or not?
         config.save_segments(video_id, segments)
-        print(f'{video_id} - done')
+        print(datetime.now(), f'{video_id} - done')
     
     # return segments, frames
 
@@ -115,7 +115,7 @@ def detect_segments_clip(
 
         video = VideoFileClip(video_path.as_posix())
         ticks = np.arange(1/fps_sampling/2, video.duration, 1/fps_sampling)
-        print(f'{video_id} - starting - {len(ticks)} frames')
+        print(datetime.now(), f'{video_id} - starting - {len(ticks)} frames')
 
         frames = [video.get_frame(s) for s in ticks]
 
@@ -126,7 +126,7 @@ def detect_segments_clip(
 
         probs = []
         for i, frames_batch in enumerate(frames_batched):
-            print(f'{video_id} - batch {i} - starting')
+            print(datetime.now(), f'{video_id} - batch {i} - starting')
             # TODO don't need to calculate text embedding for each batch, but it's a very minor optimization.
             inputs = processor(text=text_prompts, images=frames_batch, padding="max_length", return_tensors="pt").to(device)
 
@@ -137,6 +137,7 @@ def detect_segments_clip(
             probs_batch = torch.sigmoid(logits_per_image).cpu().numpy()
             probs_batch = probs_batch.mean(axis=1)
             probs.append(probs_batch)
+        print(datetime.now(), f'{video_id} - all batches done - detecting segments')
         probs = np.concatenate(probs)
 
         smoother = LowessSmoother(smooth_fraction=smooth_fraction, iterations=1)

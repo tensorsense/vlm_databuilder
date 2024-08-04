@@ -1,5 +1,6 @@
 from typing import Optional
 import json
+from datetime import datetime
 
 from tqdm import tqdm
 from langchain.pydantic_v1 import BaseModel, create_model, Field
@@ -481,9 +482,9 @@ def generate_clues(
 
     outputs = {}
     for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([s.video_id for s in segments])):
-        print(video_id, '- started')
+        print(datetime.now(), video_id, '- started')
         # if config.get_anno_path(video_id).exists():
-        #     print(f'Annotation {video_id} exists, skipping.')
+        #     print(datetime.now(), f'Annotation {video_id} exists, skipping.')
         #     continue
         transcript: str = config.get_transcript(video_id)
         if not transcript:
@@ -498,7 +499,7 @@ def generate_clues(
         else:
             segments_array = video_segments
         for i, video_segments_part in enumerate(segments_array):
-            print(f'{video_id} part {i} - started')
+            print(datetime.now(), f'{video_id} part {i} - started')
             prompt = []
             if human_prompt:
                 prompt.append(human_prompt)
@@ -507,12 +508,12 @@ def generate_clues(
             llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(SegmentAnnotation))
             output = ask(llm_input, config)
             if output is None:
-                print(f'Error while generating annotations for {video_id} part {i}, skipping')
+                print(datetime.now(), f'Error while generating annotations for {video_id} part {i}, skipping')
                 if raise_on_error:
                     raise Exception('exception in gpt call, exiting.')
                 continue
             outputs[video_id].extend(output.segments)
         with open(config.get_clues_path(video_id), 'w') as f:
             json.dump([x.dict() for x in outputs[video_id]], f)
-        print(video_id, '- done')
+        print(datetime.now(), video_id, '- done')
     return outputs

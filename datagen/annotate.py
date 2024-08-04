@@ -1,5 +1,6 @@
 from typing import Optional
 import json
+from datetime import datetime
 
 from tqdm import tqdm
 from langchain.pydantic_v1 import BaseModel
@@ -42,9 +43,9 @@ def generate_annotations(
 
     outputs = {}
     for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([k for k,v in clues.items() if v is not None])):
-        print(video_id, '- started')
+        print(datetime.now(), video_id, '- started')
         # if config.get_anno_path(video_id).exists():
-        #     print(f'Annotation {video_id} exists, skipping.')
+        #     print(datetime.now(), f'Annotation {video_id} exists, skipping.')
         #     continue
         # video_segments = [s for s in segments if s.video_id==video_id]
         # if filter_by:
@@ -65,7 +66,7 @@ def generate_annotations(
             llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(annotation_schema))
             output = ask(llm_input, config)
             if output is None:
-                print(f'Error while generating annotations for {video_id} part {i}, skipping')
+                print(datetime.now(), f'Error while generating annotations for {video_id} part {i}, skipping')
                 if raise_on_error:
                     raise Exception('exception in gpt call, exiting.')
                 continue
@@ -74,8 +75,8 @@ def generate_annotations(
             with open(config.get_anno_path(video_id), 'w') as f:
                 json.dump(output.dict()['segments'], f)
         else:
-            print('output is None, skipping.')
-        print(video_id, '- done')
+            print(datetime.now(), 'output is None, skipping.')
+        print(datetime.now(), video_id, '- done')
 
 def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, annotation_file='annotations.json'):
     annotations = config.get_annotations()
@@ -88,7 +89,7 @@ def aggregate_annotations(config: DatagenConfig, filter_func = lambda x: True, a
         for ann in sorted(video_annotations, key=lambda x: x['start_timestamp']):
             if (video_id not in segments) or not [s for s in segments[video_id] if s.start_timestamp==ann['start_timestamp'] and s.end_timestamp==ann['end_timestamp']]:
                 # segment timestamps do not correspond to a segment and were hallucinated
-                print('skipping', video_id)
+                print(datetime.now(), 'skipping', video_id)
                 continue
             if not filter_func(ann['segment_annotation']):
                 continue

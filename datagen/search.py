@@ -1,8 +1,10 @@
+from datetime import datetime
 from typing import Generator, Literal, Optional
+
 from langchain_core.pydantic_v1 import BaseModel, Field
 from tqdm import tqdm
 import yt_dlp
-import pandas as pd
+# import pandas as pd
 import scrapetube
 
 from .core.chat import ask
@@ -46,7 +48,7 @@ def get_video_ids(
     ids = list(ids)
 
     if only_creative_commons:
-        print('Filtering ids that for creative commons license')
+        print(datetime.now(), 'Filtering ids that for creative commons license')
         ids_cc = []
         for i in tqdm(ids):
             YDL_OPTIONS = {

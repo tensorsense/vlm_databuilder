@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Optional
-import traceback
+# import traceback
+from datetime import datetime
 
 import base64
 import cv2
@@ -64,6 +65,6 @@ def ask(llm_input: LLMInput, config: DatagenConfig):
         out = chain.invoke({})
         return out if llm_input.output_schema else out.content
     except Exception as e:
-        print(e)
+        print(datetime.now(), e)
         # print(traceback.format_exc())
         return None
