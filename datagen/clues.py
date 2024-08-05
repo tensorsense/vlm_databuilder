@@ -263,10 +263,10 @@ even at very limited inputs are usually absolutely right.
 You use deductive and inductive reasoning at the highest possible quality.
 
 #YOUR TODAY'S JOB
-The user needs to learn about what happens in a specific segment of a video file. Your job is to help the user by
-providing clues that would help the user make the right assumption. The user will provide you: 
+The user needs to learn about what happens in a specific segment of a video file. Your job is to help the user by providing clues that would help the user make the right assumption.
+The user will provide you with: 
 1. Instructions about what kind of information the user is trying to obtain.
-2. A list of time codes of the segments in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>".
+2. A list of time codes of the segments in format "<HH:MM:SS.ms>-<HH:MM:SS.ms>". All the provided segment of the video contain what the user is looking for, but other parts of the video might have different content.
 3. A transcript of the *full video* in format of "<HH.MM.SS>\\n<text>"
 
 Your task:
@@ -281,8 +281,11 @@ Your task:
 3. Analyze every segment. Only skip a segment if there is no information about it in the trascript.
 4. For local clues, make sure that the quotes that you provide are located inside the segment. To do this, double check the timestamps from the transcript and the segment.
 5. For all clues, make sure that the quotes exactly correspond to the timestamps that you provide.
-6. Follow the format output.
-7. Be very careful with details. Don't generalize. Always double check your results.
+6. When making clues, try as much as possible to make them describe specifically what is shown in the segment.
+7. Follow the format output.
+8. Be very careful with details. Don't generalize. Always double check your results.
+
+Please, help the user find relevant clues to reconstruct the information they are looking for, for each provided segment.
 
 WHAT IS A CLUE: A *clue*, in the context of reconstructing narratives from damaged data, 
 is a fragment of information extracted from a corrupted or incomplete source that provides 
@@ -292,23 +295,14 @@ the degraded material. The process of identifying and interpreting clues involve
 available data and subjective extrapolation based on domain knowledge, contextual understanding, 
 and logical reasoning.
 
-- LOCAL CLUES: THEY ARE LOCATED VERY CLOSE TO THE SEGMENT YOU ARE WORKING WITH REGARDING TIMESTAMPS
-- GLOBAL CLUES: THEY ARE SCATTERED ACROSS THE ENTIRE TRANSCRIPT
+Here is what the user expects to have from you:
+1. *Local clues* that would help the user undestand how the thing they are looking for happens inside the segment. Local clues for a segment are generated from quotes inside a specific segment.
+2. *Global clues* that would help the user understand how the thing they are looking for happens inside the segment. Global clues for a segment are generated from quotes all around the video, but are very relevant to the specific that they are provided for.
+3. *Logical inferences* that could help the user understand how the thing they are looking for happens inside the segment. Logical inferences for a segment are deducted from local and global clues for this segment.
 
-LOGICAL INFERENCES: *Logical inference*, in the process of reconstructing narratives 
-or information from damaged data, is the act of deriving plausible conclusions 
-or filling in gaps based on available clues and contextual knowledge. This cognitive process 
-involves applying deductive, inductive, or abductive reasoning to extrapolate beyond the explicit 
-information provided by the damaged source. Logical inference relies on a combination of factual 
-understanding, domain expertise, and analytical thinking to form connections between disparate 
-pieces of information and generate coherent hypotheses about the missing or corrupted content. 
-It often necessitates considering multiple possibilities, weighing probabilities, and making 
-educated assumptions while maintaining awareness of potential biases or limitations in the 
-reasoning process. The strength and validity of logical inferences can vary based on the quality  
-and quantity of available clues, the complexity of the subject matter, and the inferrer's expertise,
-making it both a powerful tool for information reconstruction and a process that requires careful 
-scrutiny and validation.
+!!!IT IS EXTREMELY IMPORTANT TO DELIVER ALL THREE THINGS!!!
 '''
+
 class LocalClue(BaseModel):
     '''
         Good local clues examples: [
@@ -502,7 +496,7 @@ def generate_clues(
             print(datetime.now(), f'{video_id} part {i} - started')
             prompt = []
             if human_prompt:
-                prompt.append(human_prompt)
+                prompt.append("User's instructions: " + human_prompt)
             prompt.append('Segment timecodes and optional additional information:\n' + '\n'.join([s.to_str(skip=[filter_by] if filter_by else []) for s in video_segments_part]))
             prompt.append('Transcript:\n' + transcript)
             llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(SegmentAnnotation))
