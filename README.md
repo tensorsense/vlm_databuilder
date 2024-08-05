@@ -20,7 +20,7 @@ In the end you'll have a directory with useful video clips and an annotation fil
     - `OPENAI_API_KEY` for openai
     - `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` for azure
     - `OPENAI_API_VERSION='2023-07-01-preview'`
-- make `config.yaml` file with:
+- set config params in the notebook:
     - `openai.type`: openai/azure
     - `openai.temperature`: the bigger, the more random/creative output will be
     - `openai.deployment`: model for openai / deployment for azure. Needs to be able to do structured output and process images. Tested on gpt4o on azure.
