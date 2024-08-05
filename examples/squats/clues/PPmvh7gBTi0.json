@@ -1,0 +1,121 @@
+[
+    {
+        "start_timestamp": "00:00:00.250",
+        "end_timestamp": "00:00:06.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "if you take all five you have a perfect squat first check bar placement for a high bar squat place the bar on your upper traps this will Target slightly more quads",
+                    "quote_timestamp": "00:00:00.250",
+                    "clue": "The segment begins by addressing the bar placement for a high bar squat, emphasizing that placing the bar on the upper traps will target the quads more."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "first check bar placement for a high bar squat place the bar on your upper traps this will Target slightly more quads for a low bar squat shift the bar Down 2 or 3 in this will Target slightly more glutes and low back",
+                    "quote_timestamp": "00:00:02.000",
+                    "clue": "The segment explains the difference in bar placement between high bar and low bar squats, including their target muscle groups."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "squat checklist if you take all five you have a perfect squat",
+                    "quote_timestamp": "00:00:00",
+                    "clue": "Introduces the five key elements of performing a perfect squat.",
+                    "relevance_to_segment": "This global clue sets the context for why bar placement is important, indicating that correct bar placement is one of the five key elements for a perfect squat."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Importance of Bar Placement",
+                    "details": "The segment's focus on bar placement suggests that the person in the video is likely demonstrating the importance of bar placement in squats. Correct bar placement can significantly affect which muscle groups are targeted during the squat."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:00:09.250",
+        "end_timestamp": "00:00:15.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "efficient walk out don't take too many steps that's just wasted energy instead take one step to clear the rack a second step to match the other foot and a third adjustment step if you need to get them even",
+                    "quote_timestamp": "00:00:11.000",
+                    "clue": "The segment provides a detailed guide on how to perform an efficient walk out for a squat."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "squat checklist if you take all five you have a perfect squat",
+                    "quote_timestamp": "00:00:00",
+                    "clue": "Introduces the five key elements of performing a perfect squat.",
+                    "relevance_to_segment": "This global clue indicates that an efficient walk out is one of the essential elements for performing a perfect squat."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Emphasis on Efficient Walk Out",
+                    "details": "The person in this segment is likely demonstrating the proper technique for walking out with the barbell, highlighting the importance of minimizing wasted energy by taking fewer steps."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:00:17.750",
+        "end_timestamp": "00:00:51.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "narrow and wide stances both work but for most people just outside shoulder width with slightly flared toes is best",
+                    "quote_timestamp": "00:00:26.000",
+                    "clue": "This clue suggests that the individual discusses various stance options and recommends an optimal stance for most people."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "try to break parallel for the best gains but cutting depth a bit shy won't kill your gains for powerlifting you do need to get your hip crease below your knee joint for the lift to count",
+                    "quote_timestamp": "00:00:32.000",
+                    "clue": "Emphasizes the importance of squat depth, especially for powerlifting, where going below parallel is necessary."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "squat shoes and Ankle Mobility drills dropping the weight back can help you get deeper",
+                    "quote_timestamp": "00:00:39.000",
+                    "clue": "Provides tips on how to achieve greater squat depth, such as using squat shoes, performing Ankle Mobility drills, or reducing the weight."
+                },
+                {
+                    "id": "LC4",
+                    "quote": "ideally the bar should travel in a straight line centered over the middle of your foot if it shifts a bit that's okay try to keep it in Balance the best you can",
+                    "quote_timestamp": "00:00:44.000",
+                    "clue": "Describes the ideal bar path during a squat, highlighting the importance of maintaining balance."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "squat checklist if you take all five you have a perfect squat",
+                    "quote_timestamp": "00:00:00",
+                    "clue": "Introduces the five key elements of performing a perfect squat.",
+                    "relevance_to_segment": "This global clue indicates that stance width, squat depth, and bar path are critical components of a perfect squat."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Comprehensive Guide to Squat Technique",
+                    "details": "The person in this segment likely provides a comprehensive guide to performing a proper squat. This includes discussions on stance width, squat depth, and bar path, as well as tips to improve depth through ankle mobility and equipment."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Target Audience",
+                    "details": "The mention of powerlifting rules and general tips for most people suggests that the advice in this segment is intended for a broad audience, from casual gym-goers to aspiring powerlifters."
+                }
+            ]
+        }
+    }
+]

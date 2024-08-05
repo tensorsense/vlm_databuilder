@@ -13,3 +13,8 @@ tqdm
 moviepy
 python-dotenv
 scrapetube
+tsmoothie
+torch
+sentencepiece
+protobuf
+transformers

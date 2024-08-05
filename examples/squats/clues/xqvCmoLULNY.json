@@ -1,0 +1,55 @@
+[
+    {
+        "start_timestamp": "00:00:17.250",
+        "end_timestamp": "00:00:42.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "shift your weight to the ball of your feet and bend your knees get as close to 90 degrees as you can",
+                    "quote_timestamp": "00:00:15",
+                    "clue": "The person is instructed to shift weight to the ball of their feet and bend their knees to 90 degrees, indicating the correct form being described."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "looking straight ahead and from here push back up to the starting position",
+                    "quote_timestamp": "00:00:23",
+                    "clue": "The person is instructed to look straight ahead and push back up to the starting position, emphasizing correct posture and the full motion of the squat."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "this is going to be great for strengthening your thighs or your quadriceps as well as your butt or your glutes",
+                    "quote_timestamp": "00:00:29",
+                    "clue": "Explains the benefits of performing the squat correctly, reinforcing the importance of proper form."
+                },
+                {
+                    "id": "LC4",
+                    "quote": "it's also going to be great to work on your posture that's how to properly perform a squat",
+                    "quote_timestamp": "00:00:37",
+                    "clue": "Reiterates the importance of proper posture throughout the squat movement."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "let's learn how to properly perform a squat",
+                    "quote_timestamp": "00:00:00",
+                    "clue": "Introduction to the video's purpose of teaching proper squat technique.",
+                    "relevance_to_segment": "Sets the context for the entire video, indicating that the focus will be on proper squat form, relevant to the segment's instructions."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Proper Squat Form Demonstration",
+                    "details": "The segment primarily demonstrates how to correctly perform a squat, highlighting key points such as shifting weight to the ball of the feet, bending knees to 90 degrees, maintaining posture, and engaging muscles."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Emphasis on Posture and Muscle Engagement",
+                    "details": "The instructions throughout the segment focus on maintaining proper posture and aiming for 90 degrees knee bend, with an emphasis on strengthening thighs, glutes, and overall posture."
+                }
+            ]
+        }
+    }
+]

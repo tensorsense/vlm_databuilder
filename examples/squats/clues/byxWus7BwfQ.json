@@ -1,0 +1,174 @@
+[
+    {
+        "start_timestamp": "00:01:20.250",
+        "end_timestamp": "00:01:25.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "the knee should not go past this plumb line",
+                    "quote_timestamp_start": "00:01:21",
+                    "quote_timestamp_end": "00:01:23",
+                    "clue": "Indicates a key aspect of proper squat form by not letting the knees go past a specific line."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "and then i see this a lot in the weight room and i've seen it in competition as well",
+                    "quote_timestamp_start": "00:01:23",
+                    "quote_timestamp_end": "00:01:25",
+                    "clue": "Introduces the idea that the following demonstration may show common mistakes seen frequently."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "squatting with a barbell with a barbell is an excellent way for strengthening for not total body but for a great not a great deal of the muscles",
+                    "quote_timestamp_start": "00:00:22",
+                    "quote_timestamp_end": "00:00:25",
+                    "clue": "Emphasizes the importance of squatting with a barbell for muscle strengthening, adding context to why proper form is essential.",
+                    "relevance_to_segment": "Knowing the importance of the squat gives context to why the proper knee alignment (LC1) is emphasized."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "so if i put a straight line here like this we're going to use this for to make sure we're straight his head's touching we're here and the butt's touching we got a little arch right in here that's a healthy arch",
+                    "quote_timestamp_start": "00:01:02",
+                    "quote_timestamp_end": "00:01:10",
+                    "clue": "Describes maintaining a healthy arch in the back as part of proper squat form.",
+                    "relevance_to_segment": "Maintaining a healthy arch supports the importance of an overall proper form which includes the knee alignment mentioned in LC1."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Demonstration of Knee Alignment",
+                    "details": "Based on LC1, it can be inferred that there is a demonstration of how the knee should not go past a specific line during squats. This focuses on preventing potential damage to the knees."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Reference to Common Mistakes",
+                    "details": "LC2 suggests that what is shown in this segment may refer to frequently seen mistakes in squat form, likely related to knee alignment as highlighted in LC1."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:01:30.250",
+        "end_timestamp": "00:01:32.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "damage your knees with doing that and this takes a practice to do this right",
+                    "quote_timestamp_start": "00:01:30",
+                    "quote_timestamp_end": "00:01:32",
+                    "clue": "Emphasizes the importance of practice to avoid knee damage from improper form."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "and if you do it properly it helps strengthen the back as well all these rolls",
+                    "quote_timestamp_start": "00:00:34",
+                    "quote_timestamp_end": "00:00:36",
+                    "clue": "Highlights the benefits of proper squat form on strengthening the back.",
+                    "relevance_to_segment": "Aligns with the importance of practicing to avoid knee damage (LC1). Strengthening the back is part of the comprehensive benefits of doing squats properly."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "this takes a practice to do this right you're gonna practice it with a dummy barbell like this or an empty barbell",
+                    "quote_timestamp_start": "00:01:31",
+                    "quote_timestamp_end": "00:01:35",
+                    "clue": "Stresses the necessity of practicing with lighter or simulated weights to avoid injury and master the form.",
+                    "relevance_to_segment": "Corroborates the focus on practice in LC1 to ensure proper squat form and prevent knee damage."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Practice for Proper Form",
+                    "details": "LC1 implies that a significant takeaway from this segment is the necessity of proper practice for preventing knee damage, which is reiterated by GC2 stressing the use of lighter weights initially."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:02:10.250",
+        "end_timestamp": "00:02:13.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "but you don't want to go if you put a line with the femur this should go parallel but not dip down",
+                    "quote_timestamp_start": "00:02:10",
+                    "quote_timestamp_end": "00:02:13",
+                    "clue": "Mentions that the femur should be parallel when squatting, not dipping below parallel."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "and you got a little meat there a lot of times there'll be a little cushion on that bar",
+                    "quote_timestamp_start": "00:00:47",
+                    "quote_timestamp_end": "00:00:49",
+                    "clue": "Discusses how sometimes a cushion is used on the bar for comfort.",
+                    "relevance_to_segment": "This earlier quote offers insight into mitigating discomfort, which might be related to the correct positioning of the femur to avoid strain and injury."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "right yeah back here at the shoulder",
+                    "quote_timestamp_start": "00:00:46",
+                    "quote_timestamp_end": "00:00:48",
+                    "clue": "Advice on bar positioning at the shoulders, avoiding neck strain.",
+                    "relevance_to_segment": "This quote about bar positioning complements the advice on the correct femur alignment (LC1), as both are tied to preventing improper squat form and injury."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Proper Depth Demonstration",
+                    "details": "LC1 suggests that the segment includes a demonstration of how to achieve proper squat depth where the femur is parallel and not dipping below, indicating correct technique."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:02:15.750",
+        "end_timestamp": "00:02:19.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "your background's out there's no way that you can stop your back from not rounding out which is a problem",
+                    "quote_timestamp_start": "00:02:17",
+                    "quote_timestamp_end": "00:02:19",
+                    "clue": "Highlights that a major issue in squats is preventing the back from rounding out, which can lead to injury."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "what's going on with the back when the arch of the left arch the back of the little angle there so if i put a straight line here like this we're going to use this for to make sure we're straight",
+                    "quote_timestamp_start": "00:00:56",
+                    "quote_timestamp_end": "00:01:00",
+                    "clue": "Details the importance of maintaining a proper arch in the back during squats to ensure correct form.",
+                    "relevance_to_segment": "This earlier mention of maintaining a proper back arch underscores the critical point in LC1 about preventing the back from rounding out."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "make sure we're straight his head's touching we're here and the butt's touching we got a little arch right in here that's a healthy arch",
+                    "quote_timestamp_start": "00:01:07",
+                    "quote_timestamp_end": "00:01:10",
+                    "clue": "Reinforces keeping a healthy arch in the back as a crucial aspect of squat form.",
+                    "relevance_to_segment": "Directly aligns with LC1, emphasizing that proper back alignment and avoiding rounding is critical to prevent injuries during squats."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Focus on Back Alignment",
+                    "details": "LC1 indicates that this segment emphasizes the necessity of maintaining proper back alignment to avoid rounding, crucial for preventing injury during squats as echoed by GC1 and GC2."
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,230 @@
+[
+    {
+        "start_timestamp": "00:00:23.250",
+        "end_timestamp": "00:04:18.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "let's go all the way down and up",
+                    "quote_timestamp": "00:00:30",
+                    "clue": "Indicates that the person is performing full range of motion squats correctly."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "double pulse squat so we're coming down pulse and up",
+                    "quote_timestamp": "00:00:50",
+                    "clue": "The inclusion of double pulse squats suggests the person is adding variations to increase difficulty."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "nice work all right number three we're doing four jumps feet are going front and back",
+                    "quote_timestamp": "00:01:17",
+                    "clue": "The transition to jump squats shows an advanced level of squat variation, focusing on power and agility."
+                },
+                {
+                    "id": "LC4",
+                    "quote": "sumo squats with a rise down and up here we go for ten",
+                    "quote_timestamp": "00:01:58",
+                    "clue": "The person is performing sumo squats with a rise, working on a different muscle group and emphasizing the range of motion."
+                },
+                {
+                    "id": "LC5",
+                    "quote": "next up we're doing a squat walk out to the side and up",
+                    "quote_timestamp": "00:02:22",
+                    "clue": "The squat walk indicates a variation targeting stability and lateral movement."
+                },
+                {
+                    "id": "LC6",
+                    "quote": "coming down twisting squeezing that core",
+                    "quote_timestamp": "00:02:59",
+                    "clue": "The twist and core squeeze in the squat demonstrates a combination of leg and core workout emphasizing obliques."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "make sure you have some space around you",
+                    "quote_timestamp": "00:00:16",
+                    "clue": "The requirement for space indicates that various forms of squats (such as walking or jumping) will be performed in the video, including possibly in this segment.",
+                    "relevance_to_segment": "The person needs space to perform diverse squat variations mentioned in this segment."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "today we have 10 different variations of squats",
+                    "quote_timestamp": "00:00:05",
+                    "clue": "The video is focused on a variety of squat techniques which will be demonstrated.",
+                    "relevance_to_segment": "This context explains the multiple variations seen in this segment, emphasizing a comprehensive workout."
+                },
+                {
+                    "id": "GC3",
+                    "quote": "if you can't keep up with my pace that's totally okay you can go at your own pace",
+                    "quote_timestamp": "00:05:33",
+                    "clue": "The instructor encourages going at one’s own pace for safety and personal ability considerations.",
+                    "relevance_to_segment": "This hints that the segment is suitable for various fitness levels, despite showing advanced moves."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Showcasing full range and variations",
+                    "details": "The person performs squats with full range of motion and introduces multiple variations such as double pulse, sumo squats, and squat walks. This indicates the segment showcases a variety of squat techniques meant to work different muscle groups and body parts."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Emphasis on Core and Stability",
+                    "details": "The use of twist squats and squat walks suggest that apart from leg muscles, there is a significant emphasis on engaging the core and enhancing stability, indicating a well-rounded approach to squats."
+                },
+                {
+                    "id": "LI3",
+                    "description": "Combination of Muscle Endurance and Power",
+                    "details": "The inclusion of jump squats indicates that the person is also focusing on building explosive power and muscle endurance."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:04:26.250",
+        "end_timestamp": "00:09:45.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "we're getting ready to go into round number two starting off with regular squats",
+                    "quote_timestamp": "00:05:48",
+                    "clue": "The person is starting the second round with regular squats, which means they emphasize consistent practice of proper form."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "sumo squats with a rise stretch those legs",
+                    "quote_timestamp": "00:07:33",
+                    "clue": "Highlighting sumo squats with a rise, indicating a focus on hip flexibility and leg muscle engagement."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "you're bending and you're twisting and you're really squeezing that core squeezing this glute and stretching this leg",
+                    "quote_timestamp": "00:08:22",
+                    "clue": "Shows performing squats with twists, emphasizing core strength and glute activation."
+                },
+                {
+                    "id": "LC4",
+                    "quote": "lean into this heel",
+                    "quote_timestamp": "00:09:00",
+                    "clue": "The instruction to lean into the heel while performing indicates proper weight distribution which is crucial for good form during squats."
+                },
+                {
+                    "id": "LC5",
+                    "quote": "last 10 squats but they are squat jumps",
+                    "quote_timestamp": "00:10:24",
+                    "clue": "The inclusion of squat jumps at the end shows a focus on explosive strength and endurance."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "so today we have 10 different variations of squats",
+                    "quote_timestamp": "00:00:07",
+                    "clue": "The segment will demonstrate a variety of squat techniques.",
+                    "relevance_to_segment": "This tells us that various squat forms are likely to be included in this segment, providing a mix of exercises."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "if you can't keep up with my pace that's totally okay you can go at your own pace",
+                    "quote_timestamp": "00:05:34",
+                    "clue": "Encourages viewers to proceed at their own pace for safety and personal comfort.",
+                    "relevance_to_segment": "This suggests the segment, despite including potentially challenging variations, is suitable for all fitness levels."
+                },
+                {
+                    "id": "GC3",
+                    "quote": "today i'm going to lead you through a 200 rep squat challenge",
+                    "quote_timestamp": "00:00:03",
+                    "clue": "The video is a comprehensive and intensive squat workout.",
+                    "relevance_to_segment": "Sets the context for the intensity and structure of the exercises in this segment."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Reinforcement of Proper Form and Variation",
+                    "details": "The segment reiterates proper squat form through regular squats and introduces variety with sumo squats and twists, emphasizing full-body engagement."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Focus on Endurance and Strength",
+                    "details": "Including squat jumps towards the end indicates a focus on enhancing muscular endurance and explosive strength."
+                },
+                {
+                    "id": "LI3",
+                    "description": "Attention to Proper Weight Distribution",
+                    "details": "Instructions to lean into the heel suggest ongoing emphasis on correct weight distribution and balance throughout the squats, ensuring proper technique and safety."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:09:57.750",
+        "end_timestamp": "00:10:59.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "last 10 squats but they are squat jumps",
+                    "quote_timestamp": "00:10:24",
+                    "clue": "The person finishes with squat jumps, indicating a push for final strength and endurance."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "as long as it takes you to do 10 squat jumps you are going to do them",
+                    "quote_timestamp": "00:10:30",
+                    "clue": "The emphasis on completing the reps, regardless of time, stresses endurance and determination."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "that is 200 squats you did it congratulations",
+                    "quote_timestamp": "00:10:54",
+                    "clue": "Completion of 200 squats underlines the dedication and extensive workout session performed."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "we have 10 different variations of squats",
+                    "quote_timestamp": "00:00:06",
+                    "clue": "Mentions a variety of squat techniques during the workout.",
+                    "relevance_to_segment": "Highlights the multiple variations endured to reach the 200 squats, showing the intensity and diversity of the workout climax."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "if you can't keep up with my pace that's totally okay you can go at your own pace",
+                    "quote_timestamp": "00:05:35",
+                    "clue": "Flexibility in pacing for all fitness levels.",
+                    "relevance_to_segment": "Justifies the focus on completing the jumps at one's own pace, emphasizing inclusivity."
+                },
+                {
+                    "id": "GC3",
+                    "quote": "make sure you have some space around you",
+                    "quote_timestamp": "00:00:15",
+                    "clue": "Need for ample space suggests dynamic movements like jumps.",
+                    "relevance_to_segment": "Explains the need for appropriate space as the person executes jumps."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Emphasis on Final Strength and Endurance",
+                    "details": "The person finishes with squat jumps to push for maximum strength and endurance, culminating the workout on a high note."
+                },
+                {
+                    "id": "LI2",
+                    "description": "Encouragement of Perseverance",
+                    "details": "The segment’s focus on completing the jumps, regardless of time, highlights encouragement and perseverance, ensuring that form and effort are maintained until the end."
+                },
+                {
+                    "id": "LI3",
+                    "description": "Completion of an Intensive Workout",
+                    "details": "Reaching the 200th squat signifies the end of an intense and varied workout routine, indicating the person’s commitment and physical capability."
+                }
+            ]
+        }
+    }
+]

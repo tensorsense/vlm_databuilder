@@ -1,0 +1,23 @@
+[
+    {
+        "end_timestamp": "00:00:06.250",
+        "fps": 30.0,
+        "segment_info": null,
+        "start_timestamp": "00:00:00.250",
+        "video_id": "PPmvh7gBTi0"
+    },
+    {
+        "end_timestamp": "00:00:15.750",
+        "fps": 30.0,
+        "segment_info": null,
+        "start_timestamp": "00:00:09.250",
+        "video_id": "PPmvh7gBTi0"
+    },
+    {
+        "end_timestamp": "00:00:51.750",
+        "fps": 30.0,
+        "segment_info": null,
+        "start_timestamp": "00:00:17.750",
+        "video_id": "PPmvh7gBTi0"
+    }
+]

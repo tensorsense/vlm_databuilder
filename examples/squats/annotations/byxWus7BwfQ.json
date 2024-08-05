@@ -1,0 +1,54 @@
+[
+    {
+        "start_timestamp": "00:01:20.250",
+        "end_timestamp": "00:01:25.250",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Correct knee alignment: Not letting the knees go past a specific line.",
+                "wrong": "Potential common mistakes as seen in weight rooms and competitions.",
+                "correction": "Focus on proper knee alignment to prevent potential damage: Ensure your knees do not pass a plumb line drawn from your toes during the squat."
+            }
+        }
+    },
+    {
+        "start_timestamp": "00:01:30.250",
+        "end_timestamp": "00:01:32.750",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": null,
+                "wrong": "Improper knee alignment potentially leading to knee damage.",
+                "correction": "Practice with lighter weights or a dummy barbell to master form and avoid knee damage. Focus on keeping knees aligned above the toes."
+            }
+        }
+    },
+    {
+        "start_timestamp": "00:02:10.250",
+        "end_timestamp": "00:02:13.250",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Proper depth achieved: Femur parallel to the ground.",
+                "wrong": "Femur should not dip below parallel.",
+                "correction": "Maintain the squat depth where your femur remains parallel to the ground. Avoid going too deep which causes the femur to dip below parallel."
+            }
+        }
+    },
+    {
+        "start_timestamp": "00:02:15.750",
+        "end_timestamp": "00:02:19.250",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": null,
+                "wrong": "Back rounding out during squats: A major issue that can lead to injury.",
+                "correction": "Focus on maintaining a proper arch in the back throughout the squat. Ensure your chest is up and your spine is neutral to prevent rounding."
+            }
+        }
+    }
+]

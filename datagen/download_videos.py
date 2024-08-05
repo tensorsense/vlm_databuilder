@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import yt_dlp
 
 from .core.config import DatagenConfig
@@ -35,8 +37,8 @@ def download_videos(ids, config: DatagenConfig, yt_dlp_opts={}):
             try:
                 ydl.download(f'https://www.youtube.com/watch?v={id}')
             except Exception as e:
-                print(f'Error at video {id}, skipping')
-                print(e)
+                print(datetime.now(), f'Error at video {id}, skipping')
+                print(datetime.now(), e)
 
     for sub_path in config.get_subs():
         if '.' in sub_path.stem:

@@ -40,6 +40,7 @@ class DatagenConfig(BaseModel):
         self.segment_dir.mkdir(parents=True, exist_ok=True)
         self.clip_dir.mkdir(parents=True, exist_ok=True)
         self.anno_dir.mkdir(parents=True, exist_ok=True)
+        self.clues_dir.mkdir(parents=True, exist_ok=True)
         
 
     @property
@@ -85,6 +86,10 @@ class DatagenConfig(BaseModel):
     def anno_dir(self):
         return self.data_dir / 'annotations'
     
+    @property
+    def clues_dir(self):
+        return self.data_dir / 'clues'
+    
     def dump(self, obj, path: str|Path, overwrite=True):
         if type(path) is str:
             path = Path(path)
@@ -110,7 +115,7 @@ class DatagenConfig(BaseModel):
         return self.sub_dir / f'{video_id}.vtt'
 
     def get_subs(self) -> list[Path]:
-        return [v for v in self.sub_dir.iterdir() if v.suffix=='.vtt']
+        return [v for v in self.sub_dir.iterdir() if v.suffix.endswith('.vtt')]
 
     def get_transcript(self, video_id: str) -> str:
         if not self.get_transcript_path(video_id).exists():
@@ -123,6 +128,20 @@ class DatagenConfig(BaseModel):
     
     def get_segment_path(self, video_id: str):
         return self.segment_dir / f'{video_id}.json'
+
+    def get_clues_path(self, video_id: str):
+        return self.clues_dir / f'{video_id}.json'
+
+    def get_clues(self, video_ids: list[str]):
+        clues = {}
+        for video_id in video_ids:
+            p = self.get_clues_path(video_id)
+            if p.exists():
+                with open(p) as f:
+                    clues[video_id] = json.load(f)
+            else:
+                clues[video_id] = None
+        return clues
 
     def save_segments(self, video_id: str, segments: list[Segment]):
         with open(self.get_segment_path(video_id), 'w') as f:
@@ -139,6 +158,7 @@ class DatagenConfig(BaseModel):
                 segments.extend(video_segments)
         return segments
     
+
     def get_anno_path(self, video_id: str):
         return self.anno_dir / f'{video_id}.json'
     

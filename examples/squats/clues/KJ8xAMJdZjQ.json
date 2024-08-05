@@ -1,0 +1,154 @@
+[
+    {
+        "start_timestamp": "00:00:00.750",
+        "end_timestamp": "00:00:04.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "hi guys this is dr raz the physical",
+                    "quote_timestamp": "00:00:04",
+                    "clue": "This phrase introduces Dr. Raz, the physical therapist, establishing him as the expert presenter of the video."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "one of those exercises is squats when you're doing squats you want to make sure you have proper form",
+                    "quote_timestamp": "00:00:15",
+                    "clue": "Emphasizes the importance of proper squat form.",
+                    "relevance_to_segment": "This statement sets the foundation for the demonstration in the segment, aligning with the goal of showing correct squat form."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Introduction to Squats",
+                    "details": "Given that Dr. Raz introduces himself in this segment, it's likely setting the stage for the entire tutorial. This segment is not focused on performing squats but rather on presenting the expert who will guide through the exercises."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:00:24.250",
+        "end_timestamp": "00:00:37.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "looks like this",
+                    "quote_timestamp": "00:00:46",
+                    "clue": "This phrase seems out of context without additional information but strongly implies an ongoing demonstration of the squat technique."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "as you can see my knees are going over my toes and that puts a lot of stress on the knee joint",
+                    "quote_timestamp": "00:00:48",
+                    "clue": "This explains a common mistake in squats: knees going over the toes, causing stress on the knee joints."
+                },
+                {
+                    "id": "LC3",
+                    "quote": "you want to avoid that and make sure you're sitting back chest up head up and wiggle your toes",
+                    "quote_timestamp": "00:00:53",
+                    "clue": "Provides corrective instructions for proper squat form, emphasizing sitting back, keeping the chest and head up, and ensuring toes can wiggle."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "you never want your knees to go over your toes",
+                    "quote_timestamp": "00:00:25",
+                    "clue": "Reiterates the critical point about knee positioning during squats.",
+                    "relevance_to_segment": "This directly relates to the mistake and correction demonstrated in this segment, reinforcing the teaching on proper knee alignment."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "and you should be able to wiggle your toes as you come down and back up",
+                    "quote_timestamp": "00:00:27",
+                    "clue": "Emphasizes the importance of weight distribution and balance.",
+                    "relevance_to_segment": "This adds further detail to the proper technique being emphasized in the segment, corroborating the instruction to maintain correct form."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Demonstration of Improper and Correct Squat Techniques",
+                    "details": "This segment likely demonstrates both the improper squat technique, where the knees go over the toes, and the correct technique, emphasizing proper form cues such as sitting back, keeping the chest and head up, and ensuring the ability to wiggle the toes."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:00:45.250",
+        "end_timestamp": "00:00:48.250",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "looks like this",
+                    "quote_timestamp": "00:00:46",
+                    "clue": "This phrase seems out of context without additional information but strongly implies an ongoing demonstration of the squat technique."
+                },
+                {
+                    "id": "LC2",
+                    "quote": "as you can see my knees are going over my toes and that puts a lot of stress on the knee joint",
+                    "quote_timestamp": "00:00:48",
+                    "clue": "This explains a common mistake in squats: knees going over the toes, causing stress on the knee joints."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "looks like this as you can see my knees are going over my toes",
+                    "quote_timestamp": "00:00:46",
+                    "clue": "Similar to LC1 and LC2, emphasizing the incorrect squat form being demonstrated.",
+                    "relevance_to_segment": "This supports the focus of the segment on showing improper technique, reinforcing what not to do during squats."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Demonstration of Improper Squat Technique",
+                    "details": "This segment likely focuses on showing the common mistake of allowing the knees to go over the toes, highlighting the resulting stress on the knee joint and setting up the instruction for proper form."
+                }
+            ]
+        }
+    },
+    {
+        "start_timestamp": "00:00:54.250",
+        "end_timestamp": "00:00:57.750",
+        "segment_annotation": {
+            "local_clues": [
+                {
+                    "id": "LC1",
+                    "quote": "you want to avoid that and make sure you're sitting back chest up head up and wiggle your toes",
+                    "quote_timestamp": "00:00:53",
+                    "clue": "Provides corrective instructions for proper squat form, emphasizing sitting back, keeping the chest and head up, and ensuring toes can wiggle."
+                }
+            ],
+            "global_clues": [
+                {
+                    "id": "GC1",
+                    "quote": "you never want your knees to go over your toes",
+                    "quote_timestamp": "00:00:25",
+                    "clue": "Reiterates the critical point about knee positioning during squats.",
+                    "relevance_to_segment": "This directly relates to the mistake and correction demonstrated in this segment, reinforcing the teaching on proper knee alignment."
+                },
+                {
+                    "id": "GC2",
+                    "quote": "and you should be able to wiggle your toes as you come down and back up",
+                    "quote_timestamp": "00:00:27",
+                    "clue": "Emphasizes the importance of weight distribution and balance.",
+                    "relevance_to_segment": "This adds further detail to the proper technique being emphasized in the segment, corroborating the instruction to maintain correct form."
+                }
+            ],
+            "logical_inferences": [
+                {
+                    "id": "LI1",
+                    "description": "Reinforcement of Correct Squat Technique",
+                    "details": "This segment likely continues to reinforce the proper squat technique, ensuring viewers understand to sit back, keep the chest and head up, and maintain the ability to wiggle their toes."
+                }
+            ]
+        }
+    }
+]

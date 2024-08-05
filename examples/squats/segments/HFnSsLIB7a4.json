@@ -1,0 +1,65 @@
+[
+    {
+        "end_timestamp": "00:00:11.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:00:02.750",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:00:28.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:00:17.750",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:00:57.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:00:42.250",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:01:20.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:01:12.250",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:01:36.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:01:24.250",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:03:30.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:03:25.250",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:04:00.750",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:03:56.250",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:04:18.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:04:11.750",
+        "video_id": "HFnSsLIB7a4"
+    },
+    {
+        "end_timestamp": "00:05:21.250",
+        "fps": 29.97002997002997,
+        "segment_info": null,
+        "start_timestamp": "00:05:13.750",
+        "video_id": "HFnSsLIB7a4"
+    }
+]

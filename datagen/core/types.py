@@ -1,3 +1,4 @@
+import json
 from typing import Optional,  TypeVar, Generic
 
 import numpy as np
@@ -32,13 +33,21 @@ class Segment(BaseModel, Generic[OutputSchema]):
     def from_frames(cls, start_frame, end_frame, fps, **kwargs):
         return cls(start_timestamp=seconds_to_ts(start_frame/fps), end_timestamp=seconds_to_ts(end_frame/fps), fps=fps, **kwargs)
 
+    @classmethod
+    def from_seconds(cls, start_seconds, end_seconds, **kwargs):
+        return cls(start_timestamp=seconds_to_ts(start_seconds), end_timestamp=seconds_to_ts(end_seconds), **kwargs)
+
     def to_str(self, skip: list[str] = []):
         # skip -> fields from segment_info
         # dict() works both with pydantic model and with with unparsed dict
-        d = dict(self.segment_info)
-        for s in skip:
-            del d[s]
-        return f'{self.start_timestamp}-{self.end_timestamp}: {d}'
+        if self.segment_info:
+            d = dict(self.segment_info)
+            for s in skip:
+                del d[s]
+            d = ': ' + json.dumps(d)
+        else:
+            d = ''
+        return f'{self.start_timestamp}-{self.end_timestamp}{d}'
 
 def get_video_annotation_class(segment_annotation_schema: type[BaseModel]):
     class SegmentInfo(BaseModel):

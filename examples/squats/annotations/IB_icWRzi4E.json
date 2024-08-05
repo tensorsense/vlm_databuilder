@@ -1,0 +1,59 @@
+[
+    {
+        "start_timestamp": "00:00:00.250",
+        "end_timestamp": "00:00:03.750",
+        "segment_annotation": {
+            "squats_probability": "low",
+            "squats_technique_correctness": null,
+            "squats_feedback": null
+        }
+    },
+    {
+        "start_timestamp": "00:00:09.250",
+        "end_timestamp": "00:00:21.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Emphasis on the natural function and design of the squat position, suggesting a holistic approach.",
+                "wrong": "Misconception that squat is just an up-and-down exercise: Limits the understanding of the squat's full range of benefits and proper technique.",
+                "correction": "Focus on the squat as a functional movement that involves more than just moving up and down. Think about engaging multiple muscle groups and maintaining proper form throughout."
+            }
+        }
+    },
+    {
+        "start_timestamp": "00:00:34.250",
+        "end_timestamp": "00:00:41.750",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "wrong",
+            "squats_feedback": {
+                "right": "Understanding that regaining the proper squat position is important.",
+                "wrong": "Sitting up on toes: This indicates a lack of ankle mobility and improper weight distribution.",
+                "correction": "Use aids like yoga blocks or books to help achieve proper form. Gradually work your way down to squatting flat on the floor to improve ankle mobility and balance."
+            }
+        }
+    },
+    {
+        "start_timestamp": "00:00:49.250",
+        "end_timestamp": "00:00:51.750",
+        "segment_annotation": {
+            "squats_probability": "medium",
+            "squats_technique_correctness": null,
+            "squats_feedback": null
+        }
+    },
+    {
+        "start_timestamp": "00:02:18.750",
+        "end_timestamp": "00:02:26.250",
+        "segment_annotation": {
+            "squats_probability": "high",
+            "squats_technique_correctness": "mixed",
+            "squats_feedback": {
+                "right": "Recommending daily practice to regain squat ability, emphasizing consistency.",
+                "wrong": "Assuming everyone can easily regain natural squat posture without aids.",
+                "correction": "Encourage the use of aids like yoga blocks or books to assist in regaining proper form and gradually transition to squatting without them."
+            }
+        }
+    }
+]
