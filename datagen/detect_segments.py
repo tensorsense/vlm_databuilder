@@ -48,7 +48,7 @@ def detect_segments_gpt(
     """
 
     if video_ids is None:
-        video_ids = [video_path.stem for video_path in config.get_videos()]
+        video_ids = [video_path.stem for video_path in config.get_videos() if config.get_transcript_path(video_path.stem).exists()]
     
     video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
 
