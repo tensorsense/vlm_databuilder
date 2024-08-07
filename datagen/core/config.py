@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Optional
 import json
 
-from pydantic import BaseModel, Field, DirectoryPath
+from langchain.pydantic_v1 import BaseModel, Field, DirectoryPath
 from langchain_openai import AzureChatOpenAI, ChatOpenAI
 import yaml
 import dotenv
