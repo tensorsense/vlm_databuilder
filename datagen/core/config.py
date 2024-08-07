@@ -2,7 +2,8 @@ from pathlib import Path
 from typing import Optional
 import json
 
-from langchain.pydantic_v1 import BaseModel, Field, DirectoryPath
+from langchain.pydantic_v1 import BaseModel, Field, DirectoryPath, PrivateAttr
+from langchain_openai.chat_models.base import BaseChatOpenAI
 from langchain_openai import AzureChatOpenAI, ChatOpenAI
 import yaml
 import dotenv
@@ -15,6 +16,7 @@ dotenv.load_dotenv()
 class OpenAIConfig(BaseModel):
     temperature: float
     deployment: str
+    _model: BaseChatOpenAI = PrivateAttr()
 
     def __init__(self, **data):
         super().__init__(**data)
