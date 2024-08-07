@@ -91,6 +91,7 @@ def detect_segments_clip(
         processor: AutoProcessor,
         device: str = 'cuda',
         video_ids: Optional[list[str]] = None,
+        only_with_transcripts=True,
         fps_sampling: int = 1,
         text_prompts: str|list[str] = [],
         # return_frames = False,
@@ -109,8 +110,12 @@ def detect_segments_clip(
         video_ids = [video_path.stem for video_path in config.get_videos()]
 
     video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
+    video_ids = set(video_ids) - set(video_ids_parsed)
     
-    for video_id in tqdm(set(video_ids) - set(video_ids_parsed)):
+    if only_with_transcripts:
+        video_ids = video_ids & set([x.stem for x in config.transcript_dir.iterdir()])
+
+    for video_id in tqdm(video_ids):
         video_path = config.get_video_path(video_id)
 
         video = VideoFileClip(video_path.as_posix())

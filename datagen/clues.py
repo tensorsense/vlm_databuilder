@@ -474,15 +474,15 @@ def generate_clues(
 
     segments = config.get_segments(video_ids=video_ids)
 
+    transcript_video_ids = [x.stem for x in config.transcript_dir.iterdir()]
+
     outputs = {}
-    for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([s.video_id for s in segments])):
+    for video_id in tqdm((set(video_ids) - set(processed_video_ids)) & set([s.video_id for s in segments]) & set(transcript_video_ids)):
         print(datetime.now(), video_id, '- started')
         # if config.get_anno_path(video_id).exists():
         #     print(datetime.now(), f'Annotation {video_id} exists, skipping.')
         #     continue
-        transcript: str = config.get_transcript(video_id)
-        if not transcript:
-            continue
+
         video_segments = [s for s in segments if s.video_id==video_id]
         if filter_by:
             video_segments = [s for s in video_segments if s.segment_info and s.segment_info[filter_by]]

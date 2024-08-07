@@ -22,7 +22,8 @@ YDL_OPTIONS_DEFAULT = {
     'format': 'mp4',
 }
 
-def download_videos(ids, config: DatagenConfig, yt_dlp_opts={}):
+def download_videos(ids, config: DatagenConfig, yt_dlp_opts={},
+                    only_with_transcripts=True):
     # do not download ids that have videos downloaded
     #TODO force download subs
     ids = set(ids) - set([v.stem for v in config.get_videos()])
@@ -51,3 +52,7 @@ def download_videos(ids, config: DatagenConfig, yt_dlp_opts={}):
         with open(transcript_path, 'w') as f:
             f.write(vtt_to_txt(sub_path))
 
+    if only_with_transcripts:
+        (config.data_dir / 'videos_without_subs').mkdir(parents=True, exist_ok=True)
+        for video_id in (set(config.get_video_ids()) - set([x.stem for x in config.transcript_dir.iterdir()])):
+            (config.video_dir / f'{video_id}.mp4').rename(config.data_dir / 'videos_without_subs' / f'{video_id}.mp4')
