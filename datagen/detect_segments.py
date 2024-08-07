@@ -120,7 +120,7 @@ def detect_segments_clip(
 
         video = VideoFileClip(video_path.as_posix())
         ticks = np.arange(1/fps_sampling/2, video.duration, 1/fps_sampling)
-        print(datetime.now(), f'{video_id} - starting - {len(ticks)} frames')
+        print(datetime.now(), f'{video_id} - starting - {len(ticks)} frames - {round(len(ticks)/frames_per_batch)} batches')
 
         frames = [video.get_frame(s) for s in ticks]
 

@@ -416,7 +416,7 @@ class GlobalClue(BaseModel):
     clue: str = Field(description='the main clue data.')
     relevance_to_segment: str = Field(description='why do you think this global clue is relevant to the segment you are working with right now.')
 
-class AdditionalInformation(BaseModel):
+class LogicalInference(BaseModel):
     '''
     Good logical inference examples:
     [
@@ -454,7 +454,7 @@ class AdditionalInformation(BaseModel):
 class SegmentAnnotation(BaseModel):
     local_clues: list[LocalClue] = Field(description='''Local clues are inside the segment in terms of timestamps.''')
     global_clues: list[GlobalClue] = Field(description='''Global clues are scattered across the entire transcript. Be very carefull with them as it's very easy to accidentally assume wrong global clue because of limited attention or IQ.''')
-    logical_inferences: list[AdditionalInformation] = Field(description='''What can we infer about the topic, that the user is looking for in the video, can we make based on the clues inside this segment''')
+    logical_inferences: list[LogicalInference] = Field(description='''What can we infer about the topic, that the user is looking for in the video, can we make based on the clues inside this segment''')
 
 def generate_clues(
         # annotation_schema: type[BaseModel],
@@ -482,6 +482,8 @@ def generate_clues(
         # if config.get_anno_path(video_id).exists():
         #     print(datetime.now(), f'Annotation {video_id} exists, skipping.')
         #     continue
+        error_in_segment = False
+        transcript = config.get_transcript(video_id)
 
         video_segments = [s for s in segments if s.video_id==video_id]
         if filter_by:
@@ -493,6 +495,8 @@ def generate_clues(
         else:
             segments_array = video_segments
         for i, video_segments_part in enumerate(segments_array):
+            if error_in_segment:
+                continue
             print(datetime.now(), f'{video_id} part {i} - started')
             prompt = []
             if human_prompt:
@@ -502,11 +506,14 @@ def generate_clues(
             llm_input = LLMInput(human_prompt=prompt, system_prompt=system_prompt, output_schema=get_video_annotation_class(SegmentAnnotation))
             output = ask(llm_input, config)
             if output is None:
-                print(datetime.now(), f'Error while generating annotations for {video_id} part {i}, skipping')
+                print(datetime.now(), f'Error while generating annotations for {video_id} part {i}, skipping video')
                 if raise_on_error:
-                    raise Exception('exception in gpt call, exiting.')
+                    raise Exception('exception in gpt call, skipping.')
+                error_in_segment = True
                 continue
             outputs[video_id].extend(output.segments)
+        if error_in_segment:
+            continue
         with open(config.get_clues_path(video_id), 'w') as f:
             json.dump([x.dict() for x in outputs[video_id]], f)
         print(datetime.now(), video_id, '- done')
