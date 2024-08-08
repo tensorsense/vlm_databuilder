@@ -52,6 +52,9 @@ def detect_segments_gpt(
     
     video_ids_parsed = [x.stem for x in config.segment_dir.iterdir()]
 
+
+
+
     for video_id in tqdm(set(video_ids) - set(video_ids_parsed)):
         print(datetime.now(), f'{video_id} - starting')
         video_path = config.get_video_path(video_id)
@@ -91,12 +94,12 @@ def detect_segments_clip(
         processor: AutoProcessor,
         device: str = 'cuda',
         video_ids: Optional[list[str]] = None,
-        only_with_transcripts=True,
+        only_with_transcripts: bool = True,
         fps_sampling: int = 1,
         text_prompts: str|list[str] = [],
         # return_frames = False,
-        frames_per_batch: Optional[int] = None,
-        min_duration: Optional[float] = 1,
+        frames_per_batch: int = 100,
+        min_duration: Optional[float] = 1, # TODO
         max_duration: Optional[float] = 30, # TODO: split or discard longer clips
         min_prob=0.1, # minimum clip probability to consider the match
         max_gap_seconds=1, # gaps of prob<min_prob that could be inside segment
@@ -114,45 +117,85 @@ def detect_segments_clip(
     
     if only_with_transcripts:
         video_ids = video_ids & set([x.stem for x in config.transcript_dir.iterdir()])
+    
+    videos_to_process = list(video_ids)
+    pbar = tqdm(total=len(video_ids))
+    videos_completed = 0
+    
+    frame_cursor = 0
+    # info for videos that are processed
+    video_info = {}
 
-    for video_id in tqdm(video_ids):
-        video_path = config.get_video_path(video_id)
+    while videos_to_process or frame_cursor:
+        batch = []
+        # track progress of multiple videos inside a batch
+        # [(start_idx, end_idx, video_id), ...]: [(0, 100, 'asd'),(100, 150, 'qwe'),...]
+        segment_start = 0
+        batch_videos = []
 
-        video = VideoFileClip(video_path.as_posix())
-        ticks = np.arange(1/fps_sampling/2, video.duration, 1/fps_sampling)
-        print(datetime.now(), f'{video_id} - starting - {len(ticks)} frames - {len(ticks)/frames_per_batch + (len(ticks)%frames_per_batch>0)} batches')
+        while len(batch) < frames_per_batch:
+            if frame_cursor == 0:
+                if not videos_to_process:
+                    break
+                proc_video_id = videos_to_process.pop()
+                video_path = config.get_video_path(proc_video_id)
+                video = VideoFileClip(video_path.as_posix())
+                ticks = np.arange(1/fps_sampling/2, video.duration, 1/fps_sampling)
+                print(datetime.now(), f'grabbing video {proc_video_id}: {len(ticks)} frames')
+                video_info[proc_video_id] = {
+                    'ticks': ticks,
+                    'fps': video.fps,
+                    'probs': []
+                }
 
-        frames = [video.get_frame(s) for s in ticks]
+            num_frames_add = min(len(ticks) - frame_cursor, frames_per_batch - len(batch))
+            batch.extend([video.get_frame(s) for s in ticks[frame_cursor:frame_cursor+num_frames_add]])
+            batch_videos.append((segment_start, segment_start + num_frames_add, proc_video_id))
+            segment_start += num_frames_add
+            # print('segment_start', segment_start)
+            if frame_cursor + num_frames_add < len(ticks):
+                frame_cursor = frame_cursor + num_frames_add
+            else:
+                frame_cursor = 0
+            print('frame_cursor', frame_cursor)
 
-        if frames_per_batch is None:
-            frames_batched = [frames]
-        else:
-            frames_batched = [frames[i: i+frames_per_batch] for i in range(0, len(frames), frames_per_batch)]
-
-        probs = []
-        for i, frames_batch in enumerate(frames_batched):
-            print(datetime.now(), f'{video_id} - batch {i} - starting')
-            # TODO don't need to calculate text embedding for each batch, but it's a very minor optimization.
-            inputs = processor(text=text_prompts, images=frames_batch, padding="max_length", return_tensors="pt").to(device)
-
-            with torch.no_grad():
-                outputs = model(**inputs)
-
-            logits_per_image = outputs.logits_per_image
-            probs_batch = torch.sigmoid(logits_per_image).cpu().numpy()
-            probs_batch = probs_batch.mean(axis=1)
-            probs.append(probs_batch)
-        print(datetime.now(), f'{video_id} - all batches done - detecting segments')
-        probs = np.concatenate(probs)
-
-        smoother = LowessSmoother(smooth_fraction=smooth_fraction, iterations=1)
-        data = smoother.smooth(probs)
-        segments_start_end = get_segments(data.smooth_data[0], max_gap=round(max_gap_seconds*fps_sampling), min_prob=min_prob, min_segment=round(min_segment_seconds*fps_sampling))
+        print(f'running clip on batch {batch_videos}...')
+        inputs = processor(text=text_prompts, images=batch, padding="max_length", return_tensors="pt").to(device)
+        with torch.no_grad():
+            outputs = model(**inputs)
+        logits_per_image = outputs.logits_per_image
+        probs_batch = torch.sigmoid(logits_per_image).cpu().numpy()
+        probs_batch = probs_batch.mean(axis=1)
         
-        segments = []
-        for start, end in segments_start_end:
-            segments.append(Segment.from_seconds(ticks[start], ticks[end], fps=video.fps, video_id=video_id))
-        config.save_segments(video_id, segments)
+        for (start, end, vid) in batch_videos:
+            video_info[vid]['probs'].extend(probs_batch[start:end])
+
+        # print('after clip total results', {k: len(v['probs']) for k,v in video_info.items()})
+        to_remove = []
+        for vid, info in video_info.items():
+            if len(info['probs']) >= len(info['ticks']): # should be ==, but >= for good measure
+                print(vid, len(info['probs']), len(info['ticks']))
+                print(info['probs'])
+                to_remove.append(vid)
+                smoother = LowessSmoother(smooth_fraction=smooth_fraction, iterations=1)
+                data = smoother.smooth(info['probs'])
+                segments_start_end = get_segments(data.smooth_data[0], max_gap=round(max_gap_seconds*fps_sampling), min_prob=min_prob, min_segment=round(min_segment_seconds*fps_sampling))
+                segments = []
+                for start, end in segments_start_end:
+                    segments.append(Segment.from_seconds(info['ticks'][start], info['ticks'][end], fps=info['fps'], video_id=vid))
+                # config.save_segments(video_id, segments)
+                print(f'video {vid} completed')
+                print(segments)
+                videos_completed += 1
+                pbar.update(videos_completed)
+        
+        # clean up completed videos
+        for vid in to_remove:
+            del video_info[vid]
+
+    pbar.close()
+
+
 
 
 def get_segments(data, max_gap=3, min_prob=0.1, min_segment=5):
