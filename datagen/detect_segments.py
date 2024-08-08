@@ -157,7 +157,7 @@ def detect_segments_clip(
                 frame_cursor = frame_cursor + num_frames_add
             else:
                 frame_cursor = 0
-            print('frame_cursor', frame_cursor)
+            # print('frame_cursor', frame_cursor)
 
         print(f'running clip on batch {batch_videos}...')
         inputs = processor(text=text_prompts, images=batch, padding="max_length", return_tensors="pt").to(device)
@@ -174,8 +174,8 @@ def detect_segments_clip(
         to_remove = []
         for vid, info in video_info.items():
             if len(info['probs']) >= len(info['ticks']): # should be ==, but >= for good measure
-                print(vid, len(info['probs']), len(info['ticks']))
-                print(info['probs'])
+                # print(vid, len(info['probs']), len(info['ticks']))
+                # print(info['probs'])
                 to_remove.append(vid)
                 smoother = LowessSmoother(smooth_fraction=smooth_fraction, iterations=1)
                 data = smoother.smooth(info['probs'])
@@ -183,8 +183,8 @@ def detect_segments_clip(
                 segments = []
                 for start, end in segments_start_end:
                     segments.append(Segment.from_seconds(info['ticks'][start], info['ticks'][end], fps=info['fps'], video_id=vid))
-                # config.save_segments(video_id, segments)
-                print(f'video {vid} completed')
+                config.save_segments(vid, segments)
+                print(f'video {vid} completed - {len(segments)} segments detected')
                 print(segments)
                 videos_completed += 1
                 pbar.update(videos_completed)
