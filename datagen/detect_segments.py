@@ -215,7 +215,7 @@ def get_segments(data, max_gap=3, min_prob=0.1, min_segment=5):
                 not_doing += 1
         elif p >= min_prob:
             not_doing = 0
-    if cur_segment_start is not None:
+    if cur_segment_start is not None and (i-not_doing-cur_segment_start)>=min_segment:
         segments.append((cur_segment_start, i-not_doing))
 
     return segments
