@@ -6,9 +6,8 @@ This SDK generates datasets for training Video LLMs from youtube videos. More so
 - Generate search queries with GPT.
 - Search for youtube videos for each query using [scrapetube](https://github.com/dermasmid/scrapetube).
 - Download the videos that were found and subtitles using [yt-dlp](https://github.com/yt-dlp/yt-dlp).
-- Detect segments from each video using [PySceneDetect](https://github.com/Breakthrough/PySceneDetect).
-- Analyze each segment with gpt4o (using images) to filter segments and extract additional useful information (eg overlay text).
-- Generate annotations for each segment with GPT using audio transcript (eg instructions) + information extracted from images in the previous step.
+- Detect segments from each video using CLIP and a fancy manual algorithm.
+- Generate annotations for each segment with GPT using audio transcript (eg instructions) in 2 steps: first extract clues from the trancript, then generate annotations based on these clues.
 - Aggregate segments with annotations into one file
 - Cut segments into separate video clips with [ffmpeg](https://ffmpeg.org/).
 
