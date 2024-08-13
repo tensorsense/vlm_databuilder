@@ -97,6 +97,7 @@ def detect_segments_clip(
         only_with_transcripts: bool = True,
         fps_sampling: int = 1,
         text_prompts: str|list[str] = [],
+        prompts_agg = lambda x: x.max(axis=1), # how to aggregate probailities
         # return_frames = False,
         frames_per_batch: int = 100,
         min_duration: Optional[float] = 1, # TODO
@@ -165,7 +166,7 @@ def detect_segments_clip(
             outputs = model(**inputs)
         logits_per_image = outputs.logits_per_image
         probs_batch = torch.sigmoid(logits_per_image).cpu().numpy()
-        probs_batch = probs_batch.mean(axis=1)
+        probs_batch = prompts_agg(probs_batch)
         
         for (start, end, vid) in batch_videos:
             video_info[vid]['probs'].extend(probs_batch[start:end])
