@@ -99,7 +99,8 @@ class DatagenConfig(BaseModel):
             return False
         with open(path, 'w') as f:
             if isinstance(obj, BaseModel):
-                f.write(obj.model_dump_json())
+                # f.write(obj.model_dump_json())
+                f.write(obj.json())
             else:
                 json.dump(obj, f)
         return True
