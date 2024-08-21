@@ -3,6 +3,7 @@ yt-dlp
 # openai
 langchain
 langchain-openai
+langgraph
 pandas
 opencv-python
 scenedetect
