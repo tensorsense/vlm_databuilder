@@ -19,3 +19,4 @@ torch
 sentencepiece
 protobuf
 transformers
+decord
