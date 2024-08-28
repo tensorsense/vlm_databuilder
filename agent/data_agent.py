@@ -96,11 +96,11 @@ class DataAgent:
         annotations = gen_annotations(self.llm, GEN_ANNOTATIONS_PROMPT, state["clues"])
         return {"annotations": annotations}
 
-    def run(self, thread_id: str):
+    def run(self, task: str, thread_id: str):
         thread = {"configurable": {"thread_id": thread_id}}
         for step in self.graph.stream(
             {
-                "task": "i wanna teach people how to do squats",
+                "task": task,
                 "clip_text_prompts": ["person doing squats"],
             },
             thread,
