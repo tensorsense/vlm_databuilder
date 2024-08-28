@@ -4,7 +4,7 @@ import scrapetube
 import yt_dlp
 from datetime import datetime
 from pathlib import Path
-from datagen.core.sub_utils import vtt_to_txt
+from .sub_utils import vtt_to_txt
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain.pydantic_v1 import BaseModel, Field

@@ -2,7 +2,6 @@ import decord
 import time
 from pathlib import Path
 from collections import defaultdict
-from datagen.detect_segments import get_segments
 import torch
 from transformers import AutoModel, AutoProcessor
 import pandas as pd
@@ -15,6 +14,9 @@ from langchain.pydantic_v1 import BaseModel, Field
 # decord.bridge.set_bridge("torch")
 
 from .scraping import VideoInfo
+
+
+DEVICE = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
 
 
 class SegmentInfo(BaseModel):
@@ -58,6 +60,32 @@ class VideoInferenceDataset(torch.utils.data.IterableDataset):
         return self
 
 
+def get_segments(data, max_gap=3, min_prob=0.1, min_segment=5):
+    segments = []
+    cur_segment_start = None
+    not_doing = 0
+    for i, p in enumerate(data):
+        if p >= min_prob and cur_segment_start is None:
+            cur_segment_start = i
+        elif cur_segment_start is not None and p < min_prob:
+            if not_doing >= max_gap:
+                if i - not_doing - cur_segment_start >= min_segment:
+                    segments.append((cur_segment_start, i - not_doing))
+                not_doing = 0
+                cur_segment_start = None
+            else:
+                not_doing += 1
+        elif p >= min_prob:
+            not_doing = 0
+    if (
+        cur_segment_start is not None
+        and (i - not_doing - cur_segment_start) >= min_segment
+    ):
+        segments.append((cur_segment_start, i - not_doing))
+
+    return segments
+
+
 def detect_segments(
     video_infos: List[VideoInfo], clip_text_prompts: List[str]
 ) -> List[SegmentInfo]:
@@ -65,7 +93,7 @@ def detect_segments(
     LOCAL_ROOT = Path("./tmp/agent_squats").resolve()
     CLIP_MODEL_ID = "google/siglip-so400m-patch14-384"
 
-    model = AutoModel.from_pretrained(CLIP_MODEL_ID).to("cuda")
+    model = AutoModel.from_pretrained(CLIP_MODEL_ID).to(DEVICE)
     processor = AutoProcessor.from_pretrained(CLIP_MODEL_ID)
 
     dataset = VideoInferenceDataset(video_infos, LOCAL_ROOT)
@@ -104,7 +132,7 @@ def detect_segments(
             padding=True,
             truncation=True,
         )
-        inputs = {k: v.to("cuda") for k, v in inputs.items()}
+        inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
 
         outputs = model(**inputs)
 
