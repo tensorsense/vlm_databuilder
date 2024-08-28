@@ -3,6 +3,7 @@ yt-dlp
 # openai
 langchain
 langchain-openai
+langgraph
 pandas
 opencv-python
 scenedetect
@@ -18,3 +19,4 @@ torch
 sentencepiece
 protobuf
 transformers
+decord
